@@ -12,6 +12,7 @@ namespace MegaJumper
             Container.Bind<ScoreManager>().AsSingle();
             Container.Bind<BlockManager>().AsSingle();
             Container.BindFactory<Block, Block.Factory>().FromComponentInNewPrefab(m_blockContainer.blockPrefab);
+            Container.Bind(typeof(IInitializable), typeof(ITickable)).To<GameManager>().AsSingle();
 
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<Event.InGameEvent.OnBlockSpawned>();
@@ -21,6 +22,7 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnPointUp>();
             Container.DeclareSignal<Event.InGameEvent.OnStartFever>();
             Container.DeclareSignal<Event.InGameEvent.OnStartJump>();
+            Container.DeclareSignal<Event.InGameEvent.OnGameStarted>();
         }
     }
 }

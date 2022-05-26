@@ -51,5 +51,9 @@
                 Block = block;
             }
         }
+
+        public class OnGameStarted
+        {
+        }
     }
 }
