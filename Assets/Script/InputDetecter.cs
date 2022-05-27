@@ -9,7 +9,7 @@ namespace MegaJumper
 
         public InputDetecter(SignalBus signalBus)
         {
-            this.m_signalBus = signalBus;
+            m_signalBus = signalBus;
         }
 
         public void Tick()

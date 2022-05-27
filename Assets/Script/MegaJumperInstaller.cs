@@ -23,6 +23,8 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnStartFever>();
             Container.DeclareSignal<Event.InGameEvent.OnStartJump>();
             Container.DeclareSignal<Event.InGameEvent.OnGameStarted>();
+            Container.DeclareSignal<Event.InGameEvent.OnJumpFailDetected>();
+            Container.DeclareSignal<Event.InGameEvent.OnGameResetCalled>();
         }
     }
 }

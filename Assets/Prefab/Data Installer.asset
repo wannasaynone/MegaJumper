@@ -15,3 +15,13 @@ MonoBehaviour:
   blockContainer:
     blockPrefab: {fileID: 3205182642276438116, guid: fdeddcd5853bf584bbbf9d768b2586b8,
       type: 3}
+  gameProperties:
+    MAX_ADD_DISTANCE: 12
+    MIN_ADD_DISTANCE: 5
+    MAX_CLONE_COUNT: 10
+    MOVE_DIS_PER_SEC: 12
+    GAMEOVER_DIS: 2
+    CAMERA_OFFSET: {x: 15, y: 15, z: -15}
+    CAMERA_ANGLE_OFFSET: {x: 20, y: -45, z: 0}
+    JUMP_FORCE: 7
+    JUMP_TIME_SCALE: 0.75

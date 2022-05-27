@@ -11,5 +11,6 @@
 
         public abstract void Start();
         public abstract void Tick();
+        public abstract void Stop();
     }
 }

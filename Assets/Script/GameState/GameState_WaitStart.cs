@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MegaJumper.GameState
+﻿namespace MegaJumper.GameState
 {
     public class GameState_WaitStart : GameStateBase
     {
@@ -19,13 +17,17 @@ namespace MegaJumper.GameState
 
         private void StartGame()
         {
-            SignalBus.Unsubscribe<Event.InGameEvent.OnPointDown>(StartGame);
-            SignalBus.Fire(new Event.InGameEvent.OnGameStarted());
+            SignalBus.Fire<Event.InGameEvent.OnGameStarted>();
         }
 
         public override void Tick()
         {
 
+        }
+
+        public override void Stop()
+        {
+            SignalBus.Unsubscribe<Event.InGameEvent.OnPointDown>(StartGame);
         }
     }
 }

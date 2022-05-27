@@ -54,6 +54,17 @@
 
         public class OnGameStarted
         {
+
+        }
+
+        public class OnJumpFailDetected
+        {
+
+        }
+
+        public class OnGameResetCalled
+        {
+
         }
     }
 }
