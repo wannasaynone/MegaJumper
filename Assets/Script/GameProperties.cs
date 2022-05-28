@@ -10,6 +10,8 @@
         public float GAMEOVER_DIS = 2f;
         public UnityEngine.Vector3 CAMERA_OFFSET = default;
         public UnityEngine.Vector3 CAMERA_ANGLE_OFFSET = default;
+        public float CAMERA_SHAKE_FORCE = 1f;
+        public float CAMERA_SHAKE_TIME = 0.25f;
         public float JUMP_FORCE = 5f;
         public float JUMP_TIME_SCALE = 0.75f;
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -10,11 +9,16 @@ namespace MegaJumper
         [SerializeField] private Rigidbody m_rigidbody;
         [SerializeField] private Collider m_collider;
         [SerializeField] private GameObject m_debuger;
+        [SerializeField] private ParticleSystem m_jumpVfx;
+        [SerializeField] private ParticleSystem m_landingVfx;
+        [SerializeField] private MoreMountains.Feedbacks.MMF_Player m_landingFeedback;
 
         private GameProperties m_gameProperties;
         private SignalBus m_signalBus;
 
-        private bool m_stop = true;
+        private bool m_isStop = true;
+        private bool m_isJumping = false;
+        private bool m_skipNextUp = false;
         private bool m_pressing = false;
         private Block m_currentDirectionBlock;
 
@@ -41,8 +45,14 @@ namespace MegaJumper
 
         private void OnPointDown()
         {
-            if (m_stop)
+            if (m_isStop)
                 return;
+
+            if (m_isJumping)
+            {
+                m_skipNextUp = true;
+                return;
+            }
 
             m_pressing = true;
             m_debuger.transform.position = transform.position + Vector3.up;
@@ -59,21 +69,28 @@ namespace MegaJumper
 
         private void OnJumpFailDetected()
         {
-            m_stop = true;
+            m_isStop = true;
             m_rigidbody.isKinematic = false;
             m_collider.isTrigger = false;
         }
 
         private void OnGameStart()
         {
-            m_stop = false;
+            m_isStop = false;
             OnPointDown();
         }
 
+        private float m_pressTime;
         private void OnPointUp(Event.InGameEvent.OnPointUp obj)
         {
-            if (m_stop)
+            if (m_isStop)
                 return;
+
+            if (m_skipNextUp)
+            {
+                m_skipNextUp = false;
+                return;
+            }
 
             Vector3 _finalPos = transform.position;
 
@@ -88,14 +105,26 @@ namespace MegaJumper
 
             m_rigidbody.transform.localScale = Vector3.one;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
+            CreateVFX(m_jumpVfx, Vector3.up, obj.PressTime);
 
             transform.DOJump(_finalPos, obj.PressTime * m_gameProperties.JUMP_FORCE, 1, obj.PressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(OnJumpEnded);
 
             m_pressing = false;
+            m_isJumping = true;
+            m_pressTime = obj.PressTime;
+            m_signalBus.Fire<Event.InGameEvent.OnStartJump>();
         }
 
         private void OnJumpEnded()
         {
+            m_isJumping = false;
+
+            if (Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_gameProperties.GAMEOVER_DIS)
+            {
+                CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
+                m_landingFeedback.PlayFeedbacks();
+            }
+
             m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position));
         }
 
@@ -118,6 +147,16 @@ namespace MegaJumper
                     m_rigidbody.transform.localPosition -= Vector3.up * Time.deltaTime;
                 }
             }
+        }
+
+        private void CreateVFX(ParticleSystem vfx, Vector3 offset, float scale)
+        {
+            ParticleSystem _cloneVfx = Instantiate(vfx);
+            _cloneVfx.transform.SetParent(null);
+            _cloneVfx.transform.position = transform.position + offset;
+            _cloneVfx.transform.localScale = Vector3.one * scale;
+            _cloneVfx.Play();
+            Destroy(_cloneVfx.gameObject, 2f);
         }
     }
 }

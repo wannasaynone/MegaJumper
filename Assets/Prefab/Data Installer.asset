@@ -23,5 +23,7 @@ MonoBehaviour:
     GAMEOVER_DIS: 2
     CAMERA_OFFSET: {x: 15, y: 15, z: -15}
     CAMERA_ANGLE_OFFSET: {x: 20, y: -45, z: 0}
+    CAMERA_SHAKE_FORCE: 0.5
+    CAMERA_SHAKE_TIME: 0.1
     JUMP_FORCE: 7
     JUMP_TIME_SCALE: 0.75
