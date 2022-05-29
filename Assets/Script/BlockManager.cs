@@ -8,16 +8,18 @@ namespace MegaJumper
         private readonly SignalBus m_signalBus;
         private readonly Block.Factory m_blockFactory;
         private readonly GameProperties m_gameProperties;
+        private readonly ScoreManager m_scoreManager;
 
         private List<Block> m_clonedBlock = new List<Block>();
         private float m_currentChangeDirectionChance = 0f;
         private bool m_currentDirectionToZ = true;
 
-        public BlockManager(Block.Factory factory, GameProperties gameProperties, SignalBus signalBus)
+        public BlockManager(Block.Factory factory, ScoreManager scoreManager, GameProperties gameProperties, SignalBus signalBus)
         {
             m_blockFactory = factory;
             m_gameProperties = gameProperties;
             m_signalBus = signalBus;
+            m_scoreManager = scoreManager;
 
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
         }
@@ -67,8 +69,14 @@ namespace MegaJumper
 
             Block _clone = m_blockFactory.Create();
             _clone.transform.position = _newPos;
-            _clone.PlayFeedback();
             m_clonedBlock.Add(_clone);
+
+            if (m_scoreManager.Score >= 20)
+            {
+                _clone.RerollSize();
+            }
+
+            _clone.PlayFeedback();
 
             if (m_clonedBlock.Count >= m_gameProperties.MAX_CLONE_COUNT)
             {

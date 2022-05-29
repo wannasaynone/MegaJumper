@@ -6,23 +6,20 @@ namespace MegaJumper.GameState
     {
         private readonly BlockManager m_blockManager;
         private readonly GameProperties m_gameProperties;
+        private readonly ScoreManager m_scoreManager;
 
-        public GameState_Gaming(BlockManager blockManager, GameProperties gameProperties, SignalBus signalBus) : base(signalBus)
+        public GameState_Gaming(ScoreManager scoreManager, BlockManager blockManager, GameProperties gameProperties, SignalBus signalBus) : base(signalBus)
         {
             m_gameProperties = gameProperties;
             m_blockManager = blockManager;
+            m_scoreManager = scoreManager;
         }
 
         private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
         {
-            float _dis = UnityEngine.Vector3.Distance(obj.Position, m_blockManager.GetLastBlockPosition());
-
-            if (_dis > m_gameProperties.GAMEOVER_DIS)
+            if (obj.IsSuccess)
             {
-                SignalBus.Fire(new Event.InGameEvent.OnJumpFailDetected());
-            }
-            else
-            {
+                m_scoreManager.Add(1);
                 m_blockManager.CreateNew();
             }
         }

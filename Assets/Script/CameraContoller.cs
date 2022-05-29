@@ -10,13 +10,15 @@ namespace MegaJumper
         [SerializeField] private Transform m_camRoot;
 
         private GameProperties m_gameProperties;
+        private BlockManager m_blockManager;
 
         private float m_pressTime;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, GameProperties gameProperties)
+        public void Constructor(BlockManager blockManager, SignalBus signalBus, GameProperties gameProperties)
         {
             m_gameProperties = gameProperties;
+            m_blockManager = blockManager;
             signalBus.Subscribe<Event.InGameEvent.OnPointUp>(OnPointUp);
             signalBus.Subscribe<Event.InGameEvent.OnStartJump>(OnJumpStart);
             signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
@@ -32,7 +34,10 @@ namespace MegaJumper
 
         private void OnJumpStart()
         {
-            transform.DOMove(transform.position + Vector3.up * m_pressTime * 2f, 0.3f);
+            Vector3 _dir = m_blockManager.GetLastBlockPosition() - transform.position;
+            _dir.Normalize();
+            _dir.y = 1f;
+            transform.DOMove(transform.position + _dir * m_pressTime * 2f, 0.3f);
         }
 
         private void OnGameResetCalled()
@@ -43,8 +48,11 @@ namespace MegaJumper
         private Vector3 m_currentJumperPos;
         private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
         {
-            m_currentJumperPos = obj.Position;
-            m_camRoot.DOShakePosition(m_gameProperties.CAMERA_SHAKE_TIME * m_pressTime, new Vector3(0f, m_pressTime * m_gameProperties.CAMERA_SHAKE_FORCE, 0f), 10, 90, false , false).OnComplete(MoveCameraToCurrentJumperPostion);
+            if (obj.IsSuccess)
+            {
+                m_currentJumperPos = obj.Position;
+                m_camRoot.DOShakePosition(m_gameProperties.CAMERA_SHAKE_TIME * m_pressTime, new Vector3(0f, m_pressTime * m_gameProperties.CAMERA_SHAKE_FORCE, 0f), 10, 90, false, false).OnComplete(MoveCameraToCurrentJumperPostion);
+            }
         }
 
         private void MoveCameraToCurrentJumperPostion()

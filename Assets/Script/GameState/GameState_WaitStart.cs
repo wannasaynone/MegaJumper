@@ -3,10 +3,12 @@
     public class GameState_WaitStart : GameStateBase
     {
         private readonly BlockManager m_blockManager;
+        private readonly ScoreManager m_scoreManager;
 
-        public GameState_WaitStart(BlockManager blockManager, Zenject.SignalBus signalBus) : base(signalBus)
+        public GameState_WaitStart(ScoreManager scoreManager, BlockManager blockManager, Zenject.SignalBus signalBus) : base(signalBus)
         {
             m_blockManager = blockManager;
+            m_scoreManager = scoreManager;
         }
 
         public override void Start()
@@ -17,6 +19,7 @@
 
         private void StartGame()
         {
+            m_scoreManager.Reset();
             SignalBus.Fire<Event.InGameEvent.OnGameStarted>();
         }
 

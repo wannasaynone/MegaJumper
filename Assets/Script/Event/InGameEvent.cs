@@ -25,10 +25,12 @@
         public class OnJumpEnded
         {
             public UnityEngine.Vector3 Position { get; private set; }
+            public bool IsSuccess { get; private set; }
 
-            public OnJumpEnded(UnityEngine.Vector3 position)
+            public OnJumpEnded(UnityEngine.Vector3 position, bool isSuccess)
             {
                 Position = position;
+                IsSuccess = isSuccess;
             }
         }
 
@@ -57,12 +59,24 @@
 
         }
 
-        public class OnJumpFailDetected
+        public class OnGameResetCalled
         {
 
         }
 
-        public class OnGameResetCalled
+        public class OnScoreAdded
+        {
+            public int Add { get; private set; }
+            public int Current { get; private set; }
+
+            public OnScoreAdded(int add, int current)
+            {
+                Add = add;
+                Current = current;
+            }
+        }
+
+        public class OnScoreReset
         {
 
         }

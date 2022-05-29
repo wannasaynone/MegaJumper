@@ -12,7 +12,6 @@ namespace MegaJumper.GameState
 
         public override void Start()
         {
-            UnityEngine.Debug.Log("Reseting");
         }
 
         public override void Stop()

@@ -29,7 +29,6 @@ namespace MegaJumper
             m_gameProperties = gameProperties;
 
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStart);
-            signalBus.Subscribe<Event.InGameEvent.OnJumpFailDetected>(OnJumpFailDetected);
             signalBus.Subscribe<Event.InGameEvent.OnPointDown>(OnPointDown);
             signalBus.Subscribe<Event.InGameEvent.OnPointUp>(OnPointUp);
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
@@ -65,13 +64,6 @@ namespace MegaJumper
             m_rigidbody.transform.localRotation = Quaternion.identity;
             m_rigidbody.isKinematic = true;
             m_collider.isTrigger = true;
-        }
-
-        private void OnJumpFailDetected()
-        {
-            m_isStop = true;
-            m_rigidbody.isKinematic = false;
-            m_collider.isTrigger = false;
         }
 
         private void OnGameStart()
@@ -118,14 +110,23 @@ namespace MegaJumper
         private void OnJumpEnded()
         {
             m_isJumping = false;
+            bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_gameProperties.GAMEOVER_DIS * m_currentDirectionBlock.SizeScale;
 
-            if (Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_gameProperties.GAMEOVER_DIS)
+            if (isScuess)
             {
                 CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
                 m_landingFeedback.PlayFeedbacks();
             }
+            else
+            {
+                m_isStop = true;
+                m_rigidbody.isKinematic = false;
+                m_rigidbody.AddForce(new Vector3(0f, -100f, 0f));
 
-            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position));
+                m_collider.isTrigger = false;
+            }
+
+            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, isScuess));
         }
 
         private void Update()
