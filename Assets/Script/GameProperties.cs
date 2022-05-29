@@ -14,5 +14,8 @@
         public float CAMERA_SHAKE_TIME = 0.25f;
         public float JUMP_FORCE = 5f;
         public float JUMP_TIME_SCALE = 0.75f;
+        public float FEVER_ANIMATION_TIME = 1f;
+        public float FEVER_JUMP_FORCE = 3.5f;
+        public JumperSetting DEFAULF_JUMPER_SETTING = default;
     }
 }

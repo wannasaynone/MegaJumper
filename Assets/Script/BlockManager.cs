@@ -73,7 +73,11 @@ namespace MegaJumper
 
             if (m_scoreManager.Score >= 20)
             {
-                _clone.RerollSize();
+                float _min = 20f / (float)m_scoreManager.Score;
+
+                if (_min < 0.5f) _min = 0.5f;
+
+                _clone.RerollSize(_min);
             }
 
             _clone.PlayFeedback();

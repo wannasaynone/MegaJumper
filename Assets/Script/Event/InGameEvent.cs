@@ -19,18 +19,30 @@
 
         public class OnStartJump
         {
+            public bool IsFeverJump { get; private set; }
 
+            public OnStartJump()
+            {
+                IsFeverJump = false;
+            }
+
+            public OnStartJump(bool isFeverJump)
+            {
+                IsFeverJump = isFeverJump;
+            }
         }
 
         public class OnJumpEnded
         {
             public UnityEngine.Vector3 Position { get; private set; }
             public bool IsSuccess { get; private set; }
+            public bool IsPerfect { get; private set; }
 
-            public OnJumpEnded(UnityEngine.Vector3 position, bool isSuccess)
+            public OnJumpEnded(UnityEngine.Vector3 position, bool isSuccess, bool isPerfect)
             {
                 Position = position;
                 IsSuccess = isSuccess;
+                IsPerfect = isPerfect;
             }
         }
 
@@ -79,6 +91,31 @@
         public class OnScoreReset
         {
 
+        }
+
+        public class OnJumperSettingSet
+        {
+            public JumperSetting JumperSetting { get; private set; }
+
+            public OnJumperSettingSet(JumperSetting jumperSetting)
+            {
+                JumperSetting = jumperSetting;
+            }
+        }
+
+        public class OnComboAdded
+        {
+            public int Current { get; private set; }
+
+            public OnComboAdded(int current)
+            {
+                Current = current;
+            }
+        }
+
+        public class OnComboReset
+        {
+            
         }
     }
 }

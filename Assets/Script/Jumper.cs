@@ -16,11 +16,15 @@ namespace MegaJumper
         private GameProperties m_gameProperties;
         private SignalBus m_signalBus;
 
-        private bool m_isStop = true;
+        private bool m_isPause = true;
         private bool m_isJumping = false;
         private bool m_skipNextUp = false;
         private bool m_pressing = false;
         private Block m_currentDirectionBlock;
+
+        private JumperSetting m_jumperSetting;
+        private int m_remainingLife;
+        private GameObject m_jumperModel;
 
         [Inject]
         public void Constructor(SignalBus signalBus, GameProperties gameProperties)
@@ -33,8 +37,53 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnPointUp>(OnPointUp);
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
             signalBus.Subscribe<Event.InGameEvent.OnBlockSpawned>(OnBlockSpawned);
+            signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
+            signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
 
             m_debuger.transform.SetParent(null);
+        }
+
+        private void OnStartFever()
+        {
+            m_isPause = true;
+            m_pressing = true;
+            m_jumperModel.transform.DOShakePosition(m_gameProperties.FEVER_ANIMATION_TIME + 0.5f).OnComplete(OnFeverShakeEnded);
+        }
+
+        private void OnFeverShakeEnded()
+        {
+            StartJump(m_currentDirectionBlock.transform.position, m_gameProperties.FEVER_JUMP_FORCE, true, OnFeverJumpEnded);
+        }
+
+        private void OnFeverJumpEnded()
+        {
+            m_isJumping = false;
+            m_isPause = false;
+            CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
+            m_landingFeedback.PlayFeedbacks();
+            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
+            m_signalBus.Fire<Event.InGameEvent.OnFeverEnded>();
+        }
+
+        private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
+        {
+            SetSetting(obj.JumperSetting);
+        }
+
+        private void SetSetting(JumperSetting jumperSetting)
+        {
+            m_jumperSetting = jumperSetting;
+            m_remainingLife = m_jumperSetting.Life;
+
+            if (m_jumperModel != null)
+            {
+                Destroy(m_jumperModel);
+            }
+
+            m_jumperModel = Instantiate(m_jumperSetting.Prefab);
+            m_jumperModel.transform.SetParent(m_rigidbody.transform);
+            m_jumperModel.transform.localPosition = Vector3.zero + m_jumperSetting.ModelOffset;
+            m_jumperModel.transform.localScale = Vector3.one;
         }
 
         private void OnBlockSpawned(Event.InGameEvent.OnBlockSpawned obj)
@@ -44,8 +93,10 @@ namespace MegaJumper
 
         private void OnPointDown()
         {
-            if (m_isStop)
+            if (m_isPause)
+            {
                 return;
+            }
 
             if (m_isJumping)
             {
@@ -64,19 +115,22 @@ namespace MegaJumper
             m_rigidbody.transform.localRotation = Quaternion.identity;
             m_rigidbody.isKinematic = true;
             m_collider.isTrigger = true;
+            SetSetting(m_jumperSetting);
         }
 
         private void OnGameStart()
         {
-            m_isStop = false;
+            m_isPause = false;
             OnPointDown();
         }
 
         private float m_pressTime;
         private void OnPointUp(Event.InGameEvent.OnPointUp obj)
         {
-            if (m_isStop)
+            if (m_isPause)
+            {
                 return;
+            }
 
             if (m_skipNextUp)
             {
@@ -95,38 +149,75 @@ namespace MegaJumper
                 _finalPos += (m_currentDirectionBlock.transform.position - transform.position).normalized * obj.PressTime * m_gameProperties.MOVE_DIS_PER_SEC;
             }
 
+            if (Vector3.Distance(_finalPos, m_currentDirectionBlock.transform.position) <= m_jumperSetting.ComboHitAdjust)
+            {
+                _finalPos = m_currentDirectionBlock.transform.position;
+            }
+
+            StartJump(_finalPos, obj.PressTime, false, OnJumpEnded);
+        }
+
+        private void StartJump(Vector3 endPos, float pressTime, bool isFever, TweenCallback onEnded)
+        {
             m_rigidbody.transform.localScale = Vector3.one;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
-            CreateVFX(m_jumpVfx, Vector3.up, obj.PressTime);
+            CreateVFX(m_jumpVfx, Vector3.up, pressTime);
 
-            transform.DOJump(_finalPos, obj.PressTime * m_gameProperties.JUMP_FORCE, 1, obj.PressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(OnJumpEnded);
+            transform.DOJump(endPos, pressTime * m_gameProperties.JUMP_FORCE, 1, pressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(onEnded);
 
             m_pressing = false;
             m_isJumping = true;
-            m_pressTime = obj.PressTime;
-            m_signalBus.Fire<Event.InGameEvent.OnStartJump>();
+            m_pressTime = pressTime;
+            m_signalBus.Fire(new Event.InGameEvent.OnStartJump(isFever));
         }
 
         private void OnJumpEnded()
         {
             m_isJumping = false;
             bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_gameProperties.GAMEOVER_DIS * m_currentDirectionBlock.SizeScale;
+            bool isPerfect = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) <= m_jumperSetting.ComboHitAdjust;
 
             if (isScuess)
             {
                 CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
                 m_landingFeedback.PlayFeedbacks();
+                m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, isPerfect));
             }
             else
             {
-                m_isStop = true;
+                m_remainingLife--;
+
+                m_isPause = true;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.AddForce(new Vector3(0f, -100f, 0f));
-
                 m_collider.isTrigger = false;
-            }
+                m_rigidbody.AddForce(new Vector3(0f, -1000f, 0f));
 
-            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, isScuess));
+                if (m_remainingLife <= 0)
+                {
+                    m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, false, false));
+                }
+                else
+                {
+                    KahaGameCore.Common.TimerManager.Schedule(1f, Revive);
+                }
+            }
+        }
+
+        private void Revive()
+        {
+            m_isJumping = true;
+            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
+            m_rigidbody.transform.localRotation = Quaternion.identity;
+            m_rigidbody.isKinematic = true;
+            m_collider.isTrigger = true;
+            transform.DOJump(m_currentDirectionBlock.transform.position, m_gameProperties.JUMP_FORCE, 1, 0.5f).SetEase(Ease.Linear).OnComplete(OnRevived);
+        }
+
+        private void OnRevived()
+        {
+            m_isJumping = false;
+            m_isPause = false;
+            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
         }
 
         private void Update()

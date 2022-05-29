@@ -12,6 +12,7 @@ namespace MegaJumper
         private readonly GameProperties m_gameProperties;
 
         private GameState.GameStateBase m_currentState;
+        private JumperSetting m_jumperSetting;
 
         public GameManager(
             Jumper jumper, 
@@ -29,6 +30,12 @@ namespace MegaJumper
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(Initialize);
+            m_signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
+        }
+
+        private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
+        {
+            m_jumperSetting = obj.JumperSetting;
         }
 
         private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
@@ -41,11 +48,12 @@ namespace MegaJumper
 
         private void OnGameStarted()
         {
-            ChangeState(new GameState.GameState_Gaming(m_scoreManager, m_blockManager, m_gameProperties, m_signalBus));
+            ChangeState(new GameState.GameState_Gaming(m_blockManager, m_gameProperties, m_signalBus, m_jumperSetting));
         }
 
         public void Initialize()
         {
+            m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_gameProperties.DEFAULF_JUMPER_SETTING));
             ChangeState(new GameState.GameState_WaitStart(m_scoreManager, m_blockManager, m_signalBus));
         }
 

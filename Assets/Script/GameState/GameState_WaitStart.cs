@@ -13,13 +13,13 @@
 
         public override void Start()
         {
+            m_scoreManager.Reset();
             m_blockManager.CreateNew();
             SignalBus.Subscribe<Event.InGameEvent.OnPointDown>(StartGame);
         }
 
         private void StartGame()
         {
-            m_scoreManager.Reset();
             SignalBus.Fire<Event.InGameEvent.OnGameStarted>();
         }
 

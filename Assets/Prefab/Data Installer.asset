@@ -18,7 +18,7 @@ MonoBehaviour:
   gameProperties:
     MAX_ADD_DISTANCE: 10
     MIN_ADD_DISTANCE: 5
-    MAX_CLONE_COUNT: 10
+    MAX_CLONE_COUNT: 20
     MOVE_DIS_PER_SEC: 13
     GAMEOVER_DIS: 2
     CAMERA_OFFSET: {x: 15, y: 15, z: -15}
@@ -27,3 +27,7 @@ MonoBehaviour:
     CAMERA_SHAKE_TIME: 0.1
     JUMP_FORCE: 7
     JUMP_TIME_SCALE: 0.75
+    FEVER_ANIMATION_TIME: 0.75
+    FEVER_JUMP_FORCE: 3.5
+    DEFAULF_JUMPER_SETTING: {fileID: 11400000, guid: 5c040c2a2aab06d48b19e0cc9893a48f,
+      type: 2}
