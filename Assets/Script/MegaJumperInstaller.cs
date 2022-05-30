@@ -31,5 +31,10 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnComboAdded>();
             Container.DeclareSignal<Event.InGameEvent.OnComboReset>();
         }
+
+        private void Update()
+        {
+            UnityEngine.Application.targetFrameRate = 60;
+        }
     }
 }

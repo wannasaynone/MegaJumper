@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 11591576}
   - component: {fileID: 11591575}
   - component: {fileID: 11591574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChargeExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5325,7 +5325,7 @@ GameObject:
   - component: {fileID: 45059828}
   - component: {fileID: 45059827}
   - component: {fileID: 45059826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraRoot
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5599,7 +5599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145909818}
   - component: {fileID: 145909819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5938,7 +5938,7 @@ GameObject:
   - component: {fileID: 188088535}
   - component: {fileID: 188088532}
   - component: {fileID: 188088536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JumperPhysic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6137,7 +6137,7 @@ GameObject:
   - component: {fileID: 354114430}
   - component: {fileID: 354114432}
   - component: {fileID: 354114431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11010,7 +11010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 358501925}
   - component: {fileID: 358501924}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UICamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11579,7 +11579,7 @@ GameObject:
   - component: {fileID: 534636526}
   - component: {fileID: 534636528}
   - component: {fileID: 534636527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11793,7 +11793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 681448557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane Transform 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13193,7 +13193,7 @@ GameObject:
   - component: {fileID: 806655584}
   - component: {fileID: 806655586}
   - component: {fileID: 806655585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForwardParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18220,7 +18220,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -18307,7 +18307,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 963194228}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -18499,7 +18499,7 @@ GameObject:
   - component: {fileID: 1116117287}
   - component: {fileID: 1116117286}
   - component: {fileID: 1116117285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SideParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23678,7 +23678,7 @@ GameObject:
   - component: {fileID: 1229415387}
   - component: {fileID: 1229415389}
   - component: {fileID: 1229415388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ripple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28761,7 +28761,7 @@ GameObject:
   - component: {fileID: 1300613577}
   - component: {fileID: 1300613575}
   - component: {fileID: 1300613576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LandingVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33779,7 +33779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338977666}
   - component: {fileID: 1338977664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Post-process Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33834,7 +33834,7 @@ GameObject:
   - component: {fileID: 1500579005}
   - component: {fileID: 1500579007}
   - component: {fileID: 1500579006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SparksSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40211,7 +40211,7 @@ GameObject:
   - component: {fileID: 1945874876}
   - component: {fileID: 1945874878}
   - component: {fileID: 1945874877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40283,7 +40283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948798295}
   - component: {fileID: 1948798294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Reflection Probe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41072,6 +41072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JumperModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764193307274455924, guid: 2e1f8278a3a35a342b0e0b883f243009,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2764193307274455924, guid: 2e1f8278a3a35a342b0e0b883f243009,
         type: 3}
