@@ -15,7 +15,7 @@ MonoBehaviour:
   m_prefab: {fileID: 8599327998025812708, guid: 097b7d23bad2aa44cbeab7151a4e2926,
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
-  m_comboHitAdjust: 20
+  m_comboHitAdjust: 0.5
   m_feverRequireCombo: 5
   m_feverAddScore: 5
   m_life: 1

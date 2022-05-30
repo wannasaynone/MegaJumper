@@ -10,6 +10,7 @@ namespace MegaJumper
         [SerializeField] private TextMeshProUGUI m_comboText;
         [SerializeField] private MoreMountains.Tools.MMProgressBar m_comboProgressBar;
         [SerializeField] private GameObject m_progressBarRoot;
+        [SerializeField] private GameObject m_feverJumpText;
 
         private int m_currentHighest;
         private JumperSetting m_currentJumpSetting;
@@ -63,6 +64,8 @@ namespace MegaJumper
                 m_progressBarRoot.SetActive(true);
                 m_comboProgressBar.SetBar01((float)obj.FeverCombo / (float)m_currentJumpSetting.FeverRequireCombo);
             }
+
+            m_feverJumpText.SetActive(obj.FeverCombo >= m_currentJumpSetting.FeverRequireCombo);
         }
 
         private void OnComboReset()
@@ -76,6 +79,7 @@ namespace MegaJumper
         {
             m_comboProgressBar.SetBar01(0f);
             m_progressBarRoot.SetActive(false);
+            m_feverJumpText.SetActive(false);
         }
     }
 }
