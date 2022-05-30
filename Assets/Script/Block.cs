@@ -7,9 +7,16 @@ namespace MegaJumper
     {
         public float SizeScale { get; private set; } = 1f;
 
+        [SerializeField] private GameObject[] m_blockModels;
+
         public class Factory : Zenject.PlaceholderFactory<Block>
         {
 
+        }
+
+        private void OnEnable()
+        {
+            m_blockModels[Random.Range(0, m_blockModels.Length - 1)].SetActive(true);
         }
 
         public void RerollSize(float min = 0.5f, float max = 1f)

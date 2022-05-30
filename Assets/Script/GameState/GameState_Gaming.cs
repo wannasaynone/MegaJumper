@@ -10,15 +10,19 @@ namespace MegaJumper.GameState
         private JumperSetting m_jumperSetting;
         private bool m_isFever = false;
 
+        private bool m_isApplyFirstFever = true;
+
         public GameState_Gaming(
             BlockManager blockManager,
             GameProperties gameProperties,
             SignalBus signalBus, 
-            JumperSetting jumperSetting) : base(signalBus)
+            JumperSetting jumperSetting,
+            bool applyFirstFever) : base(signalBus)
         {
             m_gameProperties = gameProperties;
             m_blockManager = blockManager;
             m_jumperSetting = jumperSetting;
+            m_isApplyFirstFever = !applyFirstFever;
         }
 
         private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
@@ -30,7 +34,15 @@ namespace MegaJumper.GameState
 
             if (obj.IsSuccess)
             {
-                m_blockManager.CreateNew();
+                if (m_isApplyFirstFever)
+                {
+                    m_blockManager.CreateNew();
+                }
+                else
+                {
+                    m_isApplyFirstFever = true;
+                    SignalBus.Fire<Event.InGameEvent.OnStartFever>();
+                }
             }
         }
 
@@ -71,6 +83,7 @@ namespace MegaJumper.GameState
         {
             SignalBus.Unsubscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
             SignalBus.Unsubscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
+            SignalBus.Unsubscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
             SignalBus.Unsubscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
         }
     }

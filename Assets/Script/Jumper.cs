@@ -8,7 +8,7 @@ namespace MegaJumper
     {
         [SerializeField] private Rigidbody m_rigidbody;
         [SerializeField] private Collider m_collider;
-        [SerializeField] private GameObject m_debuger;
+        [SerializeField] private GameObject m_hintObject;
         [SerializeField] private ParticleSystem m_jumpVfx;
         [SerializeField] private ParticleSystem m_landingVfx;
         [SerializeField] private MoreMountains.Feedbacks.MMF_Player m_landingFeedback;
@@ -40,7 +40,7 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
 
-            m_debuger.transform.SetParent(null);
+            m_hintObject.transform.SetParent(null);
         }
 
         private void OnStartFever()
@@ -80,8 +80,10 @@ namespace MegaJumper
                 Destroy(m_jumperModel);
             }
 
+            transform.rotation = Quaternion.identity;
             m_jumperModel = Instantiate(m_jumperSetting.Prefab);
             m_jumperModel.transform.SetParent(m_rigidbody.transform);
+            m_jumperModel.transform.localRotation = Quaternion.identity;
             m_jumperModel.transform.localPosition = Vector3.zero + m_jumperSetting.ModelOffset;
             m_jumperModel.transform.localScale = Vector3.one;
         }
@@ -89,6 +91,11 @@ namespace MegaJumper
         private void OnBlockSpawned(Event.InGameEvent.OnBlockSpawned obj)
         {
             m_currentDirectionBlock = obj.Block;
+            Vector3 _cur = transform.eulerAngles;
+            transform.LookAt(m_currentDirectionBlock.transform.position);
+            Vector3 _new = transform.eulerAngles;
+            transform.eulerAngles = _cur;
+            transform.DORotate(_new, 0.2f);
         }
 
         private void OnPointDown()
@@ -105,7 +112,7 @@ namespace MegaJumper
             }
 
             m_pressing = true;
-            m_debuger.transform.position = transform.position + Vector3.up;
+            m_hintObject.transform.position = transform.position + Vector3.up;
         }
 
         private void OnGameResetCalled()
@@ -226,11 +233,11 @@ namespace MegaJumper
             {
                 if (m_currentDirectionBlock == null)
                 {
-                    m_debuger.transform.position += Vector3.forward * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                    m_hintObject.transform.position += Vector3.forward * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
                 }
                 else
                 {
-                    m_debuger.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                    m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
                 }
 
                 if (m_rigidbody.transform.localScale.y >= 0.25f)

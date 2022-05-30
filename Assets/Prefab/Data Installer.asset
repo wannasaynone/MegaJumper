@@ -16,14 +16,14 @@ MonoBehaviour:
     blockPrefab: {fileID: 3205182642276438116, guid: fdeddcd5853bf584bbbf9d768b2586b8,
       type: 3}
   gameProperties:
-    MAX_ADD_DISTANCE: 10
-    MIN_ADD_DISTANCE: 5
+    MAX_ADD_DISTANCE: 12
+    MIN_ADD_DISTANCE: 6
     MAX_CLONE_COUNT: 20
-    MOVE_DIS_PER_SEC: 13
-    GAMEOVER_DIS: 2
+    MOVE_DIS_PER_SEC: 15
+    GAMEOVER_DIS: 2.75
     CAMERA_OFFSET: {x: 15, y: 15, z: -15}
     CAMERA_ANGLE_OFFSET: {x: 20, y: -45, z: 0}
-    CAMERA_SHAKE_FORCE: 0.5
+    CAMERA_SHAKE_FORCE: 1
     CAMERA_SHAKE_TIME: 0.1
     JUMP_FORCE: 7
     JUMP_TIME_SCALE: 0.75

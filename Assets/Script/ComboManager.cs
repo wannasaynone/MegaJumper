@@ -18,6 +18,7 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
             signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnFeverStart);
 
             m_signalBus = signalBus;
             m_scoreManager = scoreManager;
@@ -33,17 +34,18 @@ namespace MegaJumper
             if (m_isFever)
                 return;
 
-            m_scoreManager.Add(1);
+            if (obj.IsSuccess)
+            {
+                m_scoreManager.Add(1);
+            }
 
             if (obj.IsPerfect)
             {
                 Combo++;
                 m_feverCombo++;
-                m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo));
+                m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo, m_feverCombo));
                 if (m_currentSetting != null && m_feverCombo >= m_currentSetting.FeverRequireCombo)
                 {
-                    m_feverCombo = 0;
-                    m_isFever = true;
                     m_signalBus.Fire<Event.InGameEvent.OnStartFever>();
                 }
             }
@@ -53,6 +55,12 @@ namespace MegaJumper
                 Combo = 0;
                 m_signalBus.Fire(new Event.InGameEvent.OnComboReset());
             }
+        }
+
+        private void OnFeverStart()
+        {
+            m_feverCombo = 0;
+            m_isFever = true;
         }
 
         private void OnFeverEnded()

@@ -106,10 +106,12 @@
         public class OnComboAdded
         {
             public int Current { get; private set; }
+            public int FeverCombo { get; private set; }
 
-            public OnComboAdded(int current)
+            public OnComboAdded(int current, int feverCombo)
             {
                 Current = current;
+                FeverCombo = feverCombo;
             }
         }
 

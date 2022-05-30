@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d442bbb13cc9ee44b3d1495edb547ee, type: 3}
   m_Name: Default Jumper
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 2764193307274455924, guid: 2e1f8278a3a35a342b0e0b883f243009,
+  m_prefab: {fileID: 8599327998025812708, guid: 097b7d23bad2aa44cbeab7151a4e2926,
     type: 3}
-  m_modelOffset: {x: 0, y: 0, z: 0}
-  m_comboHitAdjust: 0.2
+  m_modelOffset: {x: 0, y: -1.2, z: 0}
+  m_comboHitAdjust: 20
   m_feverRequireCombo: 5
-  m_feverAddScore: 10
+  m_feverAddScore: 5
   m_life: 1

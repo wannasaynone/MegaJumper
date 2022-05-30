@@ -48,7 +48,7 @@ namespace MegaJumper
 
         private void OnGameStarted()
         {
-            ChangeState(new GameState.GameState_Gaming(m_blockManager, m_gameProperties, m_signalBus, m_jumperSetting));
+            ChangeState(new GameState.GameState_Gaming(m_blockManager, m_gameProperties, m_signalBus, m_jumperSetting, false));
         }
 
         public void Initialize()

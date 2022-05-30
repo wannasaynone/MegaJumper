@@ -8,8 +8,11 @@ namespace MegaJumper
     {
         [SerializeField] private TextMeshProUGUI m_scoreText;
         [SerializeField] private TextMeshProUGUI m_comboText;
+        [SerializeField] private MoreMountains.Tools.MMProgressBar m_comboProgressBar;
+        [SerializeField] private GameObject m_progressBarRoot;
 
         private int m_currentHighest;
+        private JumperSetting m_currentJumpSetting;
 
         [Inject]
         public void Constructor(SignalBus signalBus, GameProperties gameProperties)
@@ -18,8 +21,15 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
             signalBus.Subscribe<Event.InGameEvent.OnComboAdded>(OnComboAdded);
             signalBus.Subscribe<Event.InGameEvent.OnComboReset>(OnComboReset);
+            signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
+            signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
             m_scoreText.text = "0";
             m_comboText.text = "";
+        }
+
+        private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
+        {
+            m_currentJumpSetting = obj.JumperSetting;
         }
 
         private void OnScoreReset()
@@ -43,11 +53,29 @@ namespace MegaJumper
         private void OnComboAdded(Event.InGameEvent.OnComboAdded obj)
         {
             m_comboText.text = "Combo x" + obj.Current;
+
+            if (m_progressBarRoot.activeSelf)
+            {
+                m_comboProgressBar.UpdateBar01((float)obj.FeverCombo / (float)m_currentJumpSetting.FeverRequireCombo);
+            }
+            else
+            {
+                m_progressBarRoot.SetActive(true);
+                m_comboProgressBar.SetBar01((float)obj.FeverCombo / (float)m_currentJumpSetting.FeverRequireCombo);
+            }
         }
 
         private void OnComboReset()
         {
             m_comboText.text = "";
+            m_comboProgressBar.SetBar01(0f);
+            m_progressBarRoot.SetActive(false);
+        }
+
+        private void OnFeverEnded()
+        {
+            m_comboProgressBar.SetBar01(0f);
+            m_progressBarRoot.SetActive(false);
         }
     }
 }
