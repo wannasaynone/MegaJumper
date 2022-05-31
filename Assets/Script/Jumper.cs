@@ -15,6 +15,7 @@ namespace MegaJumper
 
         private GameProperties m_gameProperties;
         private SignalBus m_signalBus;
+        private UI.HintUIView m_hintView;
 
         private bool m_isPause = true;
         private bool m_isJumping = false;
@@ -26,11 +27,15 @@ namespace MegaJumper
         private int m_remainingLife;
         private GameObject m_jumperModel;
 
+        private bool m_isTutorialMode;
+        private float m_tutorialPressTime = 0f;
+
         [Inject]
-        public void Constructor(SignalBus signalBus, GameProperties gameProperties)
+        public void Constructor(SignalBus signalBus, GameProperties gameProperties, UI.HintUIView hintUIView)
         {
             m_signalBus = signalBus;
             m_gameProperties = gameProperties;
+            m_hintView = hintUIView;
 
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStart);
             signalBus.Subscribe<Event.InGameEvent.OnPointDown>(OnPointDown);
@@ -39,12 +44,28 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnBlockSpawned>(OnBlockSpawned);
             signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
 
             m_hintObject.transform.SetParent(null);
         }
 
+        private void OnTutorialStart()
+        {
+            m_isTutorialMode = true;
+            m_hintObject.SetActive(true);
+        }
+
+        private void OnTutorialEnded()
+        {
+            m_isTutorialMode = false;
+        }
+
         private void OnStartFever()
         {
+            m_isTutorialMode = false;
+            m_signalBus.Fire<Event.InGameEvent.OnTutorialEnded>();
+
             m_isPause = true;
             m_pressing = true;
             m_jumperModel.transform.DOShakePosition(m_gameProperties.FEVER_ANIMATION_TIME + 0.5f).OnComplete(OnFeverShakeEnded);
@@ -52,6 +73,9 @@ namespace MegaJumper
 
         private void OnFeverShakeEnded()
         {
+            m_pressing = false;
+            m_rigidbody.transform.localScale = Vector3.one;
+            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
             StartJump(m_currentDirectionBlock.transform.position, m_gameProperties.FEVER_JUMP_FORCE, true, OnFeverJumpEnded);
         }
 
@@ -113,6 +137,9 @@ namespace MegaJumper
 
             m_pressing = true;
             m_hintObject.transform.position = transform.position + Vector3.up;
+            m_tutorialPressTime = 0f;
+            m_hintView.EnableControlHint(false);
+            m_hintObject.SetActive(m_isTutorialMode);
         }
 
         private void OnGameResetCalled()
@@ -134,6 +161,12 @@ namespace MegaJumper
         private float m_pressTime;
         private void OnPointUp(Event.InGameEvent.OnPointUp obj)
         {
+            m_hintView.EnableReleaseHint(false);
+            m_hintObject.SetActive(false);
+            m_rigidbody.transform.localScale = Vector3.one;
+            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
+            m_pressing = false;
+
             if (m_isPause)
             {
                 return;
@@ -147,32 +180,42 @@ namespace MegaJumper
 
             Vector3 _finalPos = transform.position;
 
-            if (m_currentDirectionBlock == null)
+            if (m_isTutorialMode)
             {
-                _finalPos += Vector3.forward * obj.PressTime * m_gameProperties.MOVE_DIS_PER_SEC;
+                if (Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_jumperSetting.ComboHitAdjust)
+                {
+                    m_hintView.EnableControlHint(true);
+                    return;
+                }
+
+                _finalPos = m_currentDirectionBlock.transform.position;
+                StartJump(_finalPos, m_tutorialPressTime, false, OnJumpEnded);
             }
             else
             {
-                _finalPos += (m_currentDirectionBlock.transform.position - transform.position).normalized * obj.PressTime * m_gameProperties.MOVE_DIS_PER_SEC;
-            }
+                if (m_currentDirectionBlock == null)
+                {
+                    _finalPos += Vector3.forward * obj.PressTime * m_gameProperties.MOVE_DIS_PER_SEC;
+                }
+                else
+                {
+                    _finalPos += (m_currentDirectionBlock.transform.position - transform.position).normalized * obj.PressTime * m_gameProperties.MOVE_DIS_PER_SEC;
+                }
 
-            if (Vector3.Distance(_finalPos, m_currentDirectionBlock.transform.position) <= m_jumperSetting.ComboHitAdjust)
-            {
-                _finalPos = m_currentDirectionBlock.transform.position;
+                if (Vector3.Distance(_finalPos, m_currentDirectionBlock.transform.position) <= m_jumperSetting.ComboHitAdjust)
+                {
+                    _finalPos = m_currentDirectionBlock.transform.position;
+                }
+                StartJump(_finalPos, obj.PressTime, false, OnJumpEnded);
             }
-
-            StartJump(_finalPos, obj.PressTime, false, OnJumpEnded);
         }
 
         private void StartJump(Vector3 endPos, float pressTime, bool isFever, TweenCallback onEnded)
         {
-            m_rigidbody.transform.localScale = Vector3.one;
-            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
             CreateVFX(m_jumpVfx, Vector3.up, pressTime);
 
             transform.DOJump(endPos, pressTime * m_gameProperties.JUMP_FORCE, 1, pressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(onEnded);
 
-            m_pressing = false;
             m_isJumping = true;
             m_pressTime = pressTime;
             m_signalBus.Fire(new Event.InGameEvent.OnStartJump(isFever));
@@ -234,17 +277,39 @@ namespace MegaJumper
                 if (m_currentDirectionBlock == null)
                 {
                     m_hintObject.transform.position += Vector3.forward * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                    UpdatePressDownScale();
                 }
                 else
                 {
-                    m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                    if (m_isTutorialMode)
+                    {
+                        if (Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) <= m_jumperSetting.ComboHitAdjust)
+                        {
+                            m_hintView.EnableReleaseHint(true);
+                            m_hintObject.transform.position = m_currentDirectionBlock.transform.position + Vector3.up;
+                        }
+                        else
+                        {
+                            m_tutorialPressTime += Time.deltaTime;
+                            m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                            UpdatePressDownScale();
+                        }
+                    }
+                    else
+                    {
+                        m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                        UpdatePressDownScale();
+                    }
                 }
+            }
+        }
 
-                if (m_rigidbody.transform.localScale.y >= 0.25f)
-                {
-                    m_rigidbody.transform.localScale += new Vector3(1f, -1f, 1f) * Time.deltaTime;
-                    m_rigidbody.transform.localPosition -= Vector3.up * Time.deltaTime;
-                }
+        private void UpdatePressDownScale()
+        {
+            if (m_rigidbody.transform.localScale.y >= 0.25f)
+            {
+                m_rigidbody.transform.localScale += new Vector3(1f, -1f, 1f) * Time.deltaTime;
+                m_rigidbody.transform.localPosition -= Vector3.up * Time.deltaTime;
             }
         }
 

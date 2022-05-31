@@ -42,6 +42,7 @@ namespace MegaJumper
             if (obj.IsPerfect)
             {
                 Combo++;
+
                 m_feverCombo++;
                 m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo, m_feverCombo));
                 if (m_currentSetting != null && m_feverCombo >= m_currentSetting.FeverRequireCombo)
@@ -66,7 +67,7 @@ namespace MegaJumper
         private void OnFeverEnded()
         {
             m_isFever = false;
-            m_scoreManager.Add(m_currentSetting.FeverAddScore);
+            m_scoreManager.Add(m_currentSetting.FeverAddScore * 2);
         }
     }
 }

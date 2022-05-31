@@ -119,5 +119,15 @@
         {
             
         }
+
+        public class OnTutorialStart
+        {
+
+        }
+
+        public class OnTutorialEnded
+        {
+
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using Zenject;
 using TMPro;
 
-namespace MegaJumper
+namespace MegaJumper.UI
 {
     public class ScoreUIView : MonoBehaviour
     {

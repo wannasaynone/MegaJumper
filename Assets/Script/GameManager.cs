@@ -10,6 +10,7 @@ namespace MegaJumper
         private readonly SignalBus m_signalBus;
         private readonly Jumper m_jumper;
         private readonly GameProperties m_gameProperties;
+        private readonly LocalSaveManager m_localSaveManager;
 
         private GameState.GameStateBase m_currentState;
         private JumperSetting m_jumperSetting;
@@ -18,19 +19,30 @@ namespace MegaJumper
             Jumper jumper, 
             BlockManager blockManager, 
             ScoreManager scoreManager, 
+            LocalSaveManager localSaveManager,
             SignalBus signalBus, 
             GameProperties gameProperties)
         {
             m_jumper = jumper;
             m_blockManager = blockManager;
             m_scoreManager = scoreManager;
+            m_localSaveManager = localSaveManager;
             m_signalBus = signalBus;
             m_gameProperties = gameProperties;
+
+            m_localSaveManager.LoadAll();
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(Initialize);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
+            m_signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+        }
+
+        private void OnTutorialEnded()
+        {
+            m_localSaveManager.SaveDataInstance.SetIsTutorialEnded();
+            m_localSaveManager.SaveAll();
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -48,7 +60,13 @@ namespace MegaJumper
 
         private void OnGameStarted()
         {
-            ChangeState(new GameState.GameState_Gaming(m_blockManager, m_gameProperties, m_signalBus, m_jumperSetting, false));
+            ChangeState(new GameState.GameState_Gaming(
+                m_blockManager, 
+                m_gameProperties, 
+                m_signalBus, 
+                m_jumperSetting, 
+                false, 
+                !m_localSaveManager.SaveDataInstance.IsTutorialEnded));
         }
 
         public void Initialize()

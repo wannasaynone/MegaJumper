@@ -21,7 +21,7 @@ MonoBehaviour:
     MAX_CLONE_COUNT: 20
     MOVE_DIS_PER_SEC: 15
     GAMEOVER_DIS: 2.75
-    CAMERA_OFFSET: {x: 15, y: 15, z: -15}
+    CAMERA_OFFSET: {x: 19, y: 18, z: -20}
     CAMERA_ANGLE_OFFSET: {x: 20, y: -45, z: 0}
     CAMERA_SHAKE_FORCE: 1
     CAMERA_SHAKE_TIME: 0.1
