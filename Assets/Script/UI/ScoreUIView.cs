@@ -15,6 +15,8 @@ namespace MegaJumper.UI
         private int m_currentHighest;
         private JumperSetting m_currentJumpSetting;
 
+        private bool m_tutorialMode = false;
+
         [Inject]
         public void Constructor(SignalBus signalBus, GameProperties gameProperties)
         {
@@ -24,8 +26,32 @@ namespace MegaJumper.UI
             signalBus.Subscribe<Event.InGameEvent.OnComboReset>(OnComboReset);
             signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_scoreText.text = "0";
             m_comboText.text = "";
+        }
+
+        private void OnTutorialStart()
+        {
+            m_tutorialMode = true;
+            m_scoreText.gameObject.SetActive(false);
+        }
+
+        private void OnTutorialEnded()
+        {
+            m_currentHighest = 0;
+            m_tutorialMode = false;
+            m_scoreText.gameObject.SetActive(true);
+        }
+
+        private void OnGameStarted()
+        {
+            if (m_tutorialMode)
+                return;
+
+            m_scoreText.gameObject.SetActive(true);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)

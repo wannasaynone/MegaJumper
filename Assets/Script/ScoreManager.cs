@@ -11,6 +11,12 @@ namespace MegaJumper
         public ScoreManager(SignalBus signalBus)
         {
             m_signalBus = signalBus;
+            m_signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+        }
+
+        private void OnTutorialEnded()
+        {
+            Reset();
         }
 
         public void Add(int add)

@@ -14,6 +14,8 @@ namespace MegaJumper
         private float m_currentChangeDirectionChance = 0f;
         private bool m_currentDirectionToZ = true;
 
+        private bool m_tutorialMode = false;
+
         public BlockManager(Block.Factory factory, ScoreManager scoreManager, GameProperties gameProperties, SignalBus signalBus)
         {
             m_blockFactory = factory;
@@ -22,6 +24,18 @@ namespace MegaJumper
             m_scoreManager = scoreManager;
 
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+        }
+
+        private void OnTutorialStart()
+        {
+            m_tutorialMode = true;
+        }
+
+        private void OnTutorialEnded()
+        {
+            m_tutorialMode = false;
         }
 
         private void OnGameResetCalled()
@@ -46,7 +60,24 @@ namespace MegaJumper
             }
 
             UnityEngine.Vector3 _newPos = _orginPos;
-            float _randomValue = UnityEngine.Random.Range(m_gameProperties.MIN_ADD_DISTANCE, m_gameProperties.MAX_ADD_DISTANCE);
+            float _maxDistanceMutiplier = (float)(m_scoreManager.Score - 20) / 20f;
+
+            if (m_tutorialMode)
+            {
+                _maxDistanceMutiplier = 0f;
+            }
+            else
+            {
+                _maxDistanceMutiplier = UnityEngine.Mathf.Clamp(_maxDistanceMutiplier, 0f, 1f);
+            }
+
+            float _maxDistance = m_gameProperties.MIN_ADD_DISTANCE + (m_gameProperties.MAX_ADD_DISTANCE - m_gameProperties.MIN_ADD_DISTANCE) * _maxDistanceMutiplier;
+            float _randomValue = UnityEngine.Random.Range(m_gameProperties.MIN_ADD_DISTANCE, _maxDistance);
+
+            if (m_tutorialMode)
+            {
+                _randomValue = m_gameProperties.MIN_ADD_DISTANCE;
+            }
 
             if (m_currentDirectionToZ)
             {
@@ -71,7 +102,7 @@ namespace MegaJumper
             _clone.transform.position = _newPos;
             m_clonedBlock.Add(_clone);
 
-            if (m_scoreManager.Score >= 20)
+            if (!m_tutorialMode && m_scoreManager.Score >= 40)
             {
                 float _min = 20f / (float)m_scoreManager.Score;
 

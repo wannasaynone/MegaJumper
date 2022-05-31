@@ -17,7 +17,7 @@ MonoBehaviour:
       type: 3}
   gameProperties:
     MAX_ADD_DISTANCE: 12
-    MIN_ADD_DISTANCE: 6
+    MIN_ADD_DISTANCE: 7
     MAX_CLONE_COUNT: 20
     MOVE_DIS_PER_SEC: 15
     GAMEOVER_DIS: 2.75
