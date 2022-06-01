@@ -33,8 +33,9 @@ namespace MegaJumper
         {
             if (SaveDataInstance == null)
                 return;
-
+            UnityEngine.Debug.Log("Save All");
             UnityEngine.PlayerPrefs.SetInt(IS_TUTORIAL_ENDED, SaveDataInstance.IsTutorialEnded ? 1 : 0);
+            UnityEngine.PlayerPrefs.Save();
         }
     }
 }

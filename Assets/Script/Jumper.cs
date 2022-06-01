@@ -67,7 +67,7 @@ namespace MegaJumper
 
         private void OnTutorialEnded()
         {
-            m_tutorialMode_feverTimes = 2;
+            m_tutorialMode_feverTimes = 99;
         }
 
         private void OnStartFever()
