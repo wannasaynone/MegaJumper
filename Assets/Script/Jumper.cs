@@ -72,16 +72,6 @@ namespace MegaJumper
 
         private void OnStartFever()
         {
-            if (m_tutorialMode_feverTimes < 2)
-            {
-                m_tutorialMode_feverTimes++;
-                if (m_tutorialMode_feverTimes >= 2)
-                {
-                    Debug.Log("OnTutorialEnded");
-                    m_signalBus.Fire<Event.InGameEvent.OnTutorialEnded>();
-                }
-            }
-
             m_currentState = State.FeverPressing;
             m_jumperModel.transform.DOShakePosition(m_gameProperties.FEVER_ANIMATION_TIME + 0.5f).OnComplete(OnFeverShakeEnded);
         }
@@ -100,6 +90,21 @@ namespace MegaJumper
             m_landingFeedback.PlayFeedbacks();
             m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
             m_signalBus.Fire<Event.InGameEvent.OnFeverEnded>();
+
+            if (m_tutorialMode_feverTimes < 2)
+            {
+                m_tutorialMode_feverTimes++;
+                if (m_tutorialMode_feverTimes >= 2)
+                {
+                    Debug.Log("OnTutorialEnded");
+                    m_hintView.EnableGameStartHint(true);
+                    m_signalBus.Fire<Event.InGameEvent.OnTutorialEnded>();
+                }
+                else
+                {
+                    m_hintView.EnableStartHint(true);
+                }
+            }
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -146,8 +151,12 @@ namespace MegaJumper
 
             m_currentState = State.Pressing;
             m_hintObject.transform.position = transform.position + Vector3.up;
-            m_hintView.EnableControlHint(false);
+
+            m_hintView.EnableStartHint(false);
             m_hintView.EnableTutorialHint(false);
+            m_hintView.EnableLandHint(false);
+            m_hintView.EnableGameStartHint(false);
+
             m_hintObject.SetActive(m_tutorialMode_feverTimes < 2);
             for (int i = 0; i < m_hintImages.Length; i++)
             {
@@ -188,10 +197,11 @@ namespace MegaJumper
 
             if (m_tutorialMode_feverTimes < 2 && Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_gameProperties.GAMEOVER_DIS)
             {
-                SetIdle();
-                m_hintView.EnableTutorialHint(false);
-                m_hintView.EnableControlHint(true);
-                return;
+                //SetIdle();
+                //m_hintView.EnableTutorialHint(false);
+                //m_hintView.EnableStartHint(true);
+                //return;
+                m_remainingLife++;
             }
 
             if (m_currentDirectionBlock == null)
@@ -251,11 +261,20 @@ namespace MegaJumper
 
             if (isScuess)
             {
-                if (m_tutorialMode_feverTimes < 2 && !isPerfect)
+                if (m_tutorialMode_feverTimes < 2)
                 {
-                    m_hintView.EnableReleaseHint(false);
-                    m_hintView.EnableControlHint(false);
-                    m_hintView.EnableTutorialHint(true);
+                    if (!isPerfect)
+                    {
+                        m_hintView.EnableReleaseHint(false);
+                        m_hintView.EnableStartHint(false);
+                        m_hintView.EnableTutorialHint(true);
+                    }
+                    //else
+                    //{
+                    //    m_hintView.EnableReleaseHint(false);
+                    //    m_hintView.EnableStartHint(true);
+                    //    m_hintView.EnableTutorialHint(false);
+                    //}
                 }
 
                 CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
@@ -294,6 +313,14 @@ namespace MegaJumper
 
         private void OnRevived()
         {
+            if (m_tutorialMode_feverTimes < 2)
+            {
+                m_hintView.EnableReleaseHint(false);
+                m_hintView.EnableStartHint(false);
+                m_hintView.EnableTutorialHint(false);
+                m_hintView.EnableLandHint(true);
+            }
+
             m_currentState = State.Idle;
             m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
         }

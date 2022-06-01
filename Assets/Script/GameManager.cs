@@ -11,6 +11,7 @@ namespace MegaJumper
         private readonly Jumper m_jumper;
         private readonly GameProperties m_gameProperties;
         private readonly LocalSaveManager m_localSaveManager;
+        private readonly UI.HintUIView m_hintView;
 
         private GameState.GameStateBase m_currentState;
         private JumperSetting m_jumperSetting;
@@ -21,7 +22,8 @@ namespace MegaJumper
             ScoreManager scoreManager, 
             LocalSaveManager localSaveManager,
             SignalBus signalBus, 
-            GameProperties gameProperties)
+            GameProperties gameProperties,
+            UI.HintUIView hintUIView)
         {
             m_jumper = jumper;
             m_blockManager = blockManager;
@@ -29,6 +31,7 @@ namespace MegaJumper
             m_localSaveManager = localSaveManager;
             m_signalBus = signalBus;
             m_gameProperties = gameProperties;
+            m_hintView = hintUIView;
 
             m_localSaveManager.LoadAll();
 
@@ -71,6 +74,7 @@ namespace MegaJumper
 
         public void Initialize()
         {
+            m_hintView.EnableStartHint(true);
             m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_gameProperties.DEFAULF_JUMPER_SETTING));
             ChangeState(new GameState.GameState_WaitStart(m_scoreManager, m_blockManager, m_signalBus));
         }

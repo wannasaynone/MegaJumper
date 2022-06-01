@@ -12,6 +12,7 @@ namespace MegaJumper
         private JumperSetting m_currentSetting;
         private int m_feverCombo;
         private bool m_isFever;
+        private bool m_tutorialMode;
 
         public ComboManager(SignalBus signalBus, ScoreManager scoreManager)
         {
@@ -19,6 +20,8 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnFeverStart);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
+            signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
 
             m_signalBus = signalBus;
             m_scoreManager = scoreManager;
@@ -67,7 +70,17 @@ namespace MegaJumper
         private void OnFeverEnded()
         {
             m_isFever = false;
-            m_scoreManager.Add(m_currentSetting.FeverAddScore * 2);
+            if (!m_tutorialMode) m_scoreManager.Add(m_currentSetting.FeverAddScore * 2);
+        }
+
+        private void OnTutorialStart()
+        {
+            m_tutorialMode = true;
+        }
+
+        private void OnTutorialEnded()
+        {
+            m_tutorialMode = false;
         }
     }
 }

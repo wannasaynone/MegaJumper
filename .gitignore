@@ -30,3 +30,6 @@ Assets/StreamingAssets/build_info.txt.meta
 TPS_cache/
 /.vs
 /PCBuild/Test
+/Assets/Prefab/Admob Key Storer.asset
+/Assets/Prefab/Admob Key Storer.asset.meta
+/user.keystore

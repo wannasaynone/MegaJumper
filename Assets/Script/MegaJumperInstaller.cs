@@ -4,6 +4,8 @@ namespace MegaJumper
 {
     public class MegaJumperInstaller : MonoInstaller
     {
+        [UnityEngine.SerializeField] private Monetization.AdmobKeyStorer m_admobStorer;
+
         [Inject] private BlockContainer m_blockContainer;
 
         public override void InstallBindings()
@@ -33,6 +35,19 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnComboReset>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialStart>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialEnded>();
+
+            InitSDK();
+        }
+
+        private void InitSDK()
+        {
+            GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
+        }
+
+        private void OnAdInited(GoogleMobileAds.Api.InitializationStatus status)
+        {
+            STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdUnit(
+                new Monetization.AdmobAdUnit(m_admobStorer.RewardAdID, m_admobStorer.InterstitialAdID));
         }
 
         private void Update()

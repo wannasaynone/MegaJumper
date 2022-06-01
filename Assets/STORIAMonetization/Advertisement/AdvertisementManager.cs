@@ -40,7 +40,9 @@ namespace STORIAMonetization.Advertisement
 
             if(m_currentAdUnit == null)
             {
-                throw new Exception("[AdvertisementManager][ShowRewardVideo] Need to set AdUnit up first. Did you initial ad plugins?");
+                Debug.LogError("[AdvertisementManager][ShowRewardVideo] Need to set AdUnit up first. Did you initial ad plugins?");
+                onFailed?.Invoke(FailType.SeeConsole);
+                return;
             }
 
             m_currentAdUnit.ShowRewardVideo(onShown, onFailed);
@@ -56,7 +58,9 @@ namespace STORIAMonetization.Advertisement
 
             if (m_currentAdUnit == null)
             {
-                throw new Exception("[AdvertisementManager][ShowInterstitial] Need to set AdUnit up first. Did you initial ad plugins?");
+                Debug.LogError("[AdvertisementManager][ShowInterstitial] Need to set AdUnit up first. Did you initial ad plugins?");
+                onFailed?.Invoke(FailType.SeeConsole);
+                return;
             }
 
             m_currentAdUnit.ShowRewardVideo(onShown, onFailed);

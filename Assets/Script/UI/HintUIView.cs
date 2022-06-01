@@ -8,6 +8,8 @@ namespace MegaJumper.UI
         [SerializeField] private GameObject m_contolHint;
         [SerializeField] private GameObject m_releaseHint;
         [SerializeField] private GameObject m_tutorialHint;
+        [SerializeField] private GameObject m_gameStartHint;
+        [SerializeField] private GameObject m_landHint;
 
         [Inject]
         public void Constructor(SignalBus signalBus)
@@ -17,10 +19,10 @@ namespace MegaJumper.UI
 
         private void OnGameReset()
         {
-            EnableControlHint(true);
+            EnableStartHint(true);
         }
 
-        public void EnableControlHint(bool enable)
+        public void EnableStartHint(bool enable)
         {
             m_contolHint.SetActive(enable);
         }
@@ -33,6 +35,16 @@ namespace MegaJumper.UI
         public void EnableTutorialHint(bool enable)
         {
             m_tutorialHint.SetActive(enable);
+        }
+
+        public void EnableGameStartHint(bool enable)
+        {
+            m_gameStartHint.SetActive(enable);
+        }
+
+        public void EnableLandHint(bool enable)
+        {
+            m_landHint.SetActive(enable);
         }
     }
 }
