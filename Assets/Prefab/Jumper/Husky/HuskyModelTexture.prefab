@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6806509752492746225}
   - component: {fileID: 6806509752492746226}
   m_Layer: 5
-  m_Name: ModelTexture
+  m_Name: HuskyModelTexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

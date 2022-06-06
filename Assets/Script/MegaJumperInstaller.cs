@@ -13,7 +13,7 @@ namespace MegaJumper
             Container.Bind(typeof(ITickable)).To<InputDetecter>().AsSingle();
             Container.Bind<ScoreManager>().AsSingle();
             Container.Bind<BlockManager>().AsSingle();
-            Container.BindFactory<Block, Block.Factory>().FromComponentInNewPrefab(m_blockContainer.blockPrefab);
+            Container.BindFactory<Block, Block.Factory>().FromComponentInNewPrefab(m_blockContainer.blockPrefab).UnderTransform(transform.parent);
             Container.Bind(typeof(IInitializable), typeof(ITickable)).To<GameManager>().AsSingle();
             Container.Bind<ComboManager>().AsSingle().NonLazy();
             Container.Bind<LocalSaveManager>().AsSingle().NonLazy();
