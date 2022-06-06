@@ -6306,6 +6306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ingameRoot: {fileID: 2038019945}
+  m_ingameUI: {fileID: 525115089}
   m_selectJumperUIRoot: {fileID: 555419181}
   m_selectJumperModelRoot: {fileID: 1017309343}
   m_enableButtonRoot: {fileID: 1330907735}
@@ -42481,6 +42482,8 @@ MonoBehaviour:
   _components:
   - {fileID: 1284655091}
   - {fileID: 525115091}
+  - {fileID: 198874323}
+  - {fileID: 957958999}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}

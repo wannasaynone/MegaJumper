@@ -5,15 +5,23 @@ namespace MegaJumper
     public class InputDetecter : ITickable
     {
         private readonly SignalBus m_signalBus;
+        private readonly UnityEngine.EventSystems.EventSystem m_eventSystem;
+
         private float m_timer;
 
-        public InputDetecter(SignalBus signalBus)
+        public InputDetecter(SignalBus signalBus, UnityEngine.EventSystems.EventSystem eventSystem)
         {
             m_signalBus = signalBus;
+            m_eventSystem = eventSystem;
         }
 
         public void Tick()
         {
+            if ( m_eventSystem.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             if (UnityEngine.Input.GetMouseButtonDown(0))
             {
                 m_timer = 0f;
