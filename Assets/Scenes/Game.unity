@@ -6310,11 +6310,13 @@ MonoBehaviour:
   m_selectJumperUIRoot: {fileID: 555419181}
   m_selectJumperModelRoot: {fileID: 1017309343}
   m_enableButtonRoot: {fileID: 1330907735}
+  m_scrollRect: {fileID: 2077220674}
   m_selectButtonRect: {fileID: 1069000181}
   m_jumperModelRootParent: {fileID: 1212577746}
   m_settings:
   - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
-  - {fileID: 11400000, guid: 9290ef202231cf34e9c571795dc5519a, type: 2}
+  - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
+  - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
 --- !u!1 &237470029
 GameObject:
   m_ObjectHideFlags: 0
@@ -43477,7 +43479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1069000181}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1

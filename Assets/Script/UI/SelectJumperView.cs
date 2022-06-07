@@ -11,6 +11,7 @@ namespace MegaJumper.UI
         [SerializeField] private GameObject m_selectJumperUIRoot;
         [SerializeField] private GameObject m_selectJumperModelRoot;
         [SerializeField] private GameObject m_enableButtonRoot;
+        [SerializeField] private UnityEngine.UI.ScrollRect m_scrollRect;
         [SerializeField] private RectTransform m_selectButtonRect;
         [SerializeField] private Transform m_jumperModelRootParent;
 
@@ -57,6 +58,27 @@ namespace MegaJumper.UI
                 _cloneTexture.transform.SetParent(m_selectButtonRect);
                 _cloneTexture.transform.localScale = Vector3.one;
                 m_cloneTexture.Add(_cloneTexture);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                float _each = 1f / (float)(m_cloneTexture.Count - 1);
+                m_scrollRect.normalizedPosition = new Vector2(_each * 0f, 0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                float _each = 1f / (float)(m_cloneTexture.Count - 1);
+                m_scrollRect.normalizedPosition = new Vector2(_each * 1f, 0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                float _each = 1f / (float)(m_cloneTexture.Count - 1);
+                m_scrollRect.normalizedPosition = new Vector2(_each * 2f, 0f);
             }
         }
     }
