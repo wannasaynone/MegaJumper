@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b10755d34631045a256212391edf86, type: 3}
+  m_Name: Mallard UI Setting
+  m_EditorClassIdentifier: 
+  m_modelRootPrefab: {fileID: 1911704175576145132, guid: ce2e8c2f1f7c94d42914c8b54bc75fc8,
+    type: 3}
+  m_textureButtonPrefab: {fileID: 6806509752492746188, guid: f4d76322e40ae7542a33c2719aa82080,
+    type: 3}
+  m_jumperSetting: {fileID: 11400000, guid: f95d58adc60a23841b6e7ca03cedea05, type: 2}

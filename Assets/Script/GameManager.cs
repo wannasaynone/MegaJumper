@@ -37,7 +37,7 @@ namespace MegaJumper
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
-            m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(Initialize);
+            m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameReset);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(OnJumperSettingSet);
             m_signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
         }
@@ -74,8 +74,13 @@ namespace MegaJumper
 
         public void Initialize()
         {
-            m_hintView.EnableStartHint(true);
             m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_gameProperties.DEFAULF_JUMPER_SETTING));
+            OnGameReset();
+        }
+
+        private void OnGameReset()
+        {
+            m_hintView.EnableStartHint(true);
             ChangeState(new GameState.GameState_WaitStart(m_scoreManager, m_blockManager, m_signalBus));
         }
 

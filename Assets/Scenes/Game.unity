@@ -6313,10 +6313,23 @@ MonoBehaviour:
   m_scrollRect: {fileID: 2077220674}
   m_selectButtonRect: {fileID: 1069000181}
   m_jumperModelRootParent: {fileID: 1212577746}
+  m_modelRootCameraRoot: {fileID: 1844910498}
+  m_nameText: {fileID: 1558180035}
+  m_accurateBarImage: {fileID: 481960668}
+  m_feverScoreBarImage: {fileID: 1683860872}
+  m_comboNeedBarImage: {fileID: 787739607}
   m_settings:
   - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
-  - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
-  - {fileID: 11400000, guid: d64cf2ed0d7e11941a2561e168499ba0, type: 2}
+  - {fileID: 11400000, guid: 9290ef202231cf34e9c571795dc5519a, type: 2}
+  - {fileID: 11400000, guid: 02ad0a215b85aca43967da4d0bf9c7a2, type: 2}
+  - {fileID: 11400000, guid: 90f0eba31c3cd9447b52bae551929cd3, type: 2}
+  - {fileID: 11400000, guid: 1586ba4a166808f438ac563080b70d27, type: 2}
+  - {fileID: 11400000, guid: 12196949aa8ed564eb63aa4482df1376, type: 2}
+  - {fileID: 11400000, guid: 4a09606529a1e404ba92325be93fc248, type: 2}
+  - {fileID: 11400000, guid: c17e22b1e30da1d40b78cc3aa6bff5ea, type: 2}
+  - {fileID: 11400000, guid: cf81838b55983ff44819ba2baed7f6bf, type: 2}
+  - {fileID: 11400000, guid: 0fe18caa90d61834caefff77f320a447, type: 2}
+  - {fileID: 11400000, guid: 14279effc16a6614dab362c795a34a0d, type: 2}
 --- !u!1 &237470029
 GameObject:
   m_ObjectHideFlags: 0
@@ -42186,8 +42199,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 198874323}
         m_TargetAssemblyTypeName: MegaJumper.UI.SelectJumperView, MegaJumper
-        m_MethodName: Button_SetActive
-        m_Mode: 6
+        m_MethodName: Button_OnSelect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -43494,7 +43507,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 198874323}
+        m_TargetAssemblyTypeName: MegaJumper.UI.SelectJumperView, MegaJumper
+        m_MethodName: Scroll_OnValueChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2101801201
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b10755d34631045a256212391edf86, type: 3}
+  m_Name: Beluga UI Setting
+  m_EditorClassIdentifier: 
+  m_modelRootPrefab: {fileID: 1911704175576145132, guid: 783c773efe3f96643a987be6beecd6a1,
+    type: 3}
+  m_textureButtonPrefab: {fileID: 6806509752492746188, guid: 83b0752563102bf48ae205fa19f9dbf0,
+    type: 3}
+  m_jumperSetting: {fileID: 11400000, guid: 1a45ca5ad56940c40ad71ee3dc8cea35, type: 2}

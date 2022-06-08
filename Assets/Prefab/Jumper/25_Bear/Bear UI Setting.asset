@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b10755d34631045a256212391edf86, type: 3}
+  m_Name: Bear UI Setting
+  m_EditorClassIdentifier: 
+  m_modelRootPrefab: {fileID: 1911704175576145132, guid: 016e8b84383d72843975dc16814363ec,
+    type: 3}
+  m_textureButtonPrefab: {fileID: 6806509752492746188, guid: 331aa806ae531fc4d87567174e2d7ff1,
+    type: 3}
+  m_jumperSetting: {fileID: 11400000, guid: 9c972abd1a885364f833ee9232c2148a, type: 2}

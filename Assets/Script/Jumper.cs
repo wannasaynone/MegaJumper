@@ -127,7 +127,7 @@ namespace MegaJumper
             m_jumperModel.transform.SetParent(m_rigidbody.transform);
             m_jumperModel.transform.localRotation = Quaternion.identity;
             m_jumperModel.transform.localPosition = Vector3.zero + m_jumperSetting.ModelOffset;
-            m_jumperModel.transform.localScale = Vector3.one;
+            m_jumperModel.transform.localScale = Vector3.one * 1.25f;
         }
 
         private void OnBlockSpawned(Event.InGameEvent.OnBlockSpawned obj)

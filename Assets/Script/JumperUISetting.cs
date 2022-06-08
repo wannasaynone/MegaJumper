@@ -10,5 +10,8 @@ namespace MegaJumper
 
         public GameObject TextureButtonPrefab { get { return m_textureButtonPrefab; } }
         [SerializeField] private GameObject m_textureButtonPrefab;
+
+        public JumperSetting JumperSetting { get { return m_jumperSetting; } }
+        [SerializeField] private JumperSetting m_jumperSetting;
     }
 }
