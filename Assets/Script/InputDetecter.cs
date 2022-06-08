@@ -17,9 +17,18 @@ namespace MegaJumper
 
         public void Tick()
         {
-            if ( m_eventSystem.IsPointerOverGameObject())
+            if (m_eventSystem.IsPointerOverGameObject())
             {
                 return;
+            }
+
+            foreach (UnityEngine.Touch touch in UnityEngine.Input.touches)
+            {
+                int id = touch.fingerId;
+                if (m_eventSystem.IsPointerOverGameObject(id))
+                {
+                    return;
+                }
             }
 
             if (UnityEngine.Input.GetMouseButtonDown(0))
