@@ -50,7 +50,16 @@ namespace MegaJumper
             eventDataCurrentPosition.position = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y);
             System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult> results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
             m_eventSystem.RaycastAll(eventDataCurrentPosition, results);
-            return results.Count > 0;
+
+            for (int i = 0; i < results.Count; i++)
+            {
+                if (results[i].gameObject.layer != UnityEngine.LayerMask.NameToLayer("Ignore Raycast"))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

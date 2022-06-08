@@ -5022,7 +5022,7 @@ GameObject:
   - component: {fileID: 25937434}
   - component: {fileID: 25937437}
   - component: {fileID: 25937436}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5156,7 +5156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31451711}
   - component: {fileID: 31451713}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: OnIncreaseStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5305,7 +5305,7 @@ GameObject:
   - component: {fileID: 47973957}
   - component: {fileID: 47973960}
   - component: {fileID: 47973959}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5440,7 +5440,7 @@ GameObject:
   - component: {fileID: 125432604}
   - component: {fileID: 125432603}
   - component: {fileID: 125432602}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: DelayedBarIncreasing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5461,7 +5461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0.78431374}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5853,7 +5853,7 @@ GameObject:
   - component: {fileID: 148560238}
   - component: {fileID: 148560240}
   - component: {fileID: 148560239}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint_GameStart (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5894,7 +5894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6131,7 +6131,7 @@ GameObject:
   - component: {fileID: 194808360}
   - component: {fileID: 194808363}
   - component: {fileID: 194808362}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: E2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6341,7 +6341,7 @@ GameObject:
   - component: {fileID: 237470030}
   - component: {fileID: 237470032}
   - component: {fileID: 237470031}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint _Release
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6362,11 +6362,11 @@ RectTransform:
   m_Father: {fileID: 525115090}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 770}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 80}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237470031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6381,7 +6381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6503,7 +6503,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -10, y: -265}
-  m_SizeDelta: {x: 265.0741, y: 50}
+  m_SizeDelta: {x: 265, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &241453270
 MonoBehaviour:
@@ -11506,7 +11506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364175023}
   - component: {fileID: 364175024}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: HorizontalBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11859,7 +11859,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -10, y: -175}
-  m_SizeDelta: {x: 265.0741, y: 50}
+  m_SizeDelta: {x: 265, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &404305180
 MonoBehaviour:
@@ -12384,7 +12384,7 @@ GameObject:
   - component: {fileID: 521540690}
   - component: {fileID: 521540692}
   - component: {fileID: 521540691}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BarBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12424,7 +12424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.23834105, g: 0.39980793, b: 0.49056602, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12458,7 +12458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525115090}
   - component: {fileID: 525115091}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: HintUIView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12717,7 +12717,7 @@ GameObject:
   - component: {fileID: 570293980}
   - component: {fileID: 570293983}
   - component: {fileID: 570293982}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: J
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13014,7 +13014,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -10, y: -82.2}
-  m_SizeDelta: {x: 265.0741, y: 50}
+  m_SizeDelta: {x: 265, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &653030803
 MonoBehaviour:
@@ -13176,7 +13176,7 @@ GameObject:
   - component: {fileID: 722808387}
   - component: {fileID: 722808385}
   - component: {fileID: 722808384}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: OnIncreaseStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13773,7 +13773,7 @@ GameObject:
   - component: {fileID: 734552370}
   - component: {fileID: 734552372}
   - component: {fileID: 734552371}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint_LandOnStage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13794,11 +13794,11 @@ RectTransform:
   m_Father: {fileID: 525115090}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 770}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 80}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734552371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13813,7 +13813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18809,7 +18809,7 @@ GameObject:
   - component: {fileID: 851533022}
   - component: {fileID: 851533024}
   - component: {fileID: 851533023}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19346,7 +19346,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 390, y: 220}
+  m_SizeDelta: {x: 700, y: 220}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1069000182
 MonoBehaviour:
@@ -19399,7 +19399,7 @@ GameObject:
   - component: {fileID: 1082504376}
   - component: {fileID: 1082504378}
   - component: {fileID: 1082504377}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19439,7 +19439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -19474,7 +19474,7 @@ GameObject:
   - component: {fileID: 1099755548}
   - component: {fileID: 1099755550}
   - component: {fileID: 1099755549}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19497,7 +19497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -185}
   m_SizeDelta: {x: 380, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1099755549
@@ -19514,7 +19514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -24760,7 +24760,7 @@ GameObject:
   - component: {fileID: 1213083412}
   - component: {fileID: 1213083415}
   - component: {fileID: 1213083414}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29768,7 +29768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1255741146}
   - component: {fileID: 1255741148}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: OnDecreaseStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29851,7 +29851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284655090}
   - component: {fileID: 1284655091}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ScoreUIView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34792,7 +34792,7 @@ GameObject:
   - component: {fileID: 1313035181}
   - component: {fileID: 1313035184}
   - component: {fileID: 1313035183}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40299,7 +40299,7 @@ GameObject:
   - component: {fileID: 1523245897}
   - component: {fileID: 1523245896}
   - component: {fileID: 1523245895}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: OnDecreaseStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41433,7 +41433,7 @@ GameObject:
   - component: {fileID: 1539295662}
   - component: {fileID: 1539295664}
   - component: {fileID: 1539295663}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint_Combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41454,11 +41454,11 @@ RectTransform:
   m_Father: {fileID: 525115090}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 770}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 80}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539295663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41473,7 +41473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -41568,7 +41568,7 @@ GameObject:
   - component: {fileID: 1555444484}
   - component: {fileID: 1555444483}
   - component: {fileID: 1555444482}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: DelayedBarDecreasing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41589,7 +41589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.13373467, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -41854,7 +41854,7 @@ GameObject:
   - component: {fileID: 1687043117}
   - component: {fileID: 1687043119}
   - component: {fileID: 1687043118}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint_GameStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41876,11 +41876,11 @@ RectTransform:
   m_Father: {fileID: 525115090}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 770}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -770}
   m_SizeDelta: {x: 600, y: 80}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1687043118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41895,7 +41895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -41990,7 +41990,7 @@ GameObject:
   - component: {fileID: 1711484256}
   - component: {fileID: 1711484259}
   - component: {fileID: 1711484258}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42433,7 +42433,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -42654,7 +42654,7 @@ GameObject:
   - component: {fileID: 1973752776}
   - component: {fileID: 1973752779}
   - component: {fileID: 1973752778}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42789,7 +42789,7 @@ GameObject:
   - component: {fileID: 1987133463}
   - component: {fileID: 1987133462}
   - component: {fileID: 1987133461}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BarFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42810,7 +42810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -42930,7 +42930,7 @@ GameObject:
   - component: {fileID: 2050058363}
   - component: {fileID: 2050058366}
   - component: {fileID: 2050058365}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43065,7 +43065,7 @@ GameObject:
   - component: {fileID: 2050116666}
   - component: {fileID: 2050116668}
   - component: {fileID: 2050116667}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ComboText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43105,7 +43105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -43200,7 +43200,7 @@ GameObject:
   - component: {fileID: 2058052388}
   - component: {fileID: 2058052390}
   - component: {fileID: 2058052389}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ControllerHint_HoldToPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43221,11 +43221,11 @@ RectTransform:
   m_Father: {fileID: 525115090}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 770}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 80}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058052389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43240,7 +43240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -43532,7 +43532,7 @@ GameObject:
   - component: {fileID: 2101801204}
   - component: {fileID: 2101801203}
   - component: {fileID: 2101801205}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: FeverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43766,7 +43766,7 @@ GameObject:
   - component: {fileID: 2111479776}
   - component: {fileID: 2111479775}
   - component: {fileID: 2111479774}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BgWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
