@@ -17,18 +17,14 @@ namespace MegaJumper
 
         public void Tick()
         {
-            if (m_eventSystem.IsPointerOverGameObject())
+            DetectMouseInput();
+        }
+
+        private void DetectMouseInput()
+        {
+            if (IsPointerOverUIObject())
             {
                 return;
-            }
-
-            foreach (UnityEngine.Touch touch in UnityEngine.Input.touches)
-            {
-                int id = touch.fingerId;
-                if (m_eventSystem.IsPointerOverGameObject(id))
-                {
-                    return;
-                }
             }
 
             if (UnityEngine.Input.GetMouseButtonDown(0))
@@ -46,6 +42,15 @@ namespace MegaJumper
             {
                 m_signalBus.Fire(new Event.InGameEvent.OnPointUp(m_timer));
             }
+        }
+
+        private bool IsPointerOverUIObject()
+        {
+            UnityEngine.EventSystems.PointerEventData eventDataCurrentPosition = new UnityEngine.EventSystems.PointerEventData(m_eventSystem);
+            eventDataCurrentPosition.position = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y);
+            System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult> results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+            m_eventSystem.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
         }
     }
 }
