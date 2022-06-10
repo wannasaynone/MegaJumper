@@ -15,7 +15,9 @@ MonoBehaviour:
   m_prefab: {fileID: 8178991322932249992, guid: 04b97684a60b52648919c138c8295741,
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
-  m_comboHitAdjust: 1
-  m_feverRequireCombo: 4
-  m_feverAddScore: 13
+  m_gameOverDistance: 3.75
+  m_comboHitAdjust: 0.7
+  m_feverRequireCombo: 5
+  m_feverAddScore: 5
   m_life: 1
+  m_description: Less likely to fall, but more difficult to hit Combo.

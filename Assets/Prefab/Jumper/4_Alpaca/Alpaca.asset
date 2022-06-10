@@ -15,7 +15,10 @@ MonoBehaviour:
   m_prefab: {fileID: 8575084092172078229, guid: a8581dba5a1504b4e912d4895cdb91a4,
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
-  m_comboHitAdjust: 0.7
-  m_feverRequireCombo: 5
-  m_feverAddScore: 6
+  m_gameOverDistance: 2.75
+  m_comboHitAdjust: 1.3
+  m_feverRequireCombo: 8
+  m_feverAddScore: 3
   m_life: 1
+  m_description: Easier to hit Combo, but Fever needs more Combo, and Fever score
+    will be less.

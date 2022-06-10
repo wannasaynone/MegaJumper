@@ -11,6 +11,9 @@ namespace MegaJumper
         public Vector3 ModelOffset { get { return m_modelOffset; } }
         [SerializeField] private Vector3 m_modelOffset;
 
+        public float GameOverDistance { get { return m_gameOverDistance; } }
+        [SerializeField] private float m_gameOverDistance;
+
         public float ComboHitAdjust { get { return m_comboHitAdjust; } }
         [SerializeField] private float m_comboHitAdjust;
 
@@ -22,5 +25,11 @@ namespace MegaJumper
 
         public int Life { get { return m_life; } }
         [SerializeField] private int m_life;
+
+        public string Description { get { return m_description; } }
+        [SerializeField] private string m_description;
+
+        public bool SkipPerfectCheck { get { return m_skipPerfectCheck; } }
+        [SerializeField] private bool m_skipPerfectCheck;
     }
 }

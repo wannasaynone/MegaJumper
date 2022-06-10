@@ -7,7 +7,6 @@
         public float MIN_ADD_DISTANCE = 5f;
         public int MAX_CLONE_COUNT = 10;
         public float MOVE_DIS_PER_SEC = 6f;
-        public float GAMEOVER_DIS = 2f;
         public UnityEngine.Vector3 CAMERA_OFFSET = default;
         public UnityEngine.Vector3 CAMERA_ANGLE_OFFSET = default;
         public float CAMERA_SHAKE_FORCE = 1f;

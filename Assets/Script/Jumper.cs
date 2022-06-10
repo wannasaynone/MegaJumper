@@ -37,7 +37,7 @@ namespace MegaJumper
         private int m_remainingLife;
         private GameObject m_jumperModel;
 
-        private int m_tutorialMode_feverTimes = 2;
+        private int m_tutorialMode_feverTimes = 99;
 
         [Inject]
         public void Constructor(SignalBus signalBus, GameProperties gameProperties, UI.HintUIView hintUIView)
@@ -96,7 +96,6 @@ namespace MegaJumper
                 m_tutorialMode_feverTimes++;
                 if (m_tutorialMode_feverTimes >= 2)
                 {
-                    Debug.Log("OnTutorialEnded");
                     m_hintView.EnableGameStartHint(true);
                     m_signalBus.Fire<Event.InGameEvent.OnTutorialEnded>();
                 }
@@ -195,12 +194,8 @@ namespace MegaJumper
 
             Vector3 _finalPos = transform.position;
 
-            if (m_tutorialMode_feverTimes < 2 && Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_gameProperties.GAMEOVER_DIS)
+            if (m_tutorialMode_feverTimes < 2 && Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_jumperSetting.GameOverDistance)
             {
-                //SetIdle();
-                //m_hintView.EnableTutorialHint(false);
-                //m_hintView.EnableStartHint(true);
-                //return;
                 m_remainingLife++;
             }
 
@@ -215,7 +210,7 @@ namespace MegaJumper
 
             if (m_lastBlock != null)
             {
-                if (Vector3.Distance(_finalPos, m_lastBlock.transform.position) <= m_gameProperties.GAMEOVER_DIS)
+                if (Vector3.Distance(_finalPos, m_lastBlock.transform.position) <= m_jumperSetting.GameOverDistance)
                 {
                     SetIdle();
                     return;
@@ -224,7 +219,7 @@ namespace MegaJumper
             else
             {
 
-                if (Vector3.Distance(_finalPos, transform.position) <= m_gameProperties.GAMEOVER_DIS)
+                if (Vector3.Distance(_finalPos, transform.position) <= m_jumperSetting.GameOverDistance)
                 {
                     SetIdle();
                     return;
@@ -256,7 +251,7 @@ namespace MegaJumper
         private void OnJumpEnded()
         {
             SetIdle();
-            bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_gameProperties.GAMEOVER_DIS * m_currentDirectionBlock.SizeScale;
+            bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_jumperSetting.GameOverDistance * m_currentDirectionBlock.SizeScale;
             bool isPerfect = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) <= m_jumperSetting.ComboHitAdjust;
 
             if (isScuess)
@@ -269,12 +264,6 @@ namespace MegaJumper
                         m_hintView.EnableStartHint(false);
                         m_hintView.EnableTutorialHint(true);
                     }
-                    //else
-                    //{
-                    //    m_hintView.EnableReleaseHint(false);
-                    //    m_hintView.EnableStartHint(true);
-                    //    m_hintView.EnableTutorialHint(false);
-                    //}
                 }
 
                 CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
@@ -345,15 +334,8 @@ namespace MegaJumper
                     {
                         m_hintView.EnableReleaseHint(true);
 
-                        //if (Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) <= m_jumperSetting.ComboHitAdjust)
-                        //{
-                        //    m_hintObject.transform.position = m_currentDirectionBlock.transform.position + Vector3.up;
-                        //}
-                        //else
-                        //{
-                            m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
-                            UpdatePressDownScale();
-                        //}
+                        m_hintObject.transform.position += (m_currentDirectionBlock.transform.position - transform.position).normalized * m_gameProperties.MOVE_DIS_PER_SEC * Time.deltaTime;
+                        UpdatePressDownScale();
 
                         if (m_tutorialMode_feverTimes == 1)
                         {

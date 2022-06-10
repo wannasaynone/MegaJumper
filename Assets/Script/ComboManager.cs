@@ -22,6 +22,7 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnFeverStart);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
 
             m_signalBus = signalBus;
             m_scoreManager = scoreManager;
@@ -42,7 +43,7 @@ namespace MegaJumper
                 m_scoreManager.Add(1);
             }
 
-            if (obj.IsPerfect)
+            if (obj.IsPerfect || m_currentSetting.SkipPerfectCheck)
             {
                 Combo++;
 
@@ -81,6 +82,13 @@ namespace MegaJumper
         private void OnTutorialEnded()
         {
             m_tutorialMode = false;
+        }
+
+        private void OnGameResetCalled()
+        {
+            m_feverCombo = 0;
+            Combo = 0;
+            m_signalBus.Fire(new Event.InGameEvent.OnComboReset());
         }
     }
 }

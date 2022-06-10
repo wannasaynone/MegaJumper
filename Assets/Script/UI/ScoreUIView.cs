@@ -79,7 +79,10 @@ namespace MegaJumper.UI
 
         private void OnComboAdded(Event.InGameEvent.OnComboAdded obj)
         {
-            m_comboText.text = "Combo x" + obj.Current;
+            if (m_currentJumpSetting.ComboHitAdjust > 0f)
+                m_comboText.text = "Combo x" + obj.Current;
+            else
+                m_comboText.text = "";
 
             if (m_progressBarRoot.activeSelf)
             {

@@ -22,6 +22,7 @@ namespace MegaJumper.UI
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
         [SerializeField] private UnityEngine.UI.Image m_feverScoreBarImage;
         [SerializeField] private UnityEngine.UI.Image m_comboNeedBarImage;
+        [SerializeField] private TMPro.TextMeshProUGUI m_descriptionText;
 
         [SerializeField] private JumperUISetting[] m_settings;
 
@@ -107,6 +108,7 @@ namespace MegaJumper.UI
             m_accurateBarImage.fillAmount = _jumperSetting.ComboHitAdjust / _strongestSettint.ComboHitAdjust;
             m_feverScoreBarImage.fillAmount = (float)_jumperSetting.FeverAddScore / (float)_strongestSettint.FeverAddScore;
             m_comboNeedBarImage.fillAmount = 0.25f + (0.75f - 0.75f * ((float)(_jumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo) * (1f / (float)(m_settings[0].JumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo))));
+            m_descriptionText.text = _jumperSetting.Description;
         }
 
         private float m_waitTimer = 0f;

@@ -15,7 +15,10 @@ MonoBehaviour:
   m_prefab: {fileID: 2961117670588355278, guid: 3c5428ff4fee42d468cfe6114ce55aa3,
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
-  m_comboHitAdjust: 1.2
-  m_feverRequireCombo: 3
-  m_feverAddScore: 12
-  m_life: 1
+  m_gameOverDistance: 2.75
+  m_comboHitAdjust: 0.7
+  m_feverRequireCombo: 5
+  m_feverAddScore: 5
+  m_life: 2
+  m_description: Have 2 chances, but it's harder to hit a Combo.
+  m_skipPerfectCheck: 0

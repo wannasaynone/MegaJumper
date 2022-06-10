@@ -15,7 +15,10 @@ MonoBehaviour:
   m_prefab: {fileID: 8036511742693467029, guid: e68770fec70ea8d4a85aa3f78603e761,
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
-  m_comboHitAdjust: 0.9
-  m_feverRequireCombo: 4
-  m_feverAddScore: 8
+  m_gameOverDistance: 2.75
+  m_comboHitAdjust: 0.4
+  m_feverRequireCombo: 1
+  m_feverAddScore: 5
   m_life: 1
+  m_description: Fever needs only 1 Combo, but it is extremely difficult to hit the
+    Combo.
