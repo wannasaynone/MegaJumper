@@ -18,7 +18,8 @@ MonoBehaviour:
   m_gameOverDistance: 2.75
   m_comboHitAdjust: 0.7
   m_feverRequireCombo: 3
-  m_feverAddScore: 3
+  m_feverAddScore: 2
   m_life: 1
   m_description: Fever needs less Combo, but harder to hit Combo, Fever score will
     be less.
+  m_skipPerfectCheck: 0
