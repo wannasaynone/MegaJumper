@@ -11,18 +11,24 @@ namespace MegaJumper.Monetization
 
         private readonly string m_rewardID;
         private readonly string m_inerID;
+        private readonly string m_bannerID;
 
+        private BannerView m_bannerView;
         private RewardedAd m_rewardVid;
 
         private Action m_currentOnRewardEnded = null;
         private Action<AdvertisementManager.FailType> m_currentOnFailed = null;
 
-        public AdmobAdUnit(string rewardID, string interstitialID)
+        public AdmobAdUnit(string rewardID, string interstitialID, string bannerID)
         {
             m_rewardID = rewardID;
             m_inerID = interstitialID;
+            m_bannerID = bannerID;
 
             m_rewardVid = new RewardedAd(m_rewardID);
+            m_bannerView = new BannerView(m_bannerID, AdSize.Banner, AdPosition.Bottom);
+            AdRequest _bannerRequest = new AdRequest.Builder().Build();
+            m_bannerView.LoadAd(_bannerRequest);
 
             // Called when an ad request has successfully loaded.
             m_rewardVid.OnAdLoaded += HandleRewardedAdLoaded;

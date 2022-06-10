@@ -47,7 +47,7 @@ namespace MegaJumper
         private void OnAdInited(GoogleMobileAds.Api.InitializationStatus status)
         {
             STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdUnit(
-                new Monetization.AdmobAdUnit(m_admobStorer.RewardAdID, m_admobStorer.InterstitialAdID));
+                new Monetization.AdmobAdUnit(m_admobStorer.RewardAdID, m_admobStorer.InterstitialAdID, m_admobStorer.BannerAdID));
         }
 
         private void Update()

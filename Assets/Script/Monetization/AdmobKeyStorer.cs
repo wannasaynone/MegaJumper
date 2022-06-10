@@ -9,5 +9,7 @@ namespace MegaJumper.Monetization
         [SerializeField] private string m_rewardID;
         public string InterstitialAdID { get { return m_interstitialID; } }
         [SerializeField] private string m_interstitialID;
+        public string BannerAdID { get { return m_bannerAdID; } }
+        [SerializeField] private string m_bannerAdID;
     }
 }

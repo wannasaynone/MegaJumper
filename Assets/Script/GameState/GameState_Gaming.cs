@@ -66,7 +66,7 @@ namespace MegaJumper.GameState
         {
             m_isFever = true;
             float _eachTime = m_gameProperties.FEVER_ANIMATION_TIME / (float)m_jumperSetting.FeverAddScore;
-            for (int i = 0; i < m_jumperSetting.FeverAddScore; i++)
+            for (int i = 0; i <= m_jumperSetting.FeverAddScore; i++)
             {
                 KahaGameCore.Common.TimerManager.Schedule(_eachTime * i, m_blockManager.CreateNew);
             }

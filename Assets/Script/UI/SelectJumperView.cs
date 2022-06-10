@@ -74,6 +74,8 @@ namespace MegaJumper.UI
                     _cloneTexture.transform.localScale = Vector3.one;
                     m_cloneTexture.Add(_cloneTexture);
                 }
+
+                SetUIWithIndex(0);
             }
         }
 

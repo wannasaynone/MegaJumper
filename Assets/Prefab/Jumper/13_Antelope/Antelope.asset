@@ -16,9 +16,10 @@ MonoBehaviour:
     type: 3}
   m_modelOffset: {x: 0, y: -1.2, z: 0}
   m_gameOverDistance: 2.75
-  m_comboHitAdjust: 0.4
+  m_comboHitAdjust: 0.3
   m_feverRequireCombo: 1
   m_feverAddScore: 5
   m_life: 1
   m_description: Fever needs only 1 Combo, but it is extremely difficult to hit the
     Combo.
+  m_skipPerfectCheck: 0
