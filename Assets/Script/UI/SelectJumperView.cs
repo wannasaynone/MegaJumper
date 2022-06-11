@@ -9,7 +9,7 @@ namespace MegaJumper.UI
     public class SelectJumperView : MonoBehaviour
     {
         [SerializeField] private GameObject m_ingameRoot;
-        [SerializeField] private GameObject m_ingameUI;
+        [SerializeField] private GameObject[] m_ingameUI;
         [SerializeField] private GameObject m_selectJumperUIRoot;
         [SerializeField] private GameObject m_selectJumperModelRoot;
         [SerializeField] private GameObject m_enableButtonRoot;
@@ -56,7 +56,10 @@ namespace MegaJumper.UI
             m_ingameRoot.SetActive(!active);
             m_selectJumperModelRoot.SetActive(active);
             m_selectJumperUIRoot.SetActive(active);
-            m_ingameUI.SetActive(!active);
+            for (int i = 0; i < m_ingameUI.Length; i++)
+            {
+                m_ingameUI[i].SetActive(!active);
+            }
             m_enableButtonRoot.SetActive(!active);
 
             if (m_cloneModelRoot.Count <= 0)

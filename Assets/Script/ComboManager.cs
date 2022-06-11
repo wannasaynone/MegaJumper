@@ -45,7 +45,10 @@ namespace MegaJumper
 
             if (obj.IsPerfect || m_currentSetting.SkipPerfectCheck)
             {
-                Combo++;
+                if (!m_currentSetting.SkipPerfectCheck)
+                {
+                    Combo++;
+                }
 
                 m_feverCombo++;
                 m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo, m_feverCombo));

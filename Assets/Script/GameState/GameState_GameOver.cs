@@ -20,7 +20,7 @@ namespace MegaJumper.GameState
 
         public override void Tick()
         {
-            if (m_timer >= 3f)
+            if (m_timer >= 1.5f)
             {
                 return;
             }

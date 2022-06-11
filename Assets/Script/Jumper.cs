@@ -37,6 +37,10 @@ namespace MegaJumper
         private int m_remainingLife;
         private GameObject m_jumperModel;
 
+        private string m_animator_idle = "Idle_A";
+        private string m_animator_roll = "Roll";
+        private Animator[] m_animators;
+
         private int m_tutorialMode_feverTimes = 99;
 
         [Inject]
@@ -80,6 +84,7 @@ namespace MegaJumper
         {
             m_rigidbody.transform.localScale = Vector3.one;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
+            PlayAnimation(m_animator_roll);
             StartJump(m_currentDirectionBlock.transform.position, m_gameProperties.FEVER_JUMP_FORCE, true, OnFeverJumpEnded);
         }
 
@@ -88,13 +93,14 @@ namespace MegaJumper
             m_currentState = State.Idle;
             CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
             m_landingFeedback.PlayFeedbacks();
-            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
+            PlayAnimation(m_animator_idle);
+            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false, m_remainingLife));
             m_signalBus.Fire<Event.InGameEvent.OnFeverEnded>();
 
-            if (m_tutorialMode_feverTimes < 2)
+            if (!IsTutorialEnded())
             {
                 m_tutorialMode_feverTimes++;
-                if (m_tutorialMode_feverTimes >= 2)
+                if (IsTutorialEnded())
                 {
                     m_hintView.EnableGameStartHint(true);
                     m_signalBus.Fire<Event.InGameEvent.OnTutorialEnded>();
@@ -127,6 +133,7 @@ namespace MegaJumper
             m_jumperModel.transform.localRotation = Quaternion.identity;
             m_jumperModel.transform.localPosition = Vector3.zero + m_jumperSetting.ModelOffset;
             m_jumperModel.transform.localScale = Vector3.one * 1.25f;
+            m_animators = m_jumperModel.GetComponentsInChildren<Animator>();
         }
 
         private void OnBlockSpawned(Event.InGameEvent.OnBlockSpawned obj)
@@ -194,7 +201,7 @@ namespace MegaJumper
 
             Vector3 _finalPos = transform.position;
 
-            if (m_tutorialMode_feverTimes < 2 && Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_jumperSetting.GameOverDistance)
+            if (!IsTutorialEnded() && Vector3.Distance(m_hintObject.transform.position - Vector3.up, m_currentDirectionBlock.transform.position) > m_jumperSetting.GameOverDistance)
             {
                 m_remainingLife++;
             }
@@ -227,7 +234,7 @@ namespace MegaJumper
             }
 
             float _adjust = m_jumperSetting.ComboHitAdjust;
-            if (m_tutorialMode_feverTimes < 2) _adjust += 0.3f;
+            if (!IsTutorialEnded()) _adjust += 0.3f;
 
             if (Vector3.Distance(_finalPos, m_currentDirectionBlock.transform.position) <= _adjust)
             {
@@ -256,19 +263,16 @@ namespace MegaJumper
 
             if (isScuess)
             {
-                if (m_tutorialMode_feverTimes < 2)
+                if (!IsTutorialEnded() && !isPerfect)
                 {
-                    if (!isPerfect)
-                    {
-                        m_hintView.EnableReleaseHint(false);
-                        m_hintView.EnableStartHint(false);
-                        m_hintView.EnableTutorialHint(true);
-                    }
+                    m_hintView.EnableReleaseHint(false);
+                    m_hintView.EnableStartHint(false);
+                    m_hintView.EnableTutorialHint(true);
                 }
 
                 CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
                 m_landingFeedback.PlayFeedbacks();
-                m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, isPerfect));
+                m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, isPerfect, m_remainingLife));
             }
             else
             {
@@ -281,7 +285,7 @@ namespace MegaJumper
 
                 if (m_remainingLife <= 0)
                 {
-                    m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, false, false));
+                    m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, false, false, m_remainingLife));
                 }
                 else
                 {
@@ -302,7 +306,7 @@ namespace MegaJumper
 
         private void OnRevived()
         {
-            if (m_tutorialMode_feverTimes < 2)
+            if (!IsTutorialEnded())
             {
                 m_hintView.EnableReleaseHint(false);
                 m_hintView.EnableStartHint(false);
@@ -311,7 +315,7 @@ namespace MegaJumper
             }
 
             m_currentState = State.Idle;
-            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false));
+            m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false, m_remainingLife));
         }
 
         private void Update()
@@ -330,7 +334,7 @@ namespace MegaJumper
                 }
                 else
                 {
-                    if (m_tutorialMode_feverTimes < 2)
+                    if (!IsTutorialEnded())
                     {
                         m_hintView.EnableReleaseHint(true);
 
@@ -341,7 +345,7 @@ namespace MegaJumper
                         {
                             for (int i = 0; i < m_hintImages.Length; i++)
                             {
-                                m_hintImages[i].color = new Color(m_hintImages[i].color.r, m_hintImages[i].color.g, m_hintImages[i].color.b, m_hintImages[i].color.a - Time.deltaTime * 2f);
+                                m_hintImages[i].color = new Color(m_hintImages[i].color.r, m_hintImages[i].color.g, m_hintImages[i].color.b, m_hintImages[i].color.a - Time.deltaTime * 3f);
                             }
                         }
                     }
@@ -378,6 +382,22 @@ namespace MegaJumper
             m_currentState = State.Idle;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
             m_rigidbody.transform.localRotation = Quaternion.identity;
+        }
+
+        private bool IsTutorialEnded()
+        {
+            return m_tutorialMode_feverTimes >= 2;
+        }
+
+        private void PlayAnimation(string name)
+        {
+            if (m_animators == null)
+                return;
+
+            for (int i = 0; i < m_animators.Length; i++)
+            {
+                m_animators[i].Play(name);
+            }
         }
     }
 }

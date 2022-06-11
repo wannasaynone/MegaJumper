@@ -11,8 +11,8 @@ namespace MegaJumper.UI
         [SerializeField] private MoreMountains.Tools.MMProgressBar m_comboProgressBar;
         [SerializeField] private GameObject m_progressBarRoot;
         [SerializeField] private GameObject m_feverJumpText;
+        [SerializeField] private TextMeshProUGUI m_lifeText;
 
-        private int m_currentHighest;
         private JumperSetting m_currentJumpSetting;
 
         private bool m_tutorialMode = false;
@@ -29,7 +29,8 @@ namespace MegaJumper.UI
             signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
-            m_scoreText.text = "0";
+            signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
+            m_scoreText.text = "";
             m_comboText.text = "";
         }
 
@@ -41,9 +42,9 @@ namespace MegaJumper.UI
 
         private void OnTutorialEnded()
         {
-            m_currentHighest = 0;
             m_tutorialMode = false;
             m_scoreText.gameObject.SetActive(true);
+            m_scoreText.text = "0";
         }
 
         private void OnGameStarted()
@@ -57,29 +58,23 @@ namespace MegaJumper.UI
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
         {
             m_currentJumpSetting = obj.JumperSetting;
+            OnJumpEnded(new Event.InGameEvent.OnJumpEnded(Vector3.zero, false, false, m_currentJumpSetting.Life));
         }
 
         private void OnScoreReset()
         {
-            m_scoreText.text = "0";
+            m_scoreText.text = "";
+            OnJumpEnded(new Event.InGameEvent.OnJumpEnded(Vector3.zero, false, false, m_currentJumpSetting.Life));
         }
 
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)
         {
-            if (obj.Current >= m_currentHighest)
-            {
-                m_scoreText.text = obj.Current.ToString();
-                m_currentHighest = obj.Current;
-            }
-            else
-            {
-                m_scoreText.text = obj.Current.ToString() + " / " + m_currentHighest;
-            }
+            m_scoreText.text = obj.Current.ToString();
         }
 
         private void OnComboAdded(Event.InGameEvent.OnComboAdded obj)
         {
-            if (m_currentJumpSetting.ComboHitAdjust > 0f)
+            if (obj.Current > 0)
                 m_comboText.text = "Combo x" + obj.Current;
             else
                 m_comboText.text = "";
@@ -109,6 +104,18 @@ namespace MegaJumper.UI
             m_comboProgressBar.SetBar01(0f);
             m_progressBarRoot.SetActive(false);
             m_feverJumpText.SetActive(false);
+        }
+
+        private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
+        {
+            if (m_currentJumpSetting.Life >= 2)
+            {
+                m_lifeText.text = "Life: " + obj.RemainingLife;
+            }
+            else
+            {
+                m_lifeText.text = "";
+            }
         }
     }
 }

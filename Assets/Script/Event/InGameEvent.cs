@@ -37,12 +37,14 @@
             public UnityEngine.Vector3 Position { get; private set; }
             public bool IsSuccess { get; private set; }
             public bool IsPerfect { get; private set; }
+            public int RemainingLife { get; private set; }
 
-            public OnJumpEnded(UnityEngine.Vector3 position, bool isSuccess, bool isPerfect)
+            public OnJumpEnded(UnityEngine.Vector3 position, bool isSuccess, bool isPerfect, int remainingLife)
             {
                 Position = position;
                 IsSuccess = isSuccess;
                 IsPerfect = isPerfect;
+                RemainingLife = remainingLife;
             }
         }
 
