@@ -15,6 +15,18 @@ MonoBehaviour:
   blockContainer:
     blockPrefab: {fileID: 3205182642276438116, guid: fdeddcd5853bf584bbbf9d768b2586b8,
       type: 3}
+  settlementSettingContainer:
+    settlementSettings:
+    - {fileID: 11400000, guid: b9ba0bb343048a944adfa72169edd109, type: 2}
+    - {fileID: 11400000, guid: 8c029e91f75262047883845f2e01e9fb, type: 2}
+    - {fileID: 11400000, guid: f819f6e680f53fe41bff39f8ade1c376, type: 2}
+    - {fileID: 11400000, guid: d1dde562e799a5440a935b6830252fef, type: 2}
+    - {fileID: 11400000, guid: 0d018d6195f93a346be739096d78e860, type: 2}
+    - {fileID: 11400000, guid: e6dc859bc0f70fa4ca920bb21645f501, type: 2}
+    - {fileID: 11400000, guid: e13e4af4bb9e0af4db89de780933e18e, type: 2}
+    - {fileID: 11400000, guid: 68485545b750d7b48845a2f4785b5635, type: 2}
+    - {fileID: 11400000, guid: adf03123348ad894cbc85048dfd94c78, type: 2}
+    - {fileID: 11400000, guid: 1ff1c71eae966274884fc43b8bfc2252, type: 2}
   gameProperties:
     MAX_ADD_DISTANCE: 12
     MIN_ADD_DISTANCE: 7

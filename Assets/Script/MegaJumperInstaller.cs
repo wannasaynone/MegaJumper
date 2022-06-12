@@ -17,6 +17,7 @@ namespace MegaJumper
             Container.Bind(typeof(IInitializable), typeof(ITickable)).To<GameManager>().AsSingle();
             Container.Bind<ComboManager>().AsSingle().NonLazy();
             Container.Bind<LocalSaveManager>().AsSingle().NonLazy();
+            Container.Bind<SettlemenManager>().AsSingle();
 
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<Event.InGameEvent.OnBlockSpawned>();
