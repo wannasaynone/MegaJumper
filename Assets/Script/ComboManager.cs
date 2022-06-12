@@ -41,27 +41,27 @@ namespace MegaJumper
             if (obj.IsSuccess)
             {
                 m_scoreManager.Add(1);
-            }
 
-            if (obj.IsPerfect || m_currentSetting.SkipPerfectCheck)
-            {
-                if (!m_currentSetting.SkipPerfectCheck)
+                if (obj.IsPerfect || m_currentSetting.SkipPerfectCheck)
                 {
-                    Combo++;
-                }
+                    if (!m_currentSetting.SkipPerfectCheck)
+                    {
+                        Combo++;
+                    }
 
-                m_feverCombo++;
-                m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo, m_feverCombo));
-                if (m_currentSetting != null && m_feverCombo >= m_currentSetting.FeverRequireCombo)
-                {
-                    m_signalBus.Fire<Event.InGameEvent.OnStartFever>();
+                    m_feverCombo++;
+                    m_signalBus.Fire(new Event.InGameEvent.OnComboAdded(Combo, m_feverCombo));
+                    if (m_currentSetting != null && m_feverCombo >= m_currentSetting.FeverRequireCombo)
+                    {
+                        m_signalBus.Fire<Event.InGameEvent.OnStartFever>();
+                    }
                 }
-            }
-            else
-            {
-                m_feverCombo = 0;
-                Combo = 0;
-                m_signalBus.Fire(new Event.InGameEvent.OnComboReset());
+                else
+                {
+                    m_feverCombo = 0;
+                    Combo = 0;
+                    m_signalBus.Fire(new Event.InGameEvent.OnComboReset());
+                }
             }
         }
 
