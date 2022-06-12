@@ -15238,6 +15238,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6270753921759050688, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270753921759050688, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 6270753921759050689, guid: e19631baeae9370479245530de1a2cc3,
         type: 3}
       propertyPath: m_text
@@ -15247,6 +15257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSize
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270753921759050689, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19631baeae9370479245530de1a2cc3, type: 3}
