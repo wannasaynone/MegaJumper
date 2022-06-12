@@ -16,7 +16,12 @@ namespace MegaJumper
 
         private void OnEnable()
         {
-            m_blockModels[Random.Range(0, m_blockModels.Length - 1)].SetActive(true);
+            int _ran = Random.Range(1, 3);
+
+            for (int i = 0; i < _ran; i++)
+            {
+                m_blockModels[Random.Range(0, m_blockModels.Length - 1)].SetActive(true);
+            }
         }
 
         public void RerollSize(float min = 0.5f, float max = 1f)

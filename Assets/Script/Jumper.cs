@@ -85,7 +85,7 @@ namespace MegaJumper
             m_rigidbody.transform.localScale = Vector3.one;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
             PlayAnimation(m_animator_roll);
-            StartJump(m_currentDirectionBlock.transform.position, m_gameProperties.FEVER_JUMP_FORCE, true, OnFeverJumpEnded);
+            StartJump(m_currentDirectionBlock.transform.position, (float)m_jumperSetting.FeverAddScore / 2f, true, OnFeverJumpEnded);
         }
 
         private void OnFeverJumpEnded()
