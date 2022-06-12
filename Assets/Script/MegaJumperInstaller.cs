@@ -35,8 +35,13 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnComboReset>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialStart>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialEnded>();
+            Container.DeclareSignal<Event.InGameEvent.OnCoinAdded>();
 
-            InitSDK();
+            // for zenject check
+            if (UnityEngine.Application.isPlaying)
+            {
+                InitSDK();
+            }
         }
 
         private void InitSDK()

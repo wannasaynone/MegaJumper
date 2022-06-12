@@ -12,13 +12,16 @@ namespace MegaJumper.UI
         [SerializeField] private GameObject m_progressBarRoot;
         [SerializeField] private GameObject m_feverJumpText;
         [SerializeField] private TextMeshProUGUI m_lifeText;
+        [SerializeField] private GameObject m_coinPanelRoot;
+        [SerializeField] private TextMeshProUGUI m_coinText;
 
         private JumperSetting m_currentJumpSetting;
 
         private bool m_tutorialMode = false;
+        private LocalSaveManager m_localSaveManager;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, GameProperties gameProperties)
+        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager)
         {
             signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
             signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
@@ -30,14 +33,18 @@ namespace MegaJumper.UI
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnCoinAdded>(OnCoinAdded);
             m_scoreText.text = "";
             m_comboText.text = "";
+
+            m_localSaveManager = localSaveManager;
         }
 
         private void OnTutorialStart()
         {
             m_tutorialMode = true;
             m_scoreText.gameObject.SetActive(false);
+            m_coinPanelRoot.SetActive(false);
         }
 
         private void OnTutorialEnded()
@@ -53,6 +60,7 @@ namespace MegaJumper.UI
                 return;
 
             m_scoreText.gameObject.SetActive(true);
+            m_coinPanelRoot.SetActive(false);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -64,6 +72,7 @@ namespace MegaJumper.UI
         private void OnScoreReset()
         {
             m_scoreText.text = "";
+            m_coinPanelRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             OnJumpEnded(new Event.InGameEvent.OnJumpEnded(Vector3.zero, false, false, m_currentJumpSetting.Life));
         }
 
@@ -116,6 +125,11 @@ namespace MegaJumper.UI
             {
                 m_lifeText.text = "";
             }
+        }
+
+        private void OnCoinAdded(Event.InGameEvent.OnCoinAdded obj)
+        {
+            m_coinText.text = obj.Current.ToString("N0");
         }
     }
 }
