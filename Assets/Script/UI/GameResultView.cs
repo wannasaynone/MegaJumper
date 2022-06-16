@@ -21,10 +21,6 @@ namespace MegaJumper.UI
         public void ShowWithCurrent()
         {
             List<SettlementSetting> _result = m_settlemenManager.GetResult();
-            for (int i = 0; i < _result.Count; i++)
-            {
-                Debug.Log(_result[i].Type + " " + _result[i].Value);
-            }
             m_root.SetActive(true);
         }
 

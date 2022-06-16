@@ -44,7 +44,7 @@ namespace MegaJumper.UI
 
         private void OnScoreReset()
         {
-            m_enableButtonRoot.SetActive(false);
+            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
         }
 
         private void OnGameResetCalled()
