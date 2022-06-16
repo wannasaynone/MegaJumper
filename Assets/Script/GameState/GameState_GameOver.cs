@@ -5,9 +5,11 @@ namespace MegaJumper.GameState
     public class GameState_GameOver : GameStateBase
     {
         private float m_timer;
+        private readonly UI.GameResultView m_gameResultView;
 
-        public GameState_GameOver(SignalBus signalBus) : base(signalBus)
+        public GameState_GameOver(SignalBus signalBus, UI.GameResultView gameResultView) : base(signalBus)
         {
+            m_gameResultView = gameResultView;
         }
 
         public override void Start()
@@ -28,7 +30,7 @@ namespace MegaJumper.GameState
             m_timer += UnityEngine.Time.deltaTime;
             if (m_timer >= 1.5f)
             {
-                SignalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+                m_gameResultView.ShowWithCurrent();
             }
         }
     }

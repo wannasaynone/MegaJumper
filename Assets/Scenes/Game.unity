@@ -6555,6 +6555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351911145}
+  - component: {fileID: 351911146}
   m_Layer: 5
   m_Name: GameResultView
   m_TagString: Untagged
@@ -6582,6 +6583,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &351911146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351911144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc888af32cecd3468b77c71d6b8d471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_root: {fileID: 681576667}
 --- !u!1 &354114429
 GameObject:
   m_ObjectHideFlags: 0
@@ -13463,7 +13477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &681576668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20456,6 +20470,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 351911146}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button_Next
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MegaJumper.UI.GameResultView, MegaJumper
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711622049, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -44854,6 +44908,7 @@ MonoBehaviour:
   - {fileID: 1284655091}
   - {fileID: 525115091}
   - {fileID: 198874323}
+  - {fileID: 351911146}
   - {fileID: 957958999}
   _identifier: 
   _useSceneContext: 0

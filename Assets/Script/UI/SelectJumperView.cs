@@ -30,18 +30,33 @@ namespace MegaJumper.UI
         private List<GameObject> m_cloneTexture = new List<GameObject>();
 
         private SignalBus m_signalBus;
+        private LocalSaveManager m_localSaveManager;
 
         [Inject]
-        public void Constructor(SignalBus signalBus)
+        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager)
         {
             m_signalBus = signalBus;
+            m_localSaveManager = localSaveManager;
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
+            signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
+        }
+
+        private void OnScoreReset()
+        {
+            m_enableButtonRoot.SetActive(false);
         }
 
         private void OnGameResetCalled()
         {
-            m_enableButtonRoot.SetActive(true);
+            if (m_localSaveManager.SaveDataInstance.IsTutorialEnded)
+            {
+                m_enableButtonRoot.SetActive(true);
+            }
+            else
+            {
+                m_enableButtonRoot.SetActive(false);
+            }
         }
 
         private void OnGameStarted()
