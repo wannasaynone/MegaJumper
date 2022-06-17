@@ -22,5 +22,8 @@ namespace MegaJumper
 
         public int AddCoin { get { return m_addCoin; } }
         [SerializeField] private int m_addCoin;
+
+        public string Description { get { return m_description; } }
+        [SerializeField] private string m_description;
     }
 }

@@ -20,15 +20,18 @@
         public class OnStartJump
         {
             public bool IsFeverJump { get; private set; }
+            public float PressTime { get; private set; }
 
             public OnStartJump()
             {
                 IsFeverJump = false;
+                PressTime = 0f;
             }
 
-            public OnStartJump(bool isFeverJump)
+            public OnStartJump(bool isFeverJump, float pressTime)
             {
                 IsFeverJump = isFeverJump;
+                PressTime = pressTime;
             }
         }
 

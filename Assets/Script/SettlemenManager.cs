@@ -66,7 +66,7 @@ namespace MegaJumper
                         }
                     case SettlementSetting.SettlementType.HightestScore_AllTime:
                         {
-                            if (m_score >= m_highscore_all)
+                            if (m_score > m_highscore_all)
                             {
                                 _result.Add(m_settlementSettingContainer.settlementSettings[i]);
                             }
@@ -74,7 +74,7 @@ namespace MegaJumper
                         }
                     case SettlementSetting.SettlementType.HightestScore_Today:
                         {
-                            if (m_score >= m_highscore_day)
+                            if (m_score > m_highscore_day)
                             {
                                 _result.Add(m_settlementSettingContainer.settlementSettings[i]);
                             }
@@ -88,8 +88,8 @@ namespace MegaJumper
 
         private void OnGameStarted()
         {
-            m_highscore_all = m_saveManager.SaveDataInstance.HighScore_All;
-            m_highscore_day = m_saveManager.SaveDataInstance.HighScore_Day;
+            m_highscore_all = m_saveManager.SaveDataInstance.Highscore_All;
+            m_highscore_day = m_saveManager.SaveDataInstance.Highscore_Day;
         }
 
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)

@@ -22,7 +22,6 @@ namespace MegaJumper
             m_blockManager = blockManager;
             m_jumper = jumper;
 
-            signalBus.Subscribe<Event.InGameEvent.OnPointUp>(OnPointUp);
             signalBus.Subscribe<Event.InGameEvent.OnStartJump>(OnJumpStart);
             signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
@@ -30,11 +29,6 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
 
             transform.eulerAngles = m_gameProperties.CAMERA_ANGLE_OFFSET;
-        }
-
-        private void OnPointUp(Event.InGameEvent.OnPointUp obj)
-        {
-            m_pressTime = obj.PressTime;
         }
 
         private void OnJumpStart(Event.InGameEvent.OnStartJump obj)
@@ -49,7 +43,8 @@ namespace MegaJumper
             Vector3 _dir = m_blockManager.GetLastBlockPosition() - transform.position;
             _dir.Normalize();
             _dir.y = 1f;
-            transform.DOMove(transform.position + _dir * m_pressTime * 2f, 0.3f);
+            transform.DOMove(transform.position + _dir * obj.PressTime * 2f, 0.3f);
+            m_pressTime = obj.PressTime;
         }
 
         private void OnGameResetCalled()

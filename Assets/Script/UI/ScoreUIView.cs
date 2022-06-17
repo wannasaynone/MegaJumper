@@ -14,6 +14,8 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_lifeText;
         [SerializeField] private GameObject m_coinPanelRoot;
         [SerializeField] private TextMeshProUGUI m_coinText;
+        [SerializeField] private TextMeshProUGUI m_historyHighscoreText;
+        [SerializeField] private TextMeshProUGUI m_todayHighscoreText;
 
         private JumperSetting m_currentJumpSetting;
 
@@ -45,6 +47,8 @@ namespace MegaJumper.UI
             m_tutorialMode = true;
             m_scoreText.gameObject.SetActive(false);
             m_coinPanelRoot.SetActive(false);
+            m_historyHighscoreText.gameObject.SetActive(false);
+            m_todayHighscoreText.gameObject.SetActive(false);
         }
 
         private void OnTutorialEnded()
@@ -61,6 +65,8 @@ namespace MegaJumper.UI
 
             m_scoreText.gameObject.SetActive(true);
             m_coinPanelRoot.SetActive(false);
+            m_historyHighscoreText.gameObject.SetActive(false);
+            m_todayHighscoreText.gameObject.SetActive(false);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -73,6 +79,10 @@ namespace MegaJumper.UI
         {
             m_scoreText.text = "";
             m_coinPanelRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
+            m_historyHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
+            m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
+            m_historyHighscoreText.text = "History Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_All;
+            m_todayHighscoreText.text = "Today Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_Day;
             OnJumpEnded(new Event.InGameEvent.OnJumpEnded(Vector3.zero, false, false, m_currentJumpSetting.Life));
         }
 

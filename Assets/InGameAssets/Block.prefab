@@ -538,7 +538,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8867362007226041062, guid: 960adfd29f4a1496c9effc65c0a0c558, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 960adfd29f4a1496c9effc65c0a0c558, type: 3}
 --- !u!4 &6393150719243831843 stripped
 Transform:
@@ -628,7 +629,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 863417251084009855, guid: 346b48e0f98d0485db91e41527ad9326, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 346b48e0f98d0485db91e41527ad9326, type: 3}
 --- !u!4 &358941836024223076 stripped
 Transform:
@@ -778,7 +780,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2927037646204583148, guid: e01e693de21d64c6f8dba0439798d4e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e01e693de21d64c6f8dba0439798d4e5, type: 3}
 --- !u!4 &944372775056965325 stripped
 Transform:
@@ -964,7 +967,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2843636065770308856, guid: cd42069228ed8de4fa5852d5a27cd128, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd42069228ed8de4fa5852d5a27cd128, type: 3}
 --- !u!4 &1105948158482303891 stripped
 Transform:
@@ -1141,7 +1145,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_3 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2927037646204583148, guid: e01e693de21d64c6f8dba0439798d4e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e01e693de21d64c6f8dba0439798d4e5, type: 3}
 --- !u!4 &3099278445219994571 stripped
 Transform:
@@ -1327,7 +1332,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_fur
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7517444937530673696, guid: 75bbe9959c0994258b982d5a2fbf2f46, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75bbe9959c0994258b982d5a2fbf2f46, type: 3}
 --- !u!4 &8009372007655252339 stripped
 Transform:
@@ -1665,7 +1671,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: big_leafs_tree_apple_red
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5461838697450716208, guid: 12dd95bda59cd4ffd982694313f2a603, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 12dd95bda59cd4ffd982694313f2a603, type: 3}
 --- !u!4 &2699659523423230881 stripped
 Transform:
@@ -1856,7 +1863,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3568998341041033177, guid: 1335dd4bdf5dc46f2918850377ccf1c1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1335dd4bdf5dc46f2918850377ccf1c1, type: 3}
 --- !u!4 &789202011010343204 stripped
 Transform:
@@ -2022,7 +2030,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7424969238745471179, guid: 8e4046ad515894a6bbcf0b155a2c5ac7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e4046ad515894a6bbcf0b155a2c5ac7, type: 3}
 --- !u!4 &8074404256041542994 stripped
 Transform:

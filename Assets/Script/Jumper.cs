@@ -252,7 +252,7 @@ namespace MegaJumper
 
             m_currentState = State.Jumping;
             m_pressTime = pressTime;
-            m_signalBus.Fire(new Event.InGameEvent.OnStartJump(isFever));
+            m_signalBus.Fire(new Event.InGameEvent.OnStartJump(isFever, pressTime));
         }
 
         private void OnJumpEnded()
@@ -297,10 +297,15 @@ namespace MegaJumper
         private void Revive()
         {
             m_currentState = State.Jumping;
-            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
-            m_rigidbody.transform.localRotation = Quaternion.identity;
             m_rigidbody.isKinematic = true;
             m_collider.isTrigger = true;
+            KahaGameCore.Common.TimerManager.Schedule(Time.deltaTime * 2f, StartReviveJump);
+        }
+
+        private void StartReviveJump()
+        {
+            m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
+            m_rigidbody.transform.localRotation = Quaternion.identity;
             transform.DOJump(m_currentDirectionBlock.transform.position, m_gameProperties.JUMP_FORCE, 1, 0.5f).SetEase(Ease.Linear).OnComplete(OnRevived);
         }
 
@@ -315,6 +320,7 @@ namespace MegaJumper
             }
 
             m_currentState = State.Idle;
+
             m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false, m_remainingLife));
         }
 

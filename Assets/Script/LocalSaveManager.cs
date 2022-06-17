@@ -22,8 +22,8 @@ namespace MegaJumper
             public bool IsTutorialEnded { get; private set; }
             public int Coin { get; private set; }
             public System.DateTime LastPlayDate { get; private set; }
-            public int HighScore_Day { get; private set; }
-            public int HighScore_All { get; private set; }
+            public int Highscore_Day { get; private set; }
+            public int Highscore_All { get; private set; }
 
             private readonly SignalBus m_signalBus;
 
@@ -40,8 +40,8 @@ namespace MegaJumper
                 IsTutorialEnded = isTutorialEnded;
                 Coin = coin;
                 LastPlayDate = lastPlay;
-                HighScore_Day = highscore_day;
-                HighScore_All = highscore_all;
+                Highscore_Day = highscore_day;
+                Highscore_All = highscore_all;
 
                 m_signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
                 m_signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
@@ -50,7 +50,7 @@ namespace MegaJumper
                 if (IsPassOneDay())
                 {
                     LastPlayDate = System.DateTime.Now;
-                    HighScore_All = 0;
+                    Highscore_Day = 0;
                 }
             }
 
@@ -103,19 +103,20 @@ namespace MegaJumper
             {
                 System.DateTime _cur = System.DateTime.Now;
                 System.TimeSpan _pass = _cur - LastPlayDate;
-                return _pass.Days <= 0;
+
+                return _pass.Days > 0;
             }
 
             private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)
             {
                 m_score = obj.Current;
-                if (m_score > HighScore_All)
+                if (m_score > Highscore_All)
                 {
-                    HighScore_All = m_score;
+                    Highscore_All = m_score;
                 }
-                if (m_score > HighScore_Day)
+                if (m_score > Highscore_Day)
                 {
-                    HighScore_Day = m_score;
+                    Highscore_Day = m_score;
                 }
             }
 
@@ -135,7 +136,6 @@ namespace MegaJumper
         public void LoadAll()
         {
             System.DateTime _saveDate = System.DateTime.Parse(UnityEngine.PlayerPrefs.GetString(LAST_DATE, new System.DateTime(1991, 11, 14).ToString()));
-
             SaveDataInstance = new SaveData(
                 m_signalBus,
                 UnityEngine.PlayerPrefs.GetInt(IS_TUTORIAL_ENDED, 0) == 1,
@@ -154,8 +154,8 @@ namespace MegaJumper
             UnityEngine.PlayerPrefs.SetInt(IS_TUTORIAL_ENDED, SaveDataInstance.IsTutorialEnded ? 1 : 0);
             UnityEngine.PlayerPrefs.SetInt(COIN, SaveDataInstance.Coin);
             UnityEngine.PlayerPrefs.SetString(LAST_DATE, SaveDataInstance.LastPlayDate.ToString());
-            UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_DAY, SaveDataInstance.HighScore_Day);
-            UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_ALL, SaveDataInstance.HighScore_All);
+            UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_DAY, SaveDataInstance.Highscore_Day);
+            UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_ALL, SaveDataInstance.Highscore_All);
             UnityEngine.PlayerPrefs.Save();
         }
     }

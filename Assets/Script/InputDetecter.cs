@@ -6,13 +6,15 @@ namespace MegaJumper
     {
         private readonly SignalBus m_signalBus;
         private readonly UnityEngine.EventSystems.EventSystem m_eventSystem;
+        private readonly GameProperties m_gameProperties;
 
         private float m_timer;
 
-        public InputDetecter(SignalBus signalBus, UnityEngine.EventSystems.EventSystem eventSystem)
+        public InputDetecter(SignalBus signalBus, UnityEngine.EventSystems.EventSystem eventSystem, GameProperties gameProperties)
         {
             m_signalBus = signalBus;
             m_eventSystem = eventSystem;
+            m_gameProperties = gameProperties;
         }
 
         public void Tick()
@@ -36,6 +38,10 @@ namespace MegaJumper
             if (UnityEngine.Input.GetMouseButton(0))
             {
                 m_timer += UnityEngine.Time.deltaTime;
+                if (m_timer >= m_gameProperties.MAX_PRESS_TIME)
+                {
+                    m_timer = m_gameProperties.MAX_PRESS_TIME;
+                }
             }
 
             if (UnityEngine.Input.GetMouseButtonUp(0))

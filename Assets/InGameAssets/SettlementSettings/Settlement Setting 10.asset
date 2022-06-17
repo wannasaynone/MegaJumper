@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Settlement Setting 10
   m_EditorClassIdentifier: 
   m_type: 4
-  m_value: 2
+  m_value: 1
   m_addCoin: 300
+  m_description: Continuous Fever
