@@ -102,9 +102,9 @@ namespace MegaJumper
             private bool IsPassOneDay()
             {
                 System.DateTime _cur = System.DateTime.Now;
-                System.TimeSpan _pass = _cur - LastPlayDate;
+                int _pass = _cur.Day - LastPlayDate.Day;
 
-                return _pass.Days > 0;
+                return _pass > 0;
             }
 
             private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)

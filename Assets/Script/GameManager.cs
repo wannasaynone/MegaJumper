@@ -13,6 +13,7 @@ namespace MegaJumper
         private readonly LocalSaveManager m_localSaveManager;
         private readonly UI.HintUIView m_hintView;
         private readonly UI.GameResultView m_resultView;
+        private readonly SettlemenManager m_settlementManager;
 
         private GameState.GameStateBase m_currentState;
         private JumperSetting m_jumperSetting;
@@ -22,6 +23,7 @@ namespace MegaJumper
             BlockManager blockManager, 
             ScoreManager scoreManager, 
             LocalSaveManager localSaveManager,
+            SettlemenManager settlemenManager,
             SignalBus signalBus, 
             GameProperties gameProperties,
             UI.HintUIView hintUIView,
@@ -35,6 +37,7 @@ namespace MegaJumper
             m_gameProperties = gameProperties;
             m_hintView = hintUIView;
             m_resultView = gameResultView;
+            m_settlementManager = settlemenManager;
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
@@ -58,7 +61,7 @@ namespace MegaJumper
         {
             if (!obj.IsSuccess)
             {
-                ChangeState(new GameState.GameState_GameOver(m_signalBus, m_resultView));
+                ChangeState(new GameState.GameState_GameOver(m_signalBus, m_resultView, m_settlementManager, m_localSaveManager));
             }
         }
 

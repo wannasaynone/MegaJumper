@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 using TMPro;
+using DG.Tweening;
 
 namespace MegaJumper.UI
 {
@@ -35,7 +36,6 @@ namespace MegaJumper.UI
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
-            signalBus.Subscribe<Event.InGameEvent.OnCoinAdded>(OnCoinAdded);
             m_scoreText.text = "";
             m_comboText.text = "";
 
@@ -78,6 +78,7 @@ namespace MegaJumper.UI
         private void OnScoreReset()
         {
             m_scoreText.text = "";
+            m_coinText.text = m_localSaveManager.SaveDataInstance.Coin.ToString();
             m_coinPanelRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_historyHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
@@ -137,9 +138,26 @@ namespace MegaJumper.UI
             }
         }
 
-        private void OnCoinAdded(Event.InGameEvent.OnCoinAdded obj)
+        public void ShowCoinPanel(bool withBounce = false)
         {
-            m_coinText.text = obj.Current.ToString("N0");
+            m_coinPanelRoot.SetActive(true);
+            if (withBounce)
+            {
+                StartCoroutine(IEBounceCoinPanel());   
+            }
+        }
+
+        private System.Collections.IEnumerator IEBounceCoinPanel()
+        {
+            m_coinPanelRoot.transform.localScale = Vector3.zero;
+            m_coinPanelRoot.transform.DOScale(new Vector3(1.1f, 1.1f, 1f), 0.15f);
+            yield return new WaitForSeconds(0.15f);
+            m_coinPanelRoot.transform.DOScale(Vector3.one, 0.3f);
+        }
+
+        public void UpdateCoinText(int value)
+        {
+            m_coinText.text = value.ToString("N0");
         }
     }
 }

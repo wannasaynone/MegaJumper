@@ -8,30 +8,42 @@ namespace KahaGameCore.Common
     {
         public static void RunNunber(float from, float to, float time, Action<float> onAdd, Action onDone)
         {
-            float _each = (to - from) / (time / Time.deltaTime);
+            float _delta = Time.deltaTime;
+            float _each = (to - from) / (time / _delta);
             GeneralCoroutineRunner.Instance.StartCoroutine(IENumberRunner(from, to, _each, time, onAdd, onDone));
         }
 
         private static IEnumerator IENumberRunner(float current, float target, float each, float time, Action<float> onAdd, Action onDone)
         {
-            float _delta = Time.deltaTime;
-
             current += each;
 
-            if(current >= target)
+            if (each >= 0f)
             {
-                current = target;
+                if (current >= target)
+                {
+                    current = target;
+                }
+            }
+            else
+            {
+                if (current <= target)
+                {
+                    current = target;
+                }
             }
 
             onAdd?.Invoke(current);
 
-            time -= _delta;
-            if(time <= 0f)
+            time -= Time.deltaTime;
+
+            if (time <= 0f)
             {
+                current = target;
+                onAdd?.Invoke(current);
                 onDone?.Invoke();
                 yield break;
             }
-            yield return new WaitForSeconds(_delta);
+            yield return null;
 
             GeneralCoroutineRunner.Instance.StartCoroutine(IENumberRunner(current, target, each, time, onAdd, onDone));
         }

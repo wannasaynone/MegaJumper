@@ -29,11 +29,11 @@ namespace MegaJumper
 
         public List<SettlementSetting> GetResult()
         {
-            UnityEngine.Debug.Log("m_highscore_day=" + m_highscore_day);
-            UnityEngine.Debug.Log("m_highscore_all=" + m_highscore_all);
-            UnityEngine.Debug.Log("m_continuousFeverCount=" + m_continuousFeverCount);
-            UnityEngine.Debug.Log("m_feverFrequency=" + m_feverFrequency);
-            UnityEngine.Debug.Log("m_score=" + m_score);
+            //UnityEngine.Debug.Log("m_highscore_day=" + m_highscore_day);
+            //UnityEngine.Debug.Log("m_highscore_all=" + m_highscore_all);
+            //UnityEngine.Debug.Log("m_continuousFeverCount=" + m_continuousFeverCount);
+            //UnityEngine.Debug.Log("m_feverFrequency=" + m_feverFrequency);
+            //UnityEngine.Debug.Log("m_score=" + m_score);
 
             List<SettlementSetting> _result = new List<SettlementSetting>();
             for (int i = 0; i < m_settlementSettingContainer.settlementSettings.Length; i++)
