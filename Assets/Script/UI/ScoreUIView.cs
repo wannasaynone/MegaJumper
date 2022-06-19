@@ -78,7 +78,7 @@ namespace MegaJumper.UI
         private void OnScoreReset()
         {
             m_scoreText.text = "";
-            m_coinText.text = m_localSaveManager.SaveDataInstance.Coin.ToString();
+            m_coinText.text = m_localSaveManager.SaveDataInstance.Coin.ToString("N0");
             m_coinPanelRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_historyHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);

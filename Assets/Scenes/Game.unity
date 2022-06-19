@@ -6604,7 +6604,7 @@ MonoBehaviour:
   m_waitShowPanelTime: 0.5
   m_totalCoinText: {fileID: 1587567175}
   m_coinImage: {fileID: 1844954772}
-  m_coinEndPos: {x: -385, y: 655, z: 0}
+  m_coinEndPos: {fileID: 468570823}
 --- !u!1 &354114429
 GameObject:
   m_ObjectHideFlags: 0

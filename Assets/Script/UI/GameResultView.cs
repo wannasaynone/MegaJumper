@@ -16,7 +16,7 @@ namespace MegaJumper.UI
         [SerializeField] private float m_waitShowPanelTime;
         [SerializeField] private TMPro.TextMeshProUGUI m_totalCoinText;
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
-        [SerializeField] private Vector3 m_coinEndPos;
+        [SerializeField] private RectTransform m_coinEndPos;
 
         private List<GameResultView_ScoreObject> m_cloneScoreObjects = new List<GameResultView_ScoreObject>();
 
@@ -161,7 +161,7 @@ namespace MegaJumper.UI
             _cloneCoin.transform.position = m_coinImage.transform.position;
             _cloneCoin.transform.localScale = Vector3.one;
 
-            _cloneCoin.transform.DOLocalMove(m_coinEndPos, flyTime).SetEase(Ease.Linear);
+            _cloneCoin.transform.DOMove(m_coinEndPos.position, flyTime).SetEase(Ease.Linear);
             Destroy(_cloneCoin.gameObject, flyTime + 0.1f);
         }
 
