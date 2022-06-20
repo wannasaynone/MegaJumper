@@ -11,7 +11,8 @@ namespace MegaJumper
             HightestScore_AllTime,
             GetScore,
             FeverFrequency,
-            ContinuousFever
+            ContinuousFever,
+            Combo
         }
 
         public SettlementType Type { get { return m_type; } }

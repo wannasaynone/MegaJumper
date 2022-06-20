@@ -13,6 +13,7 @@ namespace MegaJumper
         private int m_continuousFeverCount = 0;
         private int m_feverFrequency = 0;
         private int m_score = 0;
+        private int m_highestCombo = 0;
 
         public SettlemenManager(SettlementSettingContainer settingContainer, LocalSaveManager localSaveManager, Zenject.SignalBus signalBus)
         {
@@ -23,7 +24,8 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
-            signalBus.Subscribe<Event.InGameEvent.OnJumpEnded>(OnJumpEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnComboAdded>(OnComboAdded);
+            signalBus.Subscribe<Event.InGameEvent.OnComboReset>(OnComboReset);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
         }
 
@@ -80,6 +82,14 @@ namespace MegaJumper
                             }
                             break;
                         }
+                    case SettlementSetting.SettlementType.Combo:
+                        {
+                            if (m_highestCombo >= m_settlementSettingContainer.settlementSettings[i].Value)
+                            {
+                                _result.Add(m_settlementSettingContainer.settlementSettings[i]);
+                            }
+                            break;
+                        }
                 }
             }
 
@@ -110,16 +120,21 @@ namespace MegaJumper
         private void OnGameResetCalled()
         {
             m_feverFrequency = 0;
-            m_temp_continuousFeverCount = m_continuousFeverCount = 0;
+            m_temp_continuousFeverCount = m_continuousFeverCount = m_highestCombo = 0;
+        }
+
+        private void OnComboAdded(Event.InGameEvent.OnComboAdded obj)
+        {
+            if (obj.Current > m_highestCombo)
+            {
+                m_highestCombo = obj.Current;
+            }
         }
 
         private int m_temp_continuousFeverCount = 0;
-        private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
+        private void OnComboReset()
         {
-            if (!obj.IsPerfect)
-            {
-                m_temp_continuousFeverCount = 0;
-            }
+            m_temp_continuousFeverCount = 0;
         }
 
         private void OnTutorialEnded()
