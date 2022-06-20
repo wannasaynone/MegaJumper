@@ -23,15 +23,25 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d1dde562e799a5440a935b6830252fef, type: 2}
     - {fileID: 11400000, guid: 0d018d6195f93a346be739096d78e860, type: 2}
     - {fileID: 11400000, guid: e6dc859bc0f70fa4ca920bb21645f501, type: 2}
+    - {fileID: 11400000, guid: 09804a8e06b300940b5963abaf7b5798, type: 2}
+    - {fileID: 11400000, guid: c852bf58cb2bc514f85111d21b616f29, type: 2}
     - {fileID: 11400000, guid: e13e4af4bb9e0af4db89de780933e18e, type: 2}
     - {fileID: 11400000, guid: 68485545b750d7b48845a2f4785b5635, type: 2}
     - {fileID: 11400000, guid: adf03123348ad894cbc85048dfd94c78, type: 2}
+    - {fileID: 11400000, guid: 46660d219a5c6cf4ab73831dea17d759, type: 2}
+    - {fileID: 11400000, guid: a2859b6da4b5c4241a8084f45c79eb29, type: 2}
+    - {fileID: 11400000, guid: a63afd83da215c44bb31912843aa13bb, type: 2}
     - {fileID: 11400000, guid: 1ff1c71eae966274884fc43b8bfc2252, type: 2}
+    - {fileID: 11400000, guid: c2a4d6a63556aa344835a3c70c38a6ea, type: 2}
+    - {fileID: 11400000, guid: fa9a4c659d0000e489a250e543bb0672, type: 2}
+    - {fileID: 11400000, guid: bb331a6633aee6c488f61e57fd494f59, type: 2}
+    - {fileID: 11400000, guid: 633604ac68fb25c4585345779e51f1cb, type: 2}
   gameProperties:
     MAX_ADD_DISTANCE: 12
     MIN_ADD_DISTANCE: 7
     MAX_CLONE_COUNT: 20
     MOVE_DIS_PER_SEC: 15
+    MAX_PRESS_TIME: 2
     CAMERA_OFFSET: {x: 19, y: 18, z: -20}
     CAMERA_ANGLE_OFFSET: {x: 20, y: -45, z: 0}
     CAMERA_SHAKE_FORCE: 1

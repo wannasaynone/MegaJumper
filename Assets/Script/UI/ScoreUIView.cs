@@ -143,7 +143,19 @@ namespace MegaJumper.UI
             m_coinPanelRoot.SetActive(true);
             if (withBounce)
             {
-                StartCoroutine(IEBounceCoinPanel());   
+                KahaGameCore.Common.GeneralCoroutineRunner.Instance.StartCoroutine(IEBounceCoinPanel());   
+            }
+        }
+
+        public void HideCoinPanel(bool withBounce = false)
+        {
+            if (withBounce)
+            {
+                KahaGameCore.Common.GeneralCoroutineRunner.Instance.StartCoroutine(IEBounceCoinPanel_Hide());
+            }
+            else
+            {
+                m_coinPanelRoot.SetActive(false);
             }
         }
 
@@ -153,6 +165,15 @@ namespace MegaJumper.UI
             m_coinPanelRoot.transform.DOScale(new Vector3(1.1f, 1.1f, 1f), 0.15f);
             yield return new WaitForSeconds(0.15f);
             m_coinPanelRoot.transform.DOScale(Vector3.one, 0.3f);
+        }
+
+        private System.Collections.IEnumerator IEBounceCoinPanel_Hide()
+        {
+            m_coinPanelRoot.transform.DOScale(new Vector3(1.1f, 1.1f, 1f), 0.15f);
+            yield return new WaitForSeconds(0.15f);
+            m_coinPanelRoot.transform.DOScale(Vector3.zero, 0.3f);
+            yield return new WaitForSeconds(0.15f);
+            m_coinPanelRoot.SetActive(false);
         }
 
         public void UpdateCoinText(int value)

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478fad96297f15745900004d33631468, type: 3}
-  m_Name: Settlement Setting 1
+  m_Name: Settlement Setting Score 50
   m_EditorClassIdentifier: 
-  m_type: 0
-  m_value: 0
+  m_type: 2
+  m_value: 50
   m_addCoin: 50
-  m_description: Today Highest Score
+  m_description: Over Score 50

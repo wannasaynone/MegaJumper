@@ -23,3 +23,4 @@ MonoBehaviour:
   m_description: Fever needs less Combo, but harder to hit Combo, Fever score will
     be less.
   m_skipPerfectCheck: 0
+  m_unlockPrice: 1000

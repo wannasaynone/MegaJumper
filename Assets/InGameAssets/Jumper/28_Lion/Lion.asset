@@ -22,3 +22,4 @@ MonoBehaviour:
   m_life: 4
   m_description: Have 4 chances, but can no longer hit the Combo.
   m_skipPerfectCheck: 0
+  m_unlockPrice: 1000

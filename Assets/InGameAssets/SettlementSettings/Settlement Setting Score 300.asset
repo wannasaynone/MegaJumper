@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478fad96297f15745900004d33631468, type: 3}
-  m_Name: Settlement Setting 9
+  m_Name: Settlement Setting Score 300
   m_EditorClassIdentifier: 
-  m_type: 3
-  m_value: 10
-  m_addCoin: 300
-  m_description: Fever x 10
+  m_type: 2
+  m_value: 300
+  m_addCoin: 50
+  m_description: Over Score 300

@@ -22,3 +22,4 @@ MonoBehaviour:
   m_life: 1
   m_description: Easier to hit Combo, but Fever needs more Combo.
   m_skipPerfectCheck: 0
+  m_unlockPrice: 1000

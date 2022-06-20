@@ -17,6 +17,11 @@ namespace MegaJumper.UI
         [SerializeField] private RectTransform m_selectButtonRect;
         [SerializeField] private Transform m_jumperModelRootParent;
         [SerializeField] private GameObject m_modelRootCameraRoot;
+        [SerializeField] private GameObject m_lockImageRoot;
+        [SerializeField] private UnityEngine.UI.Button m_selectJumperButton;
+        [SerializeField] private UnityEngine.UI.Button m_unlockJumperButton;
+        [SerializeField] private TMPro.TextMeshProUGUI m_unlockPriceText;
+        [SerializeField] private GameObject m_unlockPanel;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
@@ -31,12 +36,15 @@ namespace MegaJumper.UI
 
         private SignalBus m_signalBus;
         private LocalSaveManager m_localSaveManager;
+        private ScoreUIView m_scoreUI;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager)
+        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager, ScoreUIView scoreUIView)
         {
             m_signalBus = signalBus;
             m_localSaveManager = localSaveManager;
+            m_scoreUI = scoreUIView;
+
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
             signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
@@ -118,6 +126,36 @@ namespace MegaJumper.UI
             m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_settings[m_currentIndex].JumperSetting));
         }
 
+        public void Button_Unlock()
+        {
+            if (m_localSaveManager.SaveDataInstance.Coin < m_settings[m_currentIndex].JumperSetting.UnlockPrice)
+            {
+                Debug.Log("[TODO] no enough coin hint");
+                return;
+            }
+
+            m_unlockPanel.SetActive(true);
+
+            int _orginCoint = m_localSaveManager.SaveDataInstance.Coin;
+
+            m_localSaveManager.SaveDataInstance.AddCoin(-m_settings[m_currentIndex].JumperSetting.UnlockPrice);
+            m_localSaveManager.SaveDataInstance.Unlock(m_settings[m_currentIndex].JumperSetting.name);
+            m_localSaveManager.SaveAll();
+
+            KahaGameCore.Common.GameUtility.RunNunber(_orginCoint, m_localSaveManager.SaveDataInstance.Coin, 0.5f, OnCoinNumberUpdate, OnNumberRunEnded);
+        }
+
+        private void OnCoinNumberUpdate(float cur)
+        {
+            m_scoreUI.UpdateCoinText(Convert.ToInt32(cur));
+        }
+
+        private void OnNumberRunEnded()
+        {
+            m_unlockPanel.SetActive(false);
+            SetUIWithIndex(m_currentIndex);
+        }
+
         private void SetUIWithIndex(int index)
         {
             m_modelRootCameraRoot.transform.localPosition = new Vector3(10f * index, 0f, 0f);
@@ -129,6 +167,12 @@ namespace MegaJumper.UI
             m_feverScoreBarImage.fillAmount = (float)_jumperSetting.FeverAddScore / (float)_strongestSettint.FeverAddScore;
             m_comboNeedBarImage.fillAmount = 0.25f + (0.75f - 0.75f * ((float)(_jumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo) * (1f / (float)(m_settings[0].JumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo))));
             m_descriptionText.text = _jumperSetting.Description;
+
+            bool _unlocked = m_localSaveManager.SaveDataInstance.UnlockedJumpers.Contains(_jumperSetting.name);
+            m_lockImageRoot.SetActive(!_unlocked);
+            m_selectJumperButton.gameObject.SetActive(_unlocked);
+            m_unlockJumperButton.gameObject.SetActive(!_unlocked);
+            m_unlockPriceText.text = _jumperSetting.UnlockPrice.ToString("N0");
         }
 
         private float m_waitTimer = 0f;

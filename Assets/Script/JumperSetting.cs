@@ -31,5 +31,8 @@ namespace MegaJumper
 
         public bool SkipPerfectCheck { get { return m_skipPerfectCheck; } }
         [SerializeField] private bool m_skipPerfectCheck;
+
+        public int UnlockPrice { get { return m_unlockPrice; } }
+        [SerializeField] private int m_unlockPrice;
     }
 }

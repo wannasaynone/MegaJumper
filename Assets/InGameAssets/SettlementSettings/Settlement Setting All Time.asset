@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478fad96297f15745900004d33631468, type: 3}
-  m_Name: Settlement Setting 10
+  m_Name: Settlement Setting All Time
   m_EditorClassIdentifier: 
-  m_type: 4
-  m_value: 2
-  m_addCoin: 300
-  m_description: Continuous Fever
+  m_type: 1
+  m_value: 0
+  m_addCoin: 50
+  m_description: History Highest Score
