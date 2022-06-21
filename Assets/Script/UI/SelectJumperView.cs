@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,13 +18,16 @@ namespace MegaJumper.UI
         [SerializeField] private RectTransform m_selectButtonRect;
         [SerializeField] private Transform m_jumperModelRootParent;
         [SerializeField] private GameObject m_modelRootCameraRoot;
-        [SerializeField] private GameObject m_lockImageRoot;
+        [SerializeField] private UnityEngine.UI.Image m_lockImage;
+        [SerializeField] private UnityEngine.UI.Image m_lockImage_cover;
         [SerializeField] private UnityEngine.UI.Button m_selectJumperButton;
         [SerializeField] private UnityEngine.UI.Button m_unlockJumperButton;
         [SerializeField] private TMPro.TextMeshProUGUI m_unlockPriceText;
         [SerializeField] private Color m_normalColor;
         [SerializeField] private Color m_cantUnlockColor;
         [SerializeField] private GameObject m_unlockPanel;
+        [SerializeField] private UnityEngine.UI.Image m_coinImage;
+        [SerializeField] private RectTransform m_coinEndPos;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
@@ -109,6 +113,9 @@ namespace MegaJumper.UI
 
         public void Scroll_OnValueChanged(Vector2 pos)
         {
+            if (m_isUnlocking)
+                return;
+
             float _each = 1f / (m_cloneTexture.Count - 1);
 
             for (int i = 0; i < m_cloneTexture.Count; i++)
@@ -144,7 +151,52 @@ namespace MegaJumper.UI
             m_localSaveManager.SaveDataInstance.Unlock(m_settings[m_currentIndex].JumperSetting.name);
             m_localSaveManager.SaveAll();
 
-            KahaGameCore.Common.GameUtility.RunNunber(_orginCoint, m_localSaveManager.SaveDataInstance.Coin, 0.5f, OnCoinNumberUpdate, OnNumberRunEnded);
+            KahaGameCore.Common.GameUtility.RunNunber(_orginCoint, m_localSaveManager.SaveDataInstance.Coin, 0.5f, OnCoinNumberUpdate, null);
+            StartCoroutine(IEUnlock());
+        }
+
+        private bool m_isUnlocking;
+        private IEnumerator IEUnlock()
+        {
+            m_isUnlocking = true;
+
+            float _flyTime = 0.2f;
+            float _spawnGap = 0.05f;
+            int _amount = Convert.ToInt32(0.25f / _spawnGap);
+            for (int i = 0; i < _amount; i++)
+            {
+                CloneCoin(_flyTime);
+                yield return new WaitForSeconds(_spawnGap);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            DOTween.To(GetLockImageColor, SetLockImageColor, new Color(1f, 1f, 1f, 1f), 0.25f);
+
+            yield return new WaitForSeconds(0.25f);
+
+            m_lockImage.gameObject.SetActive(false);
+            m_lockImage_cover.transform.DOShakePosition(2f, 50f, 20);
+
+            yield return new WaitForSeconds(2f);
+
+            m_lockImage_cover.transform.DOScale(Vector3.one * 3f, 0.15f);
+            DOTween.To(GetLockImageColor, SetLockImageColor, new Color(1f, 1f, 1f, 0f), 0.15f);
+
+            yield return new WaitForSeconds(0.15f);
+
+            OnNumberRunEnded();
+            m_isUnlocking = false;
+        }
+
+        private Color GetLockImageColor()
+        {
+            return m_lockImage_cover.color;
+        }
+
+        private void SetLockImageColor(Color color)
+        {
+            m_lockImage_cover.color = color;
         }
 
         private void OnCoinNumberUpdate(float cur)
@@ -152,10 +204,21 @@ namespace MegaJumper.UI
             m_scoreUI.UpdateCoinText(Convert.ToInt32(cur));
         }
 
+        private void CloneCoin(float flyTime)
+        {
+            UnityEngine.UI.Image _cloneCoin = Instantiate(m_coinImage);
+            _cloneCoin.transform.SetParent(transform);
+            _cloneCoin.transform.position = m_coinImage.transform.position;
+            _cloneCoin.transform.localScale = Vector3.one;
+
+            _cloneCoin.transform.DOMove(m_coinEndPos.position, flyTime).SetEase(Ease.Linear);
+            Destroy(_cloneCoin.gameObject, flyTime + 0.1f);
+        }
+
         private void OnNumberRunEnded()
         {
             m_unlockPanel.SetActive(false);
-            SetUIWithIndex(m_currentIndex);
+            SetUIWithIndex(m_currentIndex);//
         }
 
         private void SetUIWithIndex(int index)
@@ -171,7 +234,9 @@ namespace MegaJumper.UI
             m_descriptionText.text = _jumperSetting.Description;
 
             bool _unlocked = m_localSaveManager.SaveDataInstance.UnlockedJumpers.Contains(_jumperSetting.name);
-            m_lockImageRoot.SetActive(!_unlocked);
+            m_lockImage.gameObject.SetActive(!_unlocked);
+            m_lockImage_cover.color = new Color(1f, 1f, 1f, 0f);
+            m_lockImage_cover.transform.localScale = Vector3.one;
             m_selectJumperButton.gameObject.SetActive(_unlocked);
             m_unlockJumperButton.gameObject.SetActive(!_unlocked);
             m_unlockPriceText.text = _jumperSetting.UnlockPrice.ToString("N0");

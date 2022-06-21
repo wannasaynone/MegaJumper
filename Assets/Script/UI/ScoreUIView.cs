@@ -193,7 +193,7 @@ namespace MegaJumper.UI
         private System.Collections.IEnumerator IEShakeCoinPanel()
         {
             m_shaking = true;
-            m_coinPanelRoot.transform.DOScale(Vector3.one * 1.2f, 0.5f);
+            m_coinPanelRoot.transform.DOScale(Vector3.one * 1.5f, 0.5f);
             m_coinPanelRoot.transform.DOShakePosition(0.5f, 100f, 20);
             yield return new WaitForSeconds(0.5f);
             m_coinPanelRoot.transform.DOScale(Vector3.one, 0.25f);

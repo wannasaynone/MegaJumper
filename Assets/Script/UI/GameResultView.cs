@@ -87,10 +87,6 @@ namespace MegaJumper.UI
                 yield return new WaitForSeconds(0.15f);
 
                 m_cloneScoreObjects[i].transform.DOScale(Vector3.one, 0.3f);
-
-                yield return new WaitForSeconds(0.3f);
-
-                m_scoreObjectScroll.normalizedPosition = new Vector2(0f, 0f);
             }
 
             if (_totalNow <= 0)
