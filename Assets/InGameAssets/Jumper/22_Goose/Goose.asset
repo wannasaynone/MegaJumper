@@ -19,8 +19,9 @@ MonoBehaviour:
   m_comboHitAdjust: -1
   m_feverRequireCombo: 15
   m_feverAddScore: 5
+  m_addidtionalAddScoreEveryJump: 0
   m_life: 1
   m_description: Fever is triggered every 15 boards, but you can no longer hit the
     Combo.
   m_skipPerfectCheck: 1
-  m_unlockPrice: 1000
+  m_unlockPrice: 3000

@@ -22,12 +22,14 @@ namespace MegaJumper.UI
 
         private SignalBus m_signalBus;
         private ScoreUIView m_scoreUI;
+        private ScoreManager m_scoreManager;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, ScoreUIView scoreUI)
+        public void Constructor(SignalBus signalBus, ScoreUIView scoreUI, ScoreManager scoreManager)
         {
             m_signalBus = signalBus;
             m_scoreUI = scoreUI;
+            m_scoreManager = scoreManager;
         }
 
         public void ShowWith(List<SettlementSetting> result, int orginMoneyNumber, System.Action onShown)
@@ -56,7 +58,7 @@ namespace MegaJumper.UI
             {
                 if (i < m_cloneScoreObjects.Count)
                 {
-                    m_cloneScoreObjects[i].SetUp(result[i]);
+                    m_cloneScoreObjects[i].SetUp(result[i], m_scoreManager);
                     m_cloneScoreObjects[i].gameObject.SetActive(true);
                 }
                 else
@@ -64,12 +66,19 @@ namespace MegaJumper.UI
                     GameResultView_ScoreObject _clone = Instantiate(m_scoreObjectPrefab);
                     _clone.transform.SetParent(m_scoreObjectRoot);
                     _clone.transform.localScale = Vector3.one;
-                    _clone.SetUp(result[i]);
+                    _clone.SetUp(result[i], m_scoreManager);
 
                     m_cloneScoreObjects.Add(_clone);
                 }
 
-                _totalNow += result[i].AddCoin;
+                if (result[i].TimesScore)
+                {
+                    _totalNow += result[i].AddCoin * m_scoreManager.Score;
+                }
+                else
+                {
+                    _totalNow += result[i].AddCoin;
+                }
 
                 m_cloneScoreObjects[i].transform.localScale = Vector3.zero;
                 m_cloneScoreObjects[i].transform.DOScale(new Vector3(1.1f, 1.1f, 1f), 0.15f);

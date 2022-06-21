@@ -17,6 +17,7 @@ MonoBehaviour:
       type: 3}
   settlementSettingContainer:
     settlementSettings:
+    - {fileID: 11400000, guid: e0c13a362b99895438c2b322b7984f31, type: 2}
     - {fileID: 11400000, guid: b9ba0bb343048a944adfa72169edd109, type: 2}
     - {fileID: 11400000, guid: 8c029e91f75262047883845f2e01e9fb, type: 2}
     - {fileID: 11400000, guid: f819f6e680f53fe41bff39f8ade1c376, type: 2}

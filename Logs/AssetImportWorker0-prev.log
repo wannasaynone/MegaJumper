@@ -15,11 +15,11 @@ D:/work/MegaJumper
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-6709
+6035
 Successfully changed project path to: D:/work/MegaJumper
 D:/work/MegaJumper
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 104.08 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 106.99 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.16f1 (049d6eca3c44)
 [Subsystems] Discovering subsystems at path D:/UnityEditor/2020.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -36,39 +36,39 @@ Initialize mono
 Mono path[0] = 'D:/UnityEditor/2020.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'D:/UnityEditor/2020.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/UnityEditor/2020.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56848
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56720
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/UnityEditor/2020.3.16f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/UnityEditor/2020.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001206 seconds.
+Registered in 0.001165 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 86.17 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 98.68 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  6.253 seconds
+- Completed reload, in  3.505 seconds
 Domain Reload Profiling:
-	ReloadAssembly (6254ms)
+	ReloadAssembly (3505ms)
 		BeginReloadAssembly (44ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (437ms)
+		EndReloadAssembly (464ms)
 			LoadAssemblies (44ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (129ms)
+			SetupTypeCache (137ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (27ms)
-			SetupLoadedEditorAssemblies (194ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (214ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (86ms)
-				BeforeProcessingInitializeOnLoad (15ms)
-				ProcessInitializeOnLoadAttributes (65ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (16ms)
+				ProcessInitializeOnLoadAttributes (72ms)
 				ProcessInitializeOnLoadMethodAttributes (23ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -76,35 +76,35 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010163 seconds.
+Registered in 0.010237 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 86.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 92.16 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.883 seconds
+- Completed reload, in  1.458 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1884ms)
-		BeginReloadAssembly (127ms)
+	ReloadAssembly (1458ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1706ms)
-			LoadAssemblies (86ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1275ms)
+			LoadAssemblies (90ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (312ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (71ms)
-			SetupLoadedEditorAssemblies (451ms)
+			SetupTypeCache (319ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (454ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (86ms)
-				BeforeProcessingInitializeOnLoad (67ms)
-				ProcessInitializeOnLoadAttributes (284ms)
+				RefreshPlugins (92ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (279ms)
 				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
@@ -115,14 +115,14 @@ Platform modules already initialized, skipping
 Worker process is ready to serve import requests
 Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 1.49 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.54 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2912 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 272.0 MB.
 System memory in use after: 272.2 MB.
 
 Unloading 149 unused Assets to reduce memory usage. Loaded Objects now: 3281.
-Total: 3.240600 ms (FindLiveObjects: 0.341200 ms CreateObjectMapping: 0.168100 ms MarkObjects: 2.622000 ms  DeleteObjects: 0.108300 ms)
+Total: 3.258100 ms (FindLiveObjects: 0.282200 ms CreateObjectMapping: 0.139800 ms MarkObjects: 2.734900 ms  DeleteObjects: 0.100000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -136,636 +136,44 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting All Time.asset
-  artifactKey: Guid(8c029e91f75262047883845f2e01e9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting All Time.asset using Guid(8c029e91f75262047883845f2e01e9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3598086f98f7aa3ad9059c732978b600') in 0.076311 seconds 
-  Import took 0.082481 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 20.762266 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 50.asset
-  artifactKey: Guid(f819f6e680f53fe41bff39f8ade1c376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 50.asset using Guid(f819f6e680f53fe41bff39f8ade1c376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9935b19083b0995621ce17d45cd6d298') in 0.007629 seconds 
-  Import took 0.011733 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.098808 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting 10.asset
-  artifactKey: Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting 10.asset using Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a93b61b2e09612db6cf132d47367bb3a') in 0.006546 seconds 
-  Import took 0.011779 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.224279 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset
-  artifactKey: Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset using Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd18833610912f56017d890330e6c5357') in 0.006154 seconds 
-  Import took 0.020908 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.195551 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset
-  artifactKey: Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset using Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bd4ee397990a4b2f3db06cb718f7e0d') in 0.005560 seconds 
-  Import took 0.009674 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.006921 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset
-  artifactKey: Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset using Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bd4ee397990a4b2f3db06cb718f7e0d') in 0.002191 seconds 
-  Import took 0.006352 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 21.586189 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset
-  artifactKey: Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset using Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9322dbb0c47158a1bfd78d80cf96cfda') in 0.005192 seconds 
-  Import took 0.009505 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.565000 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 1.asset
-  artifactKey: Guid(e13e4af4bb9e0af4db89de780933e18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 1.asset using Guid(e13e4af4bb9e0af4db89de780933e18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fa9faea7005508aa32b68572ed0d79c') in 0.005004 seconds 
-  Import took 0.010146 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.584323 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset
-  artifactKey: Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset using Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a8ac42b843854e35b42c80e2c3a6fd2') in 0.005129 seconds 
-  Import took 0.020852 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.365872 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset
-  artifactKey: Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset using Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7423fad9c26f971ff07d07916e202af5') in 0.005079 seconds 
-  Import took 0.009382 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.904021 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Conti Fever.asset
-  artifactKey: Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Conti Fever.asset using Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c57b3f9e4c04bf545411aec030a984') in 0.005572 seconds 
-  Import took 0.028142 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.621122 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 201.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 201.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '339fc48bcf2bec1d161caf60bb95063a') in 0.005687 seconds 
-  Import took 0.010002 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002834 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 201.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 201.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '339fc48bcf2bec1d161caf60bb95063a') in 0.002301 seconds 
-  Import took 0.007275 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.500394 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61aa1637701db7f95da6a98c13015cff') in 0.005241 seconds 
-  Import took 0.009711 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.763469 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 251.asset
-  artifactKey: Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 251.asset using Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2e00e9ef18d6051639e6b6f398faf53') in 0.007179 seconds 
-  Import took 0.011464 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.382458 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset
-  artifactKey: Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset using Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '361c42abb6669474376a8dff0b19e5f7') in 0.005149 seconds 
-  Import took 0.009974 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.156059 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset
-  artifactKey: Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset using Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8ee983170bdef8e202e4f0d22696913') in 0.002428 seconds 
-  Import took 0.007057 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000732 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset
-  artifactKey: Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset using Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8ee983170bdef8e202e4f0d22696913') in 0.002069 seconds 
-  Import took 0.006366 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.614080 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset
-  artifactKey: Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset using Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e09b50b71ae52fea023172f7250d799') in 0.002003 seconds 
-  Import took 0.006440 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000720 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset
-  artifactKey: Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset using Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e09b50b71ae52fea023172f7250d799') in 0.001991 seconds 
-  Import took 0.006056 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.314964 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827673d66bd4872dae89fe2576920d95') in 0.002124 seconds 
-  Import took 0.006784 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001021 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827673d66bd4872dae89fe2576920d95') in 0.002124 seconds 
-  Import took 0.006501 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.329362 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Today.asset
-  artifactKey: Guid(b9ba0bb343048a944adfa72169edd109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Today.asset using Guid(b9ba0bb343048a944adfa72169edd109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a20434272567f63d1ae0042e49e5d103') in 0.005958 seconds 
-  Import took 0.010621 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.144121 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 11.asset
-  artifactKey: Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 11.asset using Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3208f00c80582ea917f956b2331185be') in 0.005585 seconds 
-  Import took 0.018190 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001571 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 11.asset
-  artifactKey: Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 11.asset using Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3208f00c80582ea917f956b2331185be') in 0.002247 seconds 
-  Import took 0.006328 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.025755 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset
-  artifactKey: Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset using Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '991a51b4834c046d7b0ba8e29a03c6ce') in 0.006340 seconds 
-  Import took 0.011180 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.260271 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset
-  artifactKey: Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset using Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36a595ac7452161519f39195c40bcc00') in 0.002060 seconds 
-  Import took 0.006789 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000978 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset
-  artifactKey: Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 100.asset using Guid(d1dde562e799a5440a935b6830252fef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36a595ac7452161519f39195c40bcc00') in 0.002094 seconds 
-  Import took 0.006306 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.359875 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset
-  artifactKey: Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 150.asset using Guid(0d018d6195f93a346be739096d78e860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f3832c1fb654680e22e49d783682923') in 0.002051 seconds 
-  Import took 0.019083 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.370247 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset
-  artifactKey: Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset using Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86fe2fda5a1c21b588025292923b07b8') in 0.002447 seconds 
-  Import took 0.007084 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000989 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset
-  artifactKey: Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 200.asset using Guid(e6dc859bc0f70fa4ca920bb21645f501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86fe2fda5a1c21b588025292923b07b8') in 0.002124 seconds 
-  Import took 0.006855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.396931 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f2a31bdd22a7ebd9a140f38d0e4e857') in 0.002163 seconds 
-  Import took 0.006575 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001051 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset
-  artifactKey: Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 250.asset using Guid(09804a8e06b300940b5963abaf7b5798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f2a31bdd22a7ebd9a140f38d0e4e857') in 0.002039 seconds 
-  Import took 0.006096 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.409855 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset
-  artifactKey: Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset using Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fb12bddf509198fa203472006bdcd09') in 0.002094 seconds 
-  Import took 0.006306 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000860 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset
-  artifactKey: Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Score 300.asset using Guid(c852bf58cb2bc514f85111d21b616f29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fb12bddf509198fa203472006bdcd09') in 0.002078 seconds 
-  Import took 0.006536 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.212125 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset
-  artifactKey: Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset using Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071ac5fb6b8a6b762fda7570a722892a') in 0.002193 seconds 
-  Import took 0.006512 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001330 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset
-  artifactKey: Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 5.asset using Guid(68485545b750d7b48845a2f4785b5635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071ac5fb6b8a6b762fda7570a722892a') in 0.002205 seconds 
-  Import took 0.006943 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.336545 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset
-  artifactKey: Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset using Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ed4be21721689437621240c34cb8e14') in 0.002080 seconds 
-  Import took 0.006267 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001032 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset
-  artifactKey: Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 10.asset using Guid(adf03123348ad894cbc85048dfd94c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ed4be21721689437621240c34cb8e14') in 0.002059 seconds 
-  Import took 0.006091 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.050975 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset
-  artifactKey: Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset using Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0a22bff9f698a969f15be2c25901755') in 0.005276 seconds 
-  Import took 0.009354 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.007591 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset
-  artifactKey: Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset using Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0a22bff9f698a969f15be2c25901755') in 0.002001 seconds 
-  Import took 0.006197 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.492267 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 17.asset
-  artifactKey: Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 17.asset using Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c9992b32fe44edd9f826d5944b702c') in 0.005764 seconds 
-  Import took 0.010028 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001083 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 17.asset
-  artifactKey: Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 17.asset using Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c9992b32fe44edd9f826d5944b702c') in 0.002186 seconds 
-  Import took 0.007094 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.840344 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset
-  artifactKey: Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset using Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35f7dacd824009de3d1936d083c2bcba') in 0.002196 seconds 
-  Import took 0.006867 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000605 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset
-  artifactKey: Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 15.asset using Guid(46660d219a5c6cf4ab73831dea17d759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35f7dacd824009de3d1936d083c2bcba') in 0.002175 seconds 
-  Import took 0.006882 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.537105 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset
-  artifactKey: Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 16.asset using Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42966c2705e7de2b6e2a7b79a1a49bbd') in 0.002288 seconds 
-  Import took 0.009769 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.513906 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 20.asset
-  artifactKey: Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 20.asset using Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '011cc6bd8a9ce2b1e97ce305cdb44225') in 0.005094 seconds 
-  Import took 0.009555 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.717005 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset
-  artifactKey: Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset using Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '571583b93066dcbe844fee3e6ba3e9f8') in 0.004933 seconds 
-  Import took 0.009236 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.997054 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Conti Fever 1.asset
-  artifactKey: Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Conti Fever 1.asset using Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8784c82f8c1ca927d65b5db2c2a0cbc') in 0.006274 seconds 
-  Import took 0.012090 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.440646 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 1.asset
-  artifactKey: Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 1.asset using Guid(1ff1c71eae966274884fc43b8bfc2252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39cf211e13a54372ccdea0fa72f35db8') in 0.005656 seconds 
-  Import took 0.009809 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.458241 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a10aa1f53bd1f66fad8b8d49989fad23') in 0.005783 seconds 
-  Import took 0.010129 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000813 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a10aa1f53bd1f66fad8b8d49989fad23') in 0.002062 seconds 
-  Import took 0.006252 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.957028 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f37710accce05eb8a74731d7a2836bbe') in 0.006396 seconds 
-  Import took 0.010804 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.009730 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f37710accce05eb8a74731d7a2836bbe') in 0.002113 seconds 
-  Import took 0.006361 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.883459 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset
-  artifactKey: Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset using Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5e41af413cf1419fc4fb7873b43fdad') in 0.005223 seconds 
-  Import took 0.009338 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.133771 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset
-  artifactKey: Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset using Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '368adf28e7d7947505f78c3824fee498') in 0.002195 seconds 
-  Import took 0.006260 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 41.025959 seconds.
-  path: Assets/InGameAssets/Data Installer.asset
-  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bbc1e77436618b6e55211043c17ad09') in 0.040003 seconds 
-  Import took 0.045767 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000695 seconds.
-  path: Assets/InGameAssets/Data Installer.asset
-  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bbc1e77436618b6e55211043c17ad09') in 0.014876 seconds 
-  Import took 0.019940 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.826502 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset
-  artifactKey: Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset using Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e5a18034822a58fd1ef606111c036c') in 0.005416 seconds 
-  Import took 0.009789 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000688 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset
-  artifactKey: Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset using Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e5a18034822a58fd1ef606111c036c') in 0.002029 seconds 
-  Import took 0.006137 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.853249 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81a364fd375b26bef610d24225ad926b') in 0.002215 seconds 
-  Import took 0.006720 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000992 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81a364fd375b26bef610d24225ad926b') in 0.002152 seconds 
-  Import took 0.006734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.467198 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2ce78705c6568a1e7988921d9d2447a') in 0.002185 seconds 
-  Import took 0.006540 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000799 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2ce78705c6568a1e7988921d9d2447a') in 0.002041 seconds 
-  Import took 0.006086 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 25.734292 seconds.
-  path: Assets/InGameAssets/Data Installer.asset
-  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6fcedf6328829f3c4548912d583b43') in 0.010703 seconds 
-  Import took 0.015727 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 80.014128 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '050cc898dd66d282862fbab37e24f9f5') in 0.002531 seconds 
-  Import took 0.006851 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000952 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset
-  artifactKey: Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 2.asset using Guid(c2a4d6a63556aa344835a3c70c38a6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '050cc898dd66d282862fbab37e24f9f5') in 0.002250 seconds 
-  Import took 0.006520 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.178503 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64a7c5281a9b6f7911f5635a40071926') in 0.002033 seconds 
-  Import took 0.006359 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000701 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset
-  artifactKey: Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 3.asset using Guid(fa9a4c659d0000e489a250e543bb0672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64a7c5281a9b6f7911f5635a40071926') in 0.002065 seconds 
-  Import took 0.006180 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.147493 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset
-  artifactKey: Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 4.asset using Guid(bb331a6633aee6c488f61e57fd494f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49d04ce2e7fecabdfc5f3762412dc938') in 0.002242 seconds 
-  Import took 0.007312 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.244311 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset
-  artifactKey: Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset using Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '844ef1f729ee0fcda392edfcf6a4666a') in 0.002023 seconds 
-  Import took 0.006772 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000726 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset
-  artifactKey: Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Continuous Fever 5.asset using Guid(633604ac68fb25c4585345779e51f1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '844ef1f729ee0fcda392edfcf6a4666a') in 0.002090 seconds 
-  Import took 0.006287 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.343691 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 20.asset
-  artifactKey: Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 20.asset using Guid(a2859b6da4b5c4241a8084f45c79eb29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2899cdba71da54d3e5457f4a40bc32c') in 0.002349 seconds 
-  Import took 0.012065 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.231877 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset
-  artifactKey: Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset using Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26ab86d7f264a5753412a4b711d8a6dc') in 0.005343 seconds 
-  Import took 0.009820 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000954 seconds.
-  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset
-  artifactKey: Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 25.asset using Guid(a63afd83da215c44bb31912843aa13bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26ab86d7f264a5753412a4b711d8a6dc') in 0.002141 seconds 
-  Import took 0.006341 seconds .
+  path: Assets/InGameAssets/Jumper/22_Goose/Goose.asset
+  artifactKey: Guid(783c56297106f4441809a2c8733bed22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/Jumper/22_Goose/Goose.asset using Guid(783c56297106f4441809a2c8733bed22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e28cd434d7e6a48cbdf846a6b1052d42') in 0.073975 seconds 
+  Import took 0.080019 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.009692 seconds.
+Registered in 0.009441 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.79 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.53 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.303 seconds
+- Completed reload, in  1.322 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1303ms)
-		BeginReloadAssembly (101ms)
+	ReloadAssembly (1322ms)
+		BeginReloadAssembly (113ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (37ms)
-		EndReloadAssembly (1150ms)
-			LoadAssemblies (84ms)
+			CreateAndSetChildDomain (39ms)
+		EndReloadAssembly (1158ms)
+			LoadAssemblies (91ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (307ms)
+			SetupTypeCache (320ms)
 			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (67ms)
-			SetupLoadedEditorAssemblies (597ms)
+			RebuildScriptCaches (81ms)
+			SetupLoadedEditorAssemblies (576ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (79ms)
-				ProcessInitializeOnLoadAttributes (502ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (477ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -773,14 +181,14 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 2.10 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.50 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 265.9 MB.
-System memory in use after: 266.1 MB.
+System memory in use before: 265.8 MB.
+System memory in use after: 266.0 MB.
 
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3284.
-Total: 3.566100 ms (FindLiveObjects: 0.269700 ms CreateObjectMapping: 0.115200 ms MarkObjects: 3.125300 ms  DeleteObjects: 0.054400 ms)
+Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3283.
+Total: 3.429800 ms (FindLiveObjects: 0.292900 ms CreateObjectMapping: 0.134300 ms MarkObjects: 2.957500 ms  DeleteObjects: 0.043900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -794,38 +202,230 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 318.252771 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 2.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 2.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6516927b9d47a9a3db14dc06d327a0a') in 0.016761 seconds 
+  Import took 0.021425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005030 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 2.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Fever 2.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6516927b9d47a9a3db14dc06d327a0a') in 0.003352 seconds 
+  Import took 0.008203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.230255 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b74cdaea31b1a6c61469ebb274b0603') in 0.006866 seconds 
+  Import took 0.012256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.702076 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 11.asset
+  artifactKey: Guid(fa1b1f49981c82e45bff8e2286e3f3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 11.asset using Guid(fa1b1f49981c82e45bff8e2286e3f3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7a3c8db47280ce8459e7295170f5dcd') in 0.007685 seconds 
+  Import took 0.013188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.651227 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '484033d73846162819dd25bd2ca6c635') in 0.003676 seconds 
+  Import took 0.008329 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001638 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '484033d73846162819dd25bd2ca6c635') in 0.003233 seconds 
+  Import took 0.007398 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.493715 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 5.asset
+  artifactKey: Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 5.asset using Guid(84f59f32afe6eb14cb54529916c18e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3033d4092a9238608e91d81aa4fea0e2') in 0.005609 seconds 
+  Import took 0.010044 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.012694 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset
+  artifactKey: Guid(fa1b1f49981c82e45bff8e2286e3f3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 10.asset using Guid(fa1b1f49981c82e45bff8e2286e3f3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c70a2f25bbcd5410c2bbbb17813a7d8') in 0.002459 seconds 
+  Import took 0.006771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.927769 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 11.asset
+  artifactKey: Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 11.asset using Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68586a3b3a0be2076af2578a3e547e1e') in 0.002319 seconds 
+  Import took 0.006667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.910582 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset
+  artifactKey: Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset using Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed84b1375bfcc8830c91d28d7fd17fbf') in 0.005774 seconds 
+  Import took 0.010676 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.199616 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 16.asset
+  artifactKey: Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 16.asset using Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3de24483a3d308ce5f1da2764631823') in 0.005616 seconds 
+  Import took 0.010431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000795 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 16.asset
+  artifactKey: Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 16.asset using Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3de24483a3d308ce5f1da2764631823') in 0.002424 seconds 
+  Import took 0.007235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.730843 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset
+  artifactKey: Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset using Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa5bc09d638304afa50f387336924c9d') in 0.002246 seconds 
+  Import took 0.006851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.546423 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 20.asset
+  artifactKey: Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 20.asset using Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f41f8238f479323059921da73cd9574b') in 0.007735 seconds 
+  Import took 0.013250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.477992 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 21.asset
+  artifactKey: Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 21.asset using Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa3881bd86dc57e56ad8e601e690ca30') in 0.005348 seconds 
+  Import took 0.010064 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006470 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 21.asset
+  artifactKey: Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 21.asset using Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa3881bd86dc57e56ad8e601e690ca30') in 0.002211 seconds 
+  Import took 0.007106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.487503 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 20.asset
+  artifactKey: Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 20.asset using Guid(cb5bec2e664ee34448480e2ad278b1ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3493d238e9edc5d0b7c7bd37b15a8d5b') in 0.002321 seconds 
+  Import took 0.007091 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.275083 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset
+  artifactKey: Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset using Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c766af7c06447ccbc51cb5b1eb0cdb9') in 0.006008 seconds 
+  Import took 0.011236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000736 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset
+  artifactKey: Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset using Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c766af7c06447ccbc51cb5b1eb0cdb9') in 0.002492 seconds 
+  Import took 0.007730 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.556055 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 26.asset
+  artifactKey: Guid(ed8a046cffcbace42bd570a0b139a05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 26.asset using Guid(ed8a046cffcbace42bd570a0b139a05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29c8b5a4429e81ab75f64bfbbfe52784') in 0.006178 seconds 
+  Import took 0.010408 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.438061 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 30.asset
+  artifactKey: Guid(ed8a046cffcbace42bd570a0b139a05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 30.asset using Guid(ed8a046cffcbace42bd570a0b139a05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fd3688900d5eddb993e0f30b4298701') in 0.006624 seconds 
+  Import took 0.010789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.977496 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset
+  artifactKey: Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 15.asset using Guid(a6da8b59a787ac142a173ba267c59e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16564d40006a7b180b2f5a07b10d481c') in 0.002315 seconds 
+  Import took 0.006624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.091741 seconds.
+  path: Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset
+  artifactKey: Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/SettlementSettings/Settlement Setting Combo 25.asset using Guid(906cd7afa8f91174c85151c51d1b1acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8561b18b65f4bf0c7efeb21cf76cacf4') in 0.002288 seconds 
+  Import took 0.006552 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.065146 seconds.
+  path: Assets/InGameAssets/Data Installer.asset
+  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0deef496c15c137a8d5df4d17fab02c9') in 0.025071 seconds 
+  Import took 0.030844 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.009523 seconds.
+Registered in 0.010740 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.97 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.70 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.328 seconds
+- Completed reload, in  1.673 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1329ms)
-		BeginReloadAssembly (118ms)
+	ReloadAssembly (1673ms)
+		BeginReloadAssembly (107ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (1160ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (1501ms)
 			LoadAssemblies (93ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (315ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (72ms)
-			SetupLoadedEditorAssemblies (577ms)
+			SetupTypeCache (444ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (113ms)
+			SetupLoadedEditorAssemblies (725ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (479ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
+				BeforeProcessingInitializeOnLoad (118ms)
+				ProcessInitializeOnLoadAttributes (588ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -833,1474 +433,14 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.51 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.53 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 265.9 MB.
 System memory in use after: 266.1 MB.
 
 Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3286.
-Total: 3.207500 ms (FindLiveObjects: 0.261300 ms CreateObjectMapping: 0.140100 ms MarkObjects: 2.734000 ms  DeleteObjects: 0.070700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010380 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.49 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.341 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1341ms)
-		BeginReloadAssembly (116ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1175ms)
-			LoadAssemblies (98ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (323ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (69ms)
-			SetupLoadedEditorAssemblies (592ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (81ms)
-				ProcessInitializeOnLoadAttributes (495ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.63 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 265.9 MB.
-System memory in use after: 266.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3288.
-Total: 4.097400 ms (FindLiveObjects: 0.282800 ms CreateObjectMapping: 0.105100 ms MarkObjects: 3.654500 ms  DeleteObjects: 0.053900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010917 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.69 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.319 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1320ms)
-		BeginReloadAssembly (116ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (1153ms)
-			LoadAssemblies (86ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (313ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (78ms)
-			SetupLoadedEditorAssemblies (566ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (81ms)
-				ProcessInitializeOnLoadAttributes (470ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.53 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 266.0 MB.
-System memory in use after: 266.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3290.
-Total: 3.797200 ms (FindLiveObjects: 0.291100 ms CreateObjectMapping: 0.143100 ms MarkObjects: 3.290800 ms  DeleteObjects: 0.071000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 203.707215 seconds.
-  path: Assets/InGameAssets/Data Installer.asset
-  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '731fbcbe56adbf269a5e7f9cf205fb98') in 0.030862 seconds 
-  Import took 0.036168 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.858257 seconds.
-  path: Assets/InGameAssets/Data Installer.asset
-  artifactKey: Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Data Installer.asset using Guid(21f214a622a8a054c89f4f7f4c953a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '731fbcbe56adbf269a5e7f9cf205fb98') in 0.011394 seconds 
-  Import took 0.016457 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 2.146978 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.06 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  7.920 seconds
-Domain Reload Profiling:
-	ReloadAssembly (7920ms)
-		BeginReloadAssembly (2543ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (5295ms)
-			LoadAssemblies (5640ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1076ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (70ms)
-			SetupLoadedEditorAssemblies (787ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (78ms)
-				ProcessInitializeOnLoadAttributes (693ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.65 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 266.0 MB.
-System memory in use after: 266.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3292.
-Total: 3.616100 ms (FindLiveObjects: 0.276100 ms CreateObjectMapping: 0.151900 ms MarkObjects: 3.130500 ms  DeleteObjects: 0.056600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010155 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.334 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1335ms)
-		BeginReloadAssembly (96ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (1188ms)
-			LoadAssemblies (85ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (328ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (80ms)
-			SetupLoadedEditorAssemblies (585ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (87ms)
-				ProcessInitializeOnLoadAttributes (481ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 266.0 MB.
-System memory in use after: 266.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3294.
-Total: 3.562200 ms (FindLiveObjects: 0.280300 ms CreateObjectMapping: 0.116200 ms MarkObjects: 3.113100 ms  DeleteObjects: 0.051300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 16899.881220 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/300x250.png
-  artifactKey: Guid(898f886a39d714db5b90d2c36676c894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/300x250.png using Guid(898f886a39d714db5b90d2c36676c894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bc3125c31d4301eadefe61c1450e4f7') in 0.111781 seconds 
-  Import took 0.117490 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x50.png
-  artifactKey: Guid(5a6531d4c9c484d679a2d6f9e6fefed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x50.png using Guid(5a6531d4c9c484d679a2d6f9e6fefed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a51a67b8d602e800bd28c2cb0551a0f') in 0.017793 seconds 
-  Import took 0.022589 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/300x250.png
-  artifactKey: Guid(898f886a39d714db5b90d2c36676c894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/300x250.png using Guid(898f886a39d714db5b90d2c36676c894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bc3125c31d4301eadefe61c1450e4f7') in 0.016272 seconds 
-  Import took 0.021139 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017442 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x50.png
-  artifactKey: Guid(5a6531d4c9c484d679a2d6f9e6fefed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x50.png using Guid(5a6531d4c9c484d679a2d6f9e6fefed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a51a67b8d602e800bd28c2cb0551a0f') in 0.011340 seconds 
-  Import took 0.016366 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.065967 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x100.png
-  artifactKey: Guid(1a2723ddf964e4565a408007ab387283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x100.png using Guid(1a2723ddf964e4565a408007ab387283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc5057756948589b504a45d940d82962') in 0.025884 seconds 
-  Import took 0.031321 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000270 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x480.png
-  artifactKey: Guid(77d9c04b43d404f44ab60d7159b279bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x480.png using Guid(77d9c04b43d404f44ab60d7159b279bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f92b66f40890468156e77cf9ce1a8fba') in 0.041695 seconds 
-  Import took 0.045909 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000210 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x100.png
-  artifactKey: Guid(1a2723ddf964e4565a408007ab387283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x100.png using Guid(1a2723ddf964e4565a408007ab387283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc5057756948589b504a45d940d82962') in 0.012060 seconds 
-  Import took 0.016168 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x480.png
-  artifactKey: Guid(77d9c04b43d404f44ab60d7159b279bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/320x480.png using Guid(77d9c04b43d404f44ab60d7159b279bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f92b66f40890468156e77cf9ce1a8fba') in 0.013928 seconds 
-  Import took 0.018305 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000179 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/1024x768.png
-  artifactKey: Guid(4c69db43dbd474a2987be5807129b4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/1024x768.png using Guid(4c69db43dbd474a2987be5807129b4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '136287f4ad7259d29afee3f44047d553') in 0.064156 seconds 
-  Import took 0.068404 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000205 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/468x60.png
-  artifactKey: Guid(74358f5fb13a549aabac4a5a7ac76739) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/468x60.png using Guid(74358f5fb13a549aabac4a5a7ac76739) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b9d48f7fbe6fae48e3f33dd87e65596') in 0.033535 seconds 
-  Import took 0.038072 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000240 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/480x320.png
-  artifactKey: Guid(d30303c99ba3f4b9b9924da34e6d742d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/480x320.png using Guid(d30303c99ba3f4b9b9924da34e6d742d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebc0c74f35ec41895d387f4164cf8892') in 0.040218 seconds 
-  Import took 0.044892 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000214 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/728x90.png
-  artifactKey: Guid(cfead63ff9d9d48e2b4ba3c2dee7cea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/728x90.png using Guid(cfead63ff9d9d48e2b4ba3c2dee7cea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26166d6a83f810f82a47b32d3d70f7f1') in 0.014875 seconds 
-  Import took 0.019045 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000171 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/480x320.png
-  artifactKey: Guid(d30303c99ba3f4b9b9924da34e6d742d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/480x320.png using Guid(d30303c99ba3f4b9b9924da34e6d742d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebc0c74f35ec41895d387f4164cf8892') in 0.024417 seconds 
-  Import took 0.029100 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/728x90.png
-  artifactKey: Guid(cfead63ff9d9d48e2b4ba3c2dee7cea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/728x90.png using Guid(cfead63ff9d9d48e2b4ba3c2dee7cea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26166d6a83f810f82a47b32d3d70f7f1') in 0.010137 seconds 
-  Import took 0.014935 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/768x1024.png
-  artifactKey: Guid(8a53f9c63a5e94b14a98698a7b07365b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GoogleMobileAds/Editor/Resources/DummyAds/AdImages/768x1024.png using Guid(8a53f9c63a5e94b14a98698a7b07365b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1579fc09a986425d43dfe294d49f8c0') in 0.042983 seconds 
-  Import took 0.047974 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010798 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.54 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.392 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1393ms)
-		BeginReloadAssembly (129ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (53ms)
-		EndReloadAssembly (1201ms)
-			LoadAssemblies (93ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (338ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (73ms)
-			SetupLoadedEditorAssemblies (595ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (497ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.54 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.0 MB.
-System memory in use after: 269.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3316.
-Total: 3.352600 ms (FindLiveObjects: 0.257100 ms CreateObjectMapping: 0.129900 ms MarkObjects: 2.915100 ms  DeleteObjects: 0.049400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009836 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.79 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.433 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1434ms)
-		BeginReloadAssembly (115ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1232ms)
-			LoadAssemblies (95ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (352ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (79ms)
-			SetupLoadedEditorAssemblies (588ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (486ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.0 MB.
-System memory in use after: 269.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3318.
-Total: 3.123800 ms (FindLiveObjects: 0.263700 ms CreateObjectMapping: 0.132600 ms MarkObjects: 2.679700 ms  DeleteObjects: 0.046400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009998 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.67 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.413 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1414ms)
-		BeginReloadAssembly (109ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1244ms)
-			LoadAssemblies (92ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (341ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (79ms)
-			SetupLoadedEditorAssemblies (613ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (91ms)
-				ProcessInitializeOnLoadAttributes (505ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.55 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.0 MB.
-System memory in use after: 269.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3320.
-Total: 3.371200 ms (FindLiveObjects: 0.285800 ms CreateObjectMapping: 0.133900 ms MarkObjects: 2.889200 ms  DeleteObjects: 0.061300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009632 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.331 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1332ms)
-		BeginReloadAssembly (99ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (33ms)
-		EndReloadAssembly (1172ms)
-			LoadAssemblies (91ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (304ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (71ms)
-			SetupLoadedEditorAssemblies (590ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (84ms)
-				ProcessInitializeOnLoadAttributes (490ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.63 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.0 MB.
-System memory in use after: 269.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3322.
-Total: 3.748700 ms (FindLiveObjects: 0.295100 ms CreateObjectMapping: 0.126000 ms MarkObjects: 3.261100 ms  DeleteObjects: 0.065200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010283 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.53 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.399 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1400ms)
-		BeginReloadAssembly (103ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (1240ms)
-			LoadAssemblies (90ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (362ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (74ms)
-			SetupLoadedEditorAssemblies (589ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (83ms)
-				ProcessInitializeOnLoadAttributes (489ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.0 MB.
-System memory in use after: 269.2 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3324.
-Total: 3.497200 ms (FindLiveObjects: 0.274100 ms CreateObjectMapping: 0.147500 ms MarkObjects: 3.002800 ms  DeleteObjects: 0.071200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1052.951501 seconds.
-  path: Assets/InGameAssets/Jumper/4_Alpaca/Alpaca.asset
-  artifactKey: Guid(a62fc8947a4c0ab4eb34206c040e9560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/4_Alpaca/Alpaca.asset using Guid(a62fc8947a4c0ab4eb34206c040e9560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f34e7a06eb8e958059984ab46f1e73d6') in 0.039695 seconds 
-  Import took 0.044741 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.678886 seconds.
-  path: Assets/InGameAssets/Jumper/7_Mallard/Mallard.asset
-  artifactKey: Guid(f95d58adc60a23841b6e7ca03cedea05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/7_Mallard/Mallard.asset using Guid(f95d58adc60a23841b6e7ca03cedea05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14cccb33a604cb9cb26c24530ac9e4f2') in 0.019605 seconds 
-  Import took 0.025178 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.101274 seconds.
-  path: Assets/InGameAssets/Jumper/10_Giraffe/Giraffe.asset
-  artifactKey: Guid(1f49678f358a0aa47a821d299bfe32e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/10_Giraffe/Giraffe.asset using Guid(1f49678f358a0aa47a821d299bfe32e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81f74a82991277c62871a990703f8c08') in 0.011838 seconds 
-  Import took 0.017972 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.889208 seconds.
-  path: Assets/InGameAssets/Jumper/13_Antelope/Antelope.asset
-  artifactKey: Guid(2d67e20fe8bd4734e84dba22ec91b57b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/13_Antelope/Antelope.asset using Guid(2d67e20fe8bd4734e84dba22ec91b57b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a311559c7e7e74b0a8c3fc29f9b977f9') in 0.010489 seconds 
-  Import took 0.015371 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.315864 seconds.
-  path: Assets/InGameAssets/Jumper/16_Squirrel/Squirrel.asset
-  artifactKey: Guid(d0eedca874a882b4d83ddabdfc09e4ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/16_Squirrel/Squirrel.asset using Guid(d0eedca874a882b4d83ddabdfc09e4ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afe430d9ad811581389be2c95b501cce') in 0.029542 seconds 
-  Import took 0.042989 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.211888 seconds.
-  path: Assets/InGameAssets/Jumper/16_Squirrel/Squirrel.asset
-  artifactKey: Guid(d0eedca874a882b4d83ddabdfc09e4ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/16_Squirrel/Squirrel.asset using Guid(d0eedca874a882b4d83ddabdfc09e4ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39035243dc6bc20f82a2dc9fa5a3c61c') in 0.006559 seconds 
-  Import took 0.012191 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.435895 seconds.
-  path: Assets/InGameAssets/Jumper/19_Beluga/Beluga.asset
-  artifactKey: Guid(1a45ca5ad56940c40ad71ee3dc8cea35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/19_Beluga/Beluga.asset using Guid(1a45ca5ad56940c40ad71ee3dc8cea35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df726a6df1a1fc0c11883721924d0db3') in 0.009750 seconds 
-  Import took 0.015892 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 44.957389 seconds.
-  path: Assets/InGameAssets/Jumper/31_SnowLeopard/SnowLeopard.asset
-  artifactKey: Guid(2ec86d3cd3ff8c94da3a2fb294ebfea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InGameAssets/Jumper/31_SnowLeopard/SnowLeopard.asset using Guid(2ec86d3cd3ff8c94da3a2fb294ebfea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7246177e6c498227905a5a531ba61e19') in 0.019677 seconds 
-  Import took 0.037480 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010958 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.54 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.492 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1493ms)
-		BeginReloadAssembly (115ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (1309ms)
-			LoadAssemblies (94ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (360ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (77ms)
-			SetupLoadedEditorAssemblies (653ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (552ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.57 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.6 MB.
-System memory in use after: 269.8 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3326.
-Total: 3.282400 ms (FindLiveObjects: 0.278800 ms CreateObjectMapping: 0.132700 ms MarkObjects: 2.819000 ms  DeleteObjects: 0.050600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011458 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.51 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.385 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1385ms)
-		BeginReloadAssembly (111ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1210ms)
-			LoadAssemblies (95ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (325ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (73ms)
-			SetupLoadedEditorAssemblies (595ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (83ms)
-				ProcessInitializeOnLoadAttributes (496ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.74 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.6 MB.
-System memory in use after: 269.8 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3328.
-Total: 3.358400 ms (FindLiveObjects: 0.292500 ms CreateObjectMapping: 0.114200 ms MarkObjects: 2.904700 ms  DeleteObjects: 0.046000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009504 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.389 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1389ms)
-		BeginReloadAssembly (107ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1230ms)
-			LoadAssemblies (99ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (327ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (70ms)
-			SetupLoadedEditorAssemblies (607ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (84ms)
-				ProcessInitializeOnLoadAttributes (506ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.6 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3330.
-Total: 4.351500 ms (FindLiveObjects: 0.333100 ms CreateObjectMapping: 0.171000 ms MarkObjects: 3.791700 ms  DeleteObjects: 0.054500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011739 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.58 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.520 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1521ms)
-		BeginReloadAssembly (100ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (1369ms)
-			LoadAssemblies (97ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (350ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (696ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (89ms)
-				ProcessInitializeOnLoadAttributes (591ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.6 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3332.
-Total: 3.457400 ms (FindLiveObjects: 0.297200 ms CreateObjectMapping: 0.126000 ms MarkObjects: 2.982000 ms  DeleteObjects: 0.050700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009505 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.66 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.349 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1349ms)
-		BeginReloadAssembly (98ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (34ms)
-		EndReloadAssembly (1199ms)
-			LoadAssemblies (84ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (313ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (74ms)
-			SetupLoadedEditorAssemblies (601ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (503ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3334.
-Total: 3.665600 ms (FindLiveObjects: 0.313500 ms CreateObjectMapping: 0.153700 ms MarkObjects: 3.131300 ms  DeleteObjects: 0.065700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010658 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.18 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.411 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1411ms)
-		BeginReloadAssembly (101ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (1256ms)
-			LoadAssemblies (87ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (346ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (77ms)
-			SetupLoadedEditorAssemblies (611ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (511ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3336.
-Total: 3.084900 ms (FindLiveObjects: 0.260200 ms CreateObjectMapping: 0.123600 ms MarkObjects: 2.657400 ms  DeleteObjects: 0.042900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011232 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.13 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.441 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1441ms)
-		BeginReloadAssembly (108ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1279ms)
-			LoadAssemblies (94ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (322ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (86ms)
-			SetupLoadedEditorAssemblies (639ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (535ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.73 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3338.
-Total: 3.589400 ms (FindLiveObjects: 0.310000 ms CreateObjectMapping: 0.120700 ms MarkObjects: 3.101000 ms  DeleteObjects: 0.056200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011071 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.62 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.400 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1400ms)
-		BeginReloadAssembly (100ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1249ms)
-			LoadAssemblies (87ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (302ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (74ms)
-			SetupLoadedEditorAssemblies (654ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (81ms)
-				ProcessInitializeOnLoadAttributes (557ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3340.
-Total: 3.845400 ms (FindLiveObjects: 0.562000 ms CreateObjectMapping: 0.155900 ms MarkObjects: 3.073300 ms  DeleteObjects: 0.052100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009620 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.09 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.407 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1408ms)
-		BeginReloadAssembly (106ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (1240ms)
-			LoadAssemblies (88ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (346ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (73ms)
-			SetupLoadedEditorAssemblies (595ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (85ms)
-				ProcessInitializeOnLoadAttributes (493ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.74 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3342.
-Total: 3.943400 ms (FindLiveObjects: 0.284200 ms CreateObjectMapping: 0.139000 ms MarkObjects: 3.457400 ms  DeleteObjects: 0.061000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.013406 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 3.09 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.444 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1444ms)
-		BeginReloadAssembly (109ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1282ms)
-			LoadAssemblies (90ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (326ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (78ms)
-			SetupLoadedEditorAssemblies (641ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (3ms)
-				BeforeProcessingInitializeOnLoad (83ms)
-				ProcessInitializeOnLoadAttributes (540ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3344.
-Total: 4.146800 ms (FindLiveObjects: 0.294000 ms CreateObjectMapping: 0.126700 ms MarkObjects: 3.629600 ms  DeleteObjects: 0.094800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011873 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.79 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.489 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1490ms)
-		BeginReloadAssembly (124ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (1308ms)
-			LoadAssemblies (95ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (357ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (77ms)
-			SetupLoadedEditorAssemblies (633ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (106ms)
-				ProcessInitializeOnLoadAttributes (511ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.58 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3346.
-Total: 4.877400 ms (FindLiveObjects: 0.311300 ms CreateObjectMapping: 0.182000 ms MarkObjects: 4.256900 ms  DeleteObjects: 0.126000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012955 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.526 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1527ms)
-		BeginReloadAssembly (98ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (1377ms)
-			LoadAssemblies (86ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (381ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (638ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (95ms)
-				ProcessInitializeOnLoadAttributes (523ms)
-				ProcessInitializeOnLoadMethodAttributes (10ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 2.34 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 3348.
-Total: 4.360700 ms (FindLiveObjects: 0.288300 ms CreateObjectMapping: 0.187700 ms MarkObjects: 3.796500 ms  DeleteObjects: 0.086800 ms)
+Total: 4.348400 ms (FindLiveObjects: 0.264600 ms CreateObjectMapping: 0.142600 ms MarkObjects: 3.867500 ms  DeleteObjects: 0.072400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2316,14 +456,14 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 22.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 22.81 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 131 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 216.2 MB.
-System memory in use after: 216.4 MB.
+System memory in use before: 212.4 MB.
+System memory in use after: 212.7 MB.
 
-Unloading 130 unused Assets to reduce memory usage. Loaded Objects now: 3348.
-Total: 3.770600 ms (FindLiveObjects: 0.304700 ms CreateObjectMapping: 0.170800 ms MarkObjects: 3.248700 ms  DeleteObjects: 0.045000 ms)
+Unloading 130 unused Assets to reduce memory usage. Loaded Objects now: 3286.
+Total: 3.835100 ms (FindLiveObjects: 0.512500 ms CreateObjectMapping: 0.233200 ms MarkObjects: 3.042200 ms  DeleteObjects: 0.045900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 

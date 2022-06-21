@@ -19,7 +19,8 @@ MonoBehaviour:
   m_comboHitAdjust: 1.2
   m_feverRequireCombo: 3
   m_feverAddScore: 8
+  m_addidtionalAddScoreEveryJump: 0
   m_life: 2
   m_description: Have 2 chances, perfect, but very, very expensive.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 100000
+  m_unlockPrice: 300000

@@ -9,10 +9,11 @@ namespace MegaJumper
         {
             HightestScore_Today,
             HightestScore_AllTime,
-            GetScore,
+            ReachScore,
             FeverFrequency,
             ContinuousFever,
-            Combo
+            Combo,
+            GetScore
         }
 
         public SettlementType Type { get { return m_type; } }
@@ -23,6 +24,9 @@ namespace MegaJumper
 
         public int AddCoin { get { return m_addCoin; } }
         [SerializeField] private int m_addCoin;
+
+        public bool TimesScore { get { return m_timesScore; } }
+        [SerializeField] private bool m_timesScore;
 
         public string Description { get { return m_description; } }
         [SerializeField] private string m_description;

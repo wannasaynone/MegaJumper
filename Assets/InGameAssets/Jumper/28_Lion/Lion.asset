@@ -19,7 +19,9 @@ MonoBehaviour:
   m_comboHitAdjust: -1
   m_feverRequireCombo: 5
   m_feverAddScore: 5
+  m_addidtionalAddScoreEveryJump: 1
   m_life: 4
-  m_description: Have 4 chances, but can no longer hit the Combo.
+  m_description: Have 4 chances and get 2 score every jump, but can no longer hit
+    the Combo.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 1000
+  m_unlockPrice: 3000

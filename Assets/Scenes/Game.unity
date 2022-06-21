@@ -6394,6 +6394,8 @@ MonoBehaviour:
   m_selectJumperButton: {fileID: 845201434}
   m_unlockJumperButton: {fileID: 1814400957}
   m_unlockPriceText: {fileID: 1814400956}
+  m_normalColor: {r: 0.40784314, g: 0.46666667, b: 0.6117647, a: 1}
+  m_cantUnlockColor: {r: 0.8396226, g: 0.30495724, b: 0.30495724, a: 1}
   m_unlockPanel: {fileID: 919730572}
   m_nameText: {fileID: 1552507155}
   m_accurateBarImage: {fileID: 481960668}

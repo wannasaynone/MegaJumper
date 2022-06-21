@@ -8,10 +8,17 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_descriptionText;
         [SerializeField] private TextMeshProUGUI m_coinText;
 
-        public void SetUp(SettlementSetting setting)
+        public void SetUp(SettlementSetting setting, ScoreManager scoreManager)
         {
             m_descriptionText.text = setting.Description;
-            m_coinText.text = setting.AddCoin.ToString();
+            if (setting.TimesScore)
+            {
+                m_coinText.text = (setting.AddCoin * scoreManager.Score).ToString();
+            }
+            else
+            {
+                m_coinText.text = setting.AddCoin.ToString();
+            }
         }
     }
 }

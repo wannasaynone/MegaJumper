@@ -21,6 +21,8 @@ namespace MegaJumper.UI
         [SerializeField] private UnityEngine.UI.Button m_selectJumperButton;
         [SerializeField] private UnityEngine.UI.Button m_unlockJumperButton;
         [SerializeField] private TMPro.TextMeshProUGUI m_unlockPriceText;
+        [SerializeField] private Color m_normalColor;
+        [SerializeField] private Color m_cantUnlockColor;
         [SerializeField] private GameObject m_unlockPanel;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
@@ -130,7 +132,7 @@ namespace MegaJumper.UI
         {
             if (m_localSaveManager.SaveDataInstance.Coin < m_settings[m_currentIndex].JumperSetting.UnlockPrice)
             {
-                Debug.Log("[TODO] no enough coin hint");
+                m_scoreUI.ShakeCoinPanel();
                 return;
             }
 
@@ -173,6 +175,16 @@ namespace MegaJumper.UI
             m_selectJumperButton.gameObject.SetActive(_unlocked);
             m_unlockJumperButton.gameObject.SetActive(!_unlocked);
             m_unlockPriceText.text = _jumperSetting.UnlockPrice.ToString("N0");
+
+            if (m_localSaveManager.SaveDataInstance.Coin >= _jumperSetting.UnlockPrice)
+            {
+                m_unlockPriceText.color = m_normalColor;
+            }
+            else
+            {
+                m_unlockPriceText.color = m_cantUnlockColor;
+                m_unlockPriceText.text += "\n<size=33>Not Enough Coin</size>";
+            }
         }
 
         private float m_waitTimer = 0f;

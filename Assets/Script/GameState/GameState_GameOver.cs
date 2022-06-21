@@ -8,14 +8,16 @@ namespace MegaJumper.GameState
         private readonly UI.GameResultView m_gameResultView;
         private readonly SettlemenManager m_settlemenManager;
         private readonly LocalSaveManager m_localSave;
+        private readonly ScoreManager m_scoreManager;
 
         private System.Collections.Generic.List<SettlementSetting> m_result;
 
-        public GameState_GameOver(SignalBus signalBus, UI.GameResultView gameResultView, SettlemenManager settlemenManager, LocalSaveManager localSaveManager) : base(signalBus)
+        public GameState_GameOver(SignalBus signalBus, UI.GameResultView gameResultView, SettlemenManager settlemenManager, LocalSaveManager localSaveManager, ScoreManager scoreManager) : base(signalBus)
         {
             m_gameResultView = gameResultView;
             m_settlemenManager = settlemenManager;
             m_localSave = localSaveManager;
+            m_scoreManager = scoreManager;
         }
 
         public override void Start()
@@ -47,7 +49,14 @@ namespace MegaJumper.GameState
 
             for (int i = 0; i < m_result.Count; i++)
             {
-                _total += m_result[i].AddCoin;
+                if (m_result[i].TimesScore)
+                {
+                    _total += m_result[i].AddCoin * m_scoreManager.Score;
+                }
+                else
+                {
+                    _total += m_result[i].AddCoin;
+                }
             }
 
             m_localSave.SaveDataInstance.AddCoin(_total);

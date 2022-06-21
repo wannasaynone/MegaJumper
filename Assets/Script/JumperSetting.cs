@@ -23,6 +23,9 @@ namespace MegaJumper
         public int FeverAddScore { get { return m_feverAddScore; } }
         [SerializeField] private int m_feverAddScore;
 
+        public int AddidtionalAddScoreEveryJump { get { return m_addidtionalAddScoreEveryJump; } }
+        [SerializeField] private int m_addidtionalAddScoreEveryJump;
+
         public int Life { get { return m_life; } }
         [SerializeField] private int m_life;
 

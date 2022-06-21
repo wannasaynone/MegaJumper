@@ -61,7 +61,7 @@ namespace MegaJumper
         {
             if (!obj.IsSuccess)
             {
-                ChangeState(new GameState.GameState_GameOver(m_signalBus, m_resultView, m_settlementManager, m_localSaveManager));
+                ChangeState(new GameState.GameState_GameOver(m_signalBus, m_resultView, m_settlementManager, m_localSaveManager, m_scoreManager));
             }
         }
 

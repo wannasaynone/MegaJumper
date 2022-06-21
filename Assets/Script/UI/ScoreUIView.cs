@@ -180,5 +180,25 @@ namespace MegaJumper.UI
         {
             m_coinText.text = value.ToString("N0");
         }
+
+        private bool m_shaking;
+        public void ShakeCoinPanel()
+        {
+            if (m_shaking)
+                return;
+
+            KahaGameCore.Common.GeneralCoroutineRunner.Instance.StartCoroutine(IEShakeCoinPanel());
+        }
+
+        private System.Collections.IEnumerator IEShakeCoinPanel()
+        {
+            m_shaking = true;
+            m_coinPanelRoot.transform.DOScale(Vector3.one * 1.2f, 0.5f);
+            m_coinPanelRoot.transform.DOShakePosition(0.5f, 100f, 20);
+            yield return new WaitForSeconds(0.5f);
+            m_coinPanelRoot.transform.DOScale(Vector3.one, 0.25f);
+            yield return new WaitForSeconds(0.3f);
+            m_shaking = false;
+        }
     }
 }

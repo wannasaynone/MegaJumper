@@ -40,7 +40,7 @@ namespace MegaJumper
 
             if (obj.IsSuccess)
             {
-                m_scoreManager.Add(1);
+                m_scoreManager.Add(1 + m_currentSetting.AddidtionalAddScoreEveryJump);
 
                 if (obj.IsPerfect || m_currentSetting.SkipPerfectCheck)
                 {

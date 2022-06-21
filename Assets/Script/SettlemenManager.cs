@@ -58,6 +58,7 @@ namespace MegaJumper
                             }
                             break;
                         }
+                    case SettlementSetting.SettlementType.ReachScore:
                     case SettlementSetting.SettlementType.GetScore:
                         {
                             if (m_score >= m_settlementSettingContainer.settlementSettings[i].Value)
