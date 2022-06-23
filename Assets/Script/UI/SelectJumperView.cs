@@ -28,6 +28,7 @@ namespace MegaJumper.UI
         [SerializeField] private GameObject m_unlockPanel;
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
         [SerializeField] private RectTransform m_coinEndPos;
+        [SerializeField] private GameObject m_unlockHint;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
@@ -58,24 +59,22 @@ namespace MegaJumper.UI
 
         private void OnScoreReset()
         {
-            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
+            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
+                                         &&
+                                        (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
         }
 
         private void OnGameResetCalled()
         {
-            if (m_localSaveManager.SaveDataInstance.IsTutorialEnded)
-            {
-                m_enableButtonRoot.SetActive(true);
-            }
-            else
-            {
-                m_enableButtonRoot.SetActive(false);
-            }
+            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
+                                         &&
+                                        (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
         }
 
         private void OnGameStarted()
         {
             m_enableButtonRoot.SetActive(false);
+            m_unlockHint.SetActive(false);
         }
 
         private int m_currentIndex = 0;
@@ -108,6 +107,11 @@ namespace MegaJumper.UI
                 }
 
                 SetUIWithIndex(0);
+            }
+
+            if (active)
+            {
+                m_unlockHint.SetActive(false);
             }
         }
 
@@ -250,6 +254,32 @@ namespace MegaJumper.UI
                 m_unlockPriceText.color = m_cantUnlockColor;
                 m_unlockPriceText.text += "\n<size=33>Not Enough Coin</size>";
             }
+        }
+
+        public void ShowChangeButtonUnlock()
+        {
+            m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+            StartCoroutine(IEChangeButtonUnlock());
+        }
+
+        private IEnumerator IEChangeButtonUnlock()
+        {
+            m_unlockPanel.SetActive(true);
+            m_unlockHint.SetActive(true);
+            m_unlockHint.transform.localScale = Vector3.zero;
+            m_enableButtonRoot.transform.localScale = Vector3.zero;
+            m_enableButtonRoot.transform.DOScale(Vector3.one * 1.1f, 0.5f);
+            yield return new WaitForSeconds(0.25f);
+            m_unlockHint.transform.DOScale(Vector3.one * 1.1f, 0.5f).OnComplete(delegate
+            {
+                m_unlockHint.transform.DOScale(Vector3.one, 0.25f);
+            });
+            yield return new WaitForSeconds(0.25f);
+            m_enableButtonRoot.transform.DOScale(Vector3.one, 0.25f);
+            yield return new WaitForSeconds(0.25f);
+            m_unlockPanel.SetActive(false);
+            m_localSaveManager.SaveDataInstance.SetIsTutorial2Ended();
+            m_localSaveManager.SaveAll();
         }
 
         private float m_waitTimer = 0f;

@@ -22,14 +22,20 @@ namespace MegaJumper.UI
 
         private SignalBus m_signalBus;
         private ScoreUIView m_scoreUI;
+        private ProgressView m_progressView;
         private ScoreManager m_scoreManager;
+        private LocalSaveManager m_localSaveManager;
+
+        private int m_playerFinalCoin;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, ScoreUIView scoreUI, ScoreManager scoreManager)
+        public void Constructor(SignalBus signalBus, ScoreUIView scoreUI, ProgressView progressView, ScoreManager scoreManager, LocalSaveManager localSaveManager)
         {
             m_signalBus = signalBus;
             m_scoreUI = scoreUI;
+            m_progressView = progressView;
             m_scoreManager = scoreManager;
+            m_localSaveManager = localSaveManager;
         }
 
         public void ShowWith(List<SettlementSetting> result, int orginMoneyNumber, System.Action onShown)
@@ -115,9 +121,9 @@ namespace MegaJumper.UI
 
             yield return new WaitForSeconds(0.5f);
 
-            int _playerFinalCoin = orginMoneyNumber + _totalNow;
+            m_playerFinalCoin = orginMoneyNumber + _totalNow;
 
-            KahaGameCore.Common.GameUtility.RunNunber(orginMoneyNumber, _playerFinalCoin, 0.5f, OnCoinNumberUpdate, ShowButton);
+            KahaGameCore.Common.GameUtility.RunNunber(orginMoneyNumber, m_playerFinalCoin, 0.5f, OnCoinNumberUpdate, ShowButton);
             KahaGameCore.Common.GameUtility.RunNunber(_totalNow, 0, 0.5f, OnTotalNumberUpdated_noScale, onShown);
 
             float _flyTime = 0.2f;
@@ -177,8 +183,15 @@ namespace MegaJumper.UI
 
         public void Button_Next()
         {
-            m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
             m_root.SetActive(false);
+            if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
+            {
+                m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+            }
+            else
+            {
+                m_progressView.Show(m_playerFinalCoin);
+            }
         }
     }
 }

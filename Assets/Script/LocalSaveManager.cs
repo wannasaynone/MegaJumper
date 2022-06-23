@@ -5,6 +5,7 @@ namespace MegaJumper
     public class LocalSaveManager 
     {
         private const string IS_TUTORIAL_ENDED = "IsTutorialEnded";
+        private const string IS_TUTORIAL_2_ENDED = "IsTutorial2Ended";
         private const string COIN = "Coin";
         private const string LAST_DATE = "LastDate";
         private const string HIGHEST_SCORE_DAY = "HighestScore_Day";
@@ -21,6 +22,7 @@ namespace MegaJumper
         public class SaveData
         {
             public bool IsTutorialEnded { get; private set; }
+            public bool IsTutorial2Ended { get; private set; }
             public int Coin { get; private set; }
             public System.DateTime LastPlayDate { get; private set; }
             public int Highscore_Day { get; private set; }
@@ -39,6 +41,7 @@ namespace MegaJumper
             public SaveData(
                 SignalBus signalBus, 
                 bool isTutorialEnded, 
+                bool isTutorial2Ended,
                 int coin,
                 System.DateTime lastPlay,
                 int highscore_day, 
@@ -47,6 +50,7 @@ namespace MegaJumper
             {
                 m_signalBus = signalBus;
                 IsTutorialEnded = isTutorialEnded;
+                IsTutorial2Ended = isTutorial2Ended;
                 Coin = coin;
                 LastPlayDate = lastPlay;
                 Highscore_Day = highscore_day;
@@ -76,6 +80,11 @@ namespace MegaJumper
             public void SetIsTutorialEnded()
             {
                 IsTutorialEnded = true;
+            }
+
+            public void SetIsTutorial2Ended()
+            {
+                IsTutorial2Ended = true;
             }
 
             public void SetCoin(int value)
@@ -166,6 +175,7 @@ namespace MegaJumper
             SaveDataInstance = new SaveData(
                 m_signalBus,
                 UnityEngine.PlayerPrefs.GetInt(IS_TUTORIAL_ENDED, 0) == 1,
+                UnityEngine.PlayerPrefs.GetInt(IS_TUTORIAL_2_ENDED, 0) == 1,
                 UnityEngine.PlayerPrefs.GetInt(COIN, 0),
                 _saveDate,
                 UnityEngine.PlayerPrefs.GetInt(HIGHEST_SCORE_DAY, 0),
@@ -180,6 +190,7 @@ namespace MegaJumper
                 LoadAll();
             }
             UnityEngine.PlayerPrefs.SetInt(IS_TUTORIAL_ENDED, SaveDataInstance.IsTutorialEnded ? 1 : 0);
+            UnityEngine.PlayerPrefs.SetInt(IS_TUTORIAL_2_ENDED, SaveDataInstance.IsTutorial2Ended ? 1 : 0);
             UnityEngine.PlayerPrefs.SetInt(COIN, SaveDataInstance.Coin);
             UnityEngine.PlayerPrefs.SetString(LAST_DATE, SaveDataInstance.LastPlayDate.ToString());
             UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_DAY, SaveDataInstance.Highscore_Day);
