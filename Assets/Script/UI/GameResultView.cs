@@ -219,6 +219,12 @@ namespace MegaJumper.UI
 
         private void OnAdShown()
         {
+            ProjectBS.Network.UnityThread.Do(ProcessReward);
+        }
+
+        // for process unity API in main thread
+        private void ProcessReward()
+        {
             m_showAdChance = 0f;
             m_root.SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));

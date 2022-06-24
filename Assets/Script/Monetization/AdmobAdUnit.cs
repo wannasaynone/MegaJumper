@@ -33,6 +33,9 @@ namespace MegaJumper.Monetization
             AdRequest _bannerRequest = new AdRequest.Builder().Build();
             m_bannerView.LoadAd(_bannerRequest);
 
+            InitRewardEvent();
+            InitInterstitialEvent();
+
             SendRewardRequest();
             SendInterstitialRequest();
         }
@@ -56,34 +59,34 @@ namespace MegaJumper.Monetization
         private void InitInterstitialEvent()
         {
             // Called when an ad request has successfully loaded.
-            m_interstitialAd.OnAdLoaded += HandleOnAdLoaded;
+            m_interstitialAd.OnAdLoaded += HandleOnInterstitialAdLoaded;
             // Called when an ad request failed to load.
-            m_interstitialAd.OnAdFailedToLoad += HandleOnAdFailedToLoad;
+            m_interstitialAd.OnAdFailedToLoad += HandleOnInterstitialAdFailedToLoad;
             // Called when an ad is shown.
-            m_interstitialAd.OnAdOpening += HandleOnAdOpening;
+            m_interstitialAd.OnAdOpening += HandleOnInterstitialAdOpening;
             // Called when the ad is closed.
-            m_interstitialAd.OnAdClosed += HandleOnAdClosed;
+            m_interstitialAd.OnAdClosed += HandleOnInterstitialAdClosed;
         }
 
-        private void HandleOnAdClosed(object sender, EventArgs e)
+        private void HandleOnInterstitialAdClosed(object sender, EventArgs e)
         {
             m_currentOnAdEnded?.Invoke();
             m_currentOnAdEnded = null;
             SendInterstitialRequest();
         }
 
-        private void HandleOnAdOpening(object sender, EventArgs e)
+        private void HandleOnInterstitialAdOpening(object sender, EventArgs e)
         {
         }
 
-        private void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
+        private void HandleOnInterstitialAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
         {
             Debug.LogError(e.LoadAdError.GetCode() + ":" + e.LoadAdError.GetMessage());
             m_currentOnAdEnded = null;
             m_currentOnFailed?.Invoke(AdvertisementManager.FailType.SeeConsole);
         }
 
-        private void HandleOnAdLoaded(object sender, EventArgs e)
+        private void HandleOnInterstitialAdLoaded(object sender, EventArgs e)
         {
         }
 

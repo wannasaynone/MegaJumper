@@ -42,6 +42,12 @@ namespace MegaJumper.UI
 
         private void OnAdShown()
         {
+            ProjectBS.Network.UnityThread.Do(ProcessReward);
+        }
+
+        // for process unity API in main thread
+        private void ProcessReward()
+        {
             m_loadingPanel.SetActive(false);
             for (int i = 0; i < m_buttonRoots.Length; i++)
             {
