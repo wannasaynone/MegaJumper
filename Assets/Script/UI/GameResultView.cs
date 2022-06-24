@@ -184,7 +184,6 @@ namespace MegaJumper.UI
         private float m_showAdChance = -1f;
         public void Button_Next()
         {
-            m_root.SetActive(false);
             if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
             {
                 if (m_showAdChance < 0f)
@@ -201,16 +200,19 @@ namespace MegaJumper.UI
 
                 if (m_scoreManager.Score >= 30 && Random.Range(0f, 100f) <= m_showAdChance)
                 {
+                    m_continueButtonRoot.SetActive(false);
                     STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
                 }
                 else
                 {
                     m_showAdChance += 50f;
+                    m_root.SetActive(false);
                     m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
                 }
             }
             else
             {
+                m_root.SetActive(false);
                 m_progressView.Show(m_playerFinalCoin);
             }
         }
@@ -218,12 +220,18 @@ namespace MegaJumper.UI
         private void OnAdShown()
         {
             m_showAdChance = 0f;
+            m_root.SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
         }
 
         private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
         {
-            throw new System.NotImplementedException(failType.ToString());
+            KahaGameCore.Common.TimerManager.Schedule(0.1f, RetryShowAd);
+        }
+
+        private void RetryShowAd()
+        {
+            STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
         }
     }
 }

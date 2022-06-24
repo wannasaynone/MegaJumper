@@ -12,6 +12,7 @@ namespace MegaJumper.UI
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
         [SerializeField] private RectTransform m_coinEndPos;
         [SerializeField] private GameObject[] m_buttonRoots;
+        [SerializeField] private GameObject m_loadingPanel;
 
         private ScoreUIView m_scoreUI;
         private LocalSaveManager m_localSaveManager;
@@ -35,11 +36,13 @@ namespace MegaJumper.UI
 
         public void Button_ShowAd()
         {
+            m_loadingPanel.SetActive(true);
             STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowRewardVideo(OnAdShown, OnAdShownFail);
         }
 
         private void OnAdShown()
         {
+            m_loadingPanel.SetActive(false);
             for (int i = 0; i < m_buttonRoots.Length; i++)
             {
                 m_buttonRoots[i].SetActive(false);
@@ -96,7 +99,7 @@ namespace MegaJumper.UI
 
         private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
         {
-            throw new System.NotImplementedException(failType.ToString());
+            KahaGameCore.Common.TimerManager.Schedule(0.1f, Button_ShowAd);
         }
     }
 }
