@@ -118,7 +118,7 @@ namespace MegaJumper
             }
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             m_feverFrequency = 0;
             m_temp_continuousFeverCount = m_continuousFeverCount = m_highestCombo = 0;

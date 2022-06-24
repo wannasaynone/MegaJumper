@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
+using Zenject;
 
 namespace MegaJumper
 {
@@ -8,6 +9,7 @@ namespace MegaJumper
         public float SizeScale { get; private set; } = 1f;
 
         [SerializeField] private GameObject[] m_blockModels;
+        [SerializeField] private GameObject m_startFeverHint;
 
         public class Factory : Zenject.PlaceholderFactory<Block>
         {
@@ -22,6 +24,16 @@ namespace MegaJumper
             {
                 m_blockModels[Random.Range(0, m_blockModels.Length - 1)].SetActive(true);
             }
+        }
+
+        public void ShowHint()
+        {
+            m_startFeverHint.SetActive(true);
+        }
+
+        public void DisableHint()
+        {
+            m_startFeverHint.SetActive(false);
         }
 
         public void RerollSize(float min = 0.5f, float max = 1f)

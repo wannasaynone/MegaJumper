@@ -47,7 +47,7 @@ namespace MegaJumper
             m_pressTime = obj.PressTime;
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             transform.position = m_gameProperties.CAMERA_OFFSET;
         }

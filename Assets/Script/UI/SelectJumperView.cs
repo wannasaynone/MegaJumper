@@ -44,13 +44,15 @@ namespace MegaJumper.UI
         private SignalBus m_signalBus;
         private LocalSaveManager m_localSaveManager;
         private ScoreUIView m_scoreUI;
+        private GoldRewardView m_goldRewardView;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager, ScoreUIView scoreUIView)
+        public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager, ScoreUIView scoreUIView, GoldRewardView goldRewardView)
         {
             m_signalBus = signalBus;
             m_localSaveManager = localSaveManager;
             m_scoreUI = scoreUIView;
+            m_goldRewardView = goldRewardView;
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
@@ -64,7 +66,7 @@ namespace MegaJumper.UI
                                         (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
                                          &&
@@ -144,6 +146,7 @@ namespace MegaJumper.UI
             if (m_localSaveManager.SaveDataInstance.Coin < m_settings[m_currentIndex].JumperSetting.UnlockPrice)
             {
                 m_scoreUI.ShakeCoinPanel();
+                StartCoroutine(IEShowGoldRewardView());
                 return;
             }
 
@@ -157,6 +160,16 @@ namespace MegaJumper.UI
 
             KahaGameCore.Common.GameUtility.RunNunber(_orginCoint, m_localSaveManager.SaveDataInstance.Coin, 0.5f, OnCoinNumberUpdate, null);
             StartCoroutine(IEUnlock());
+        }
+
+        private IEnumerator IEShowGoldRewardView()
+        {
+            m_unlockPanel.SetActive(true);
+
+            yield return new WaitForSeconds(0.5f);
+
+            m_goldRewardView.Show();
+            m_unlockPanel.SetActive(false);
         }
 
         private bool m_isUnlocking;
@@ -258,7 +271,7 @@ namespace MegaJumper.UI
 
         public void ShowChangeButtonUnlock()
         {
-            m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+            m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
             StartCoroutine(IEChangeButtonUnlock());
         }
 

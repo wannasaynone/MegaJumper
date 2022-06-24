@@ -15,6 +15,7 @@ namespace MegaJumper
         private bool m_currentDirectionToZ = true;
 
         private bool m_tutorialMode = false;
+        private bool m_showHintNext = false;
 
         public BlockManager(Block.Factory factory, ScoreManager scoreManager, GameProperties gameProperties, SignalBus signalBus)
         {
@@ -38,7 +39,7 @@ namespace MegaJumper
             m_tutorialMode = false;
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             m_currentChangeDirectionChance = 0f;
             m_currentDirectionToZ = true;
@@ -48,6 +49,8 @@ namespace MegaJumper
                 UnityEngine.Object.Destroy(m_clonedBlock[i].gameObject);
             }
             m_clonedBlock.Clear();
+
+            m_showHintNext = obj.StartWithFever;
         }
 
         public void CreateNew()
@@ -112,6 +115,12 @@ namespace MegaJumper
             }
 
             _clone.PlayFeedback();
+
+            if (m_showHintNext)
+            {
+                m_showHintNext = false;
+                _clone.ShowHint();
+            }
 
             if (m_clonedBlock.Count >= m_gameProperties.MAX_CLONE_COUNT)
             {

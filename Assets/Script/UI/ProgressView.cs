@@ -91,7 +91,7 @@ namespace MegaJumper.UI
             }
             else
             {
-                m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+                m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
             }
         }
     }

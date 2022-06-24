@@ -181,17 +181,49 @@ namespace MegaJumper.UI
             m_continueButtonRoot.SetActive(true);
         }
 
+        private float m_showAdChance = -1f;
         public void Button_Next()
         {
             m_root.SetActive(false);
             if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
             {
-                m_signalBus.Fire<Event.InGameEvent.OnGameResetCalled>();
+                if (m_showAdChance < 0f)
+                {
+                    if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
+                    {
+                        m_showAdChance = 100f;
+                    }
+                    else
+                    {
+                        m_showAdChance = 0f;
+                    }
+                }
+
+                if (m_scoreManager.Score >= 30 && Random.Range(0f, 100f) <= m_showAdChance)
+                {
+                    STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
+                }
+                else
+                {
+                    m_showAdChance += 50f;
+                    m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
+                }
             }
             else
             {
                 m_progressView.Show(m_playerFinalCoin);
             }
+        }
+
+        private void OnAdShown()
+        {
+            m_showAdChance = 0f;
+            m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
+        }
+
+        private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
+        {
+            throw new System.NotImplementedException(failType.ToString());
         }
     }
 }

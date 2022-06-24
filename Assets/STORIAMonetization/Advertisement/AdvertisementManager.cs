@@ -63,7 +63,7 @@ namespace STORIAMonetization.Advertisement
                 return;
             }
 
-            m_currentAdUnit.ShowRewardVideo(onShown, onFailed);
+            m_currentAdUnit.ShowInterstitial(onShown, onFailed);
         }
     }
 }

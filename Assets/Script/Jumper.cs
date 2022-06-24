@@ -170,7 +170,7 @@ namespace MegaJumper
             }
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             transform.position = Vector3.zero;
             m_rigidbody.isKinematic = true;
@@ -257,6 +257,8 @@ namespace MegaJumper
 
         private void OnJumpEnded()
         {
+            m_currentDirectionBlock.DisableHint();
+
             SetIdle();
             bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_jumperSetting.GameOverDistance * m_currentDirectionBlock.SizeScale;
             bool isPerfect = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) <= m_jumperSetting.ComboHitAdjust;

@@ -18,6 +18,8 @@ namespace MegaJumper
         private GameState.GameStateBase m_currentState;
         private JumperSetting m_jumperSetting;
 
+        private bool m_startWithFeverNext = false;
+
         public GameManager(
             Jumper jumper, 
             BlockManager blockManager, 
@@ -71,8 +73,8 @@ namespace MegaJumper
                 m_blockManager, 
                 m_gameProperties, 
                 m_signalBus, 
-                m_jumperSetting, 
-                false, 
+                m_jumperSetting,
+                m_startWithFeverNext, 
                 !m_localSaveManager.SaveDataInstance.IsTutorialEnded));
         }
 
@@ -81,11 +83,12 @@ namespace MegaJumper
             m_localSaveManager.LoadAll();
             m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(m_localSaveManager.SaveDataInstance.Coin, 0));
             m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_gameProperties.DEFAULF_JUMPER_SETTING));
-            OnGameReset();
+            OnGameReset(new Event.InGameEvent.OnGameResetCalled(false));
         }
 
-        private void OnGameReset()
+        private void OnGameReset(Event.InGameEvent.OnGameResetCalled obj)
         {
+            m_startWithFeverNext = obj.StartWithFever;
             m_hintView.EnableStartHint(true);
             m_localSaveManager.SaveAll();
             ChangeState(new GameState.GameState_WaitStart(m_scoreManager, m_blockManager, m_signalBus));

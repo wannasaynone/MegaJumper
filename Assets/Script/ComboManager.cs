@@ -87,7 +87,7 @@ namespace MegaJumper
             m_tutorialMode = false;
         }
 
-        private void OnGameResetCalled()
+        private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
             m_feverCombo = 0;
             Combo = 0;

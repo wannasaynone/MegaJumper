@@ -17,7 +17,7 @@ namespace MegaJumper.UI
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameReset);
         }
 
-        private void OnGameReset()
+        private void OnGameReset(Event.InGameEvent.OnGameResetCalled obj)
         {
             EnableStartHint(true);
         }

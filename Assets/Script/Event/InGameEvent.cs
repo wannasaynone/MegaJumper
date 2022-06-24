@@ -78,7 +78,12 @@
 
         public class OnGameResetCalled
         {
+            public bool StartWithFever { get; private set; }
 
+            public OnGameResetCalled(bool startWithFever)
+            {
+                StartWithFever = startWithFever;
+            }
         }
 
         public class OnScoreAdded
