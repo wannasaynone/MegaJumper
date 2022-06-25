@@ -198,7 +198,8 @@ namespace MegaJumper.UI
                     }
                 }
 
-                if (m_scoreManager.Score >= 30 && Random.Range(0f, 100f) <= m_showAdChance)
+                if ((m_scoreManager.Score >= 30 && Random.Range(0f, 100f) <= m_showAdChance)
+                    || m_scoreManager.Score >= 100)
                 {
                     m_continueButtonRoot.SetActive(false);
                     STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);

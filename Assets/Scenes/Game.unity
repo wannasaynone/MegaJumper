@@ -12790,7 +12790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &481148481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49984,6 +49984,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2038019946}
     m_Modifications:
+    - target: {fileID: 885282526, guid: fdeddcd5853bf584bbbf9d768b2586b8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1304579419, guid: fdeddcd5853bf584bbbf9d768b2586b8, type: 3}
       propertyPath: m_Camera
       value: 

@@ -81,18 +81,52 @@ namespace MegaJumper.UI
             m_progressText.text = currentCoin.ToString("N0") + " / " + m_target.ToString("N0");
         }
 
+        private float m_showAdChance = 100f;
+
         public void Button_Next()
         {
-            m_root.SetActive(false);
             m_nextButton.SetActive(false);
             if (m_progressImage.fillAmount >= 1f)
             {
+                m_root.SetActive(false);
                 m_selectJumpView.ShowChangeButtonUnlock();
             }
             else
             {
-                m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
+                if (Random.Range(0f, 100f) <= m_showAdChance)
+                {
+                    STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
+                }
+                else
+                {
+                    m_showAdChance += 50f;
+                    m_root.SetActive(false);
+                    m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
+                }
             }
+        }
+
+        private void OnAdShown()
+        {
+            ProjectBS.Network.UnityThread.Do(ProcessReward);
+        }
+
+        // for process unity API in main thread
+        private void ProcessReward()
+        {
+            m_showAdChance = 0f;
+            m_root.SetActive(false);
+            m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
+        }
+
+        private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
+        {
+            KahaGameCore.Common.TimerManager.Schedule(0.1f, RetryShowAd);
+        }
+
+        private void RetryShowAd()
+        {
+            STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
         }
     }
 }
