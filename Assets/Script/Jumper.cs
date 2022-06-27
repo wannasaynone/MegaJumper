@@ -13,6 +13,11 @@ namespace MegaJumper
         [SerializeField] private ParticleSystem m_landingVfx;
         [SerializeField] private MoreMountains.Feedbacks.MMF_Player m_landingFeedback;
         [SerializeField] private UnityEngine.UI.Image[] m_hintImages;
+        [Header("Aduio")]
+        [SerializeField] private AudioClip m_holdClip;
+        [SerializeField] private AudioClip m_jumpClip;
+        [SerializeField] private AudioClip m_landClip;
+        [SerializeField] private AudioClip m_perfectLandClip;
 
         private enum State
         {
@@ -168,6 +173,8 @@ namespace MegaJumper
             {
                 m_hintImages[i].color = new Color(m_hintImages[i].color.r, m_hintImages[i].color.g, m_hintImages[i].color.b, 1f);
             }
+
+            SoundEffectController.Instance.Play(m_holdClip);
         }
 
         private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
@@ -253,6 +260,9 @@ namespace MegaJumper
             m_currentState = State.Jumping;
             m_pressTime = pressTime;
             m_signalBus.Fire(new Event.InGameEvent.OnStartJump(isFever, pressTime));
+
+            SoundEffectController.Instance.Stop(m_holdClip);
+            SoundEffectController.Instance.Play(m_jumpClip);
         }
 
         private void OnJumpEnded()
@@ -292,6 +302,18 @@ namespace MegaJumper
                 else
                 {
                     KahaGameCore.Common.TimerManager.Schedule(1f, Revive);
+                }
+            }
+
+            if (isScuess)
+            {
+                if (isPerfect)
+                {
+                    SoundEffectController.Instance.Play(m_perfectLandClip);
+                }
+                else
+                {
+                    SoundEffectController.Instance.Play(m_landClip);
                 }
             }
         }

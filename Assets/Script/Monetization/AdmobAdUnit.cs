@@ -70,13 +70,13 @@ namespace MegaJumper.Monetization
 
         private void HandleOnInterstitialAdClosed(object sender, EventArgs e)
         {
-            m_currentOnAdEnded?.Invoke();
-            m_currentOnAdEnded = null;
             SendInterstitialRequest();
         }
 
         private void HandleOnInterstitialAdOpening(object sender, EventArgs e)
         {
+            m_currentOnAdEnded?.Invoke();
+            m_currentOnAdEnded = null;
         }
 
         private void HandleOnInterstitialAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)

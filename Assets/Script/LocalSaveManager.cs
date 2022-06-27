@@ -11,6 +11,7 @@ namespace MegaJumper
         private const string HIGHEST_SCORE_DAY = "HighestScore_Day";
         private const string HIGHEST_SCORE_ALL = "HighestScore_All";
         private const string UNLOCLED_JUMPERS = "UnlockedJumpers";
+        private const string USING_JUMPER = "UsingJumper";
 
         private readonly SignalBus m_signalBus;
 
@@ -28,6 +29,7 @@ namespace MegaJumper
             public int Highscore_Day { get; private set; }
             public int Highscore_All { get; private set; }
             public System.Collections.Generic.List<string> UnlockedJumpers { get; private set; }
+            public string UsingJumper { get; private set; }
 
             private readonly SignalBus m_signalBus;
 
@@ -46,7 +48,8 @@ namespace MegaJumper
                 System.DateTime lastPlay,
                 int highscore_day, 
                 int highscore_all, 
-                string unlockedJumpers)
+                string unlockedJumpers,
+                string usingJumper)
             {
                 m_signalBus = signalBus;
                 IsTutorialEnded = isTutorialEnded;
@@ -66,9 +69,12 @@ namespace MegaJumper
                     UnlockedJumpers.Add(_jumpers[i]);
                 }
 
+                UsingJumper = usingJumper;
+
                 m_signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
                 m_signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
                 m_signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+                m_signalBus.Subscribe<Event.InGameEvent.OnJumperSettingSet>(SetUse);
 
                 if (IsPassOneDay())
                 {
@@ -135,6 +141,11 @@ namespace MegaJumper
                 UnlockedJumpers.Add(name);
             }
 
+            private void SetUse(Event.InGameEvent.OnJumperSettingSet obj)
+            {
+                UsingJumper = obj.JumperSetting.name;
+            }
+
             private bool IsPassOneDay()
             {
                 System.DateTime _cur = System.DateTime.Now;
@@ -180,7 +191,8 @@ namespace MegaJumper
                 _saveDate,
                 UnityEngine.PlayerPrefs.GetInt(HIGHEST_SCORE_DAY, 0),
                 UnityEngine.PlayerPrefs.GetInt(HIGHEST_SCORE_ALL, 0),
-                UnityEngine.PlayerPrefs.GetString(UNLOCLED_JUMPERS, "Husky"));
+                UnityEngine.PlayerPrefs.GetString(UNLOCLED_JUMPERS, "Husky"),
+                UnityEngine.PlayerPrefs.GetString(USING_JUMPER, ""));
         }
 
         public void SaveAll()
@@ -195,6 +207,7 @@ namespace MegaJumper
             UnityEngine.PlayerPrefs.SetString(LAST_DATE, SaveDataInstance.LastPlayDate.ToString());
             UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_DAY, SaveDataInstance.Highscore_Day);
             UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_ALL, SaveDataInstance.Highscore_All);
+            UnityEngine.PlayerPrefs.SetString(USING_JUMPER, SaveDataInstance.UsingJumper);
 
             string _newList = "";
             for (int i = 0; i < SaveDataInstance.UnlockedJumpers.Count; i++)

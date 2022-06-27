@@ -82,7 +82,6 @@ namespace MegaJumper
         {
             m_localSaveManager.LoadAll();
             m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(m_localSaveManager.SaveDataInstance.Coin, 0));
-            m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_gameProperties.DEFAULF_JUMPER_SETTING));
             OnGameReset(new Event.InGameEvent.OnGameResetCalled(false));
         }
 

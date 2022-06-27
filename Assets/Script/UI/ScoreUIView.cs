@@ -17,6 +17,9 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_coinText;
         [SerializeField] private TextMeshProUGUI m_historyHighscoreText;
         [SerializeField] private TextMeshProUGUI m_todayHighscoreText;
+        [SerializeField] private RectTransform m_getCoinButtonRoot;
+        [SerializeField] private float m_startX;
+        [SerializeField] private float m_endX;
 
         private JumperSetting m_currentJumpSetting;
 
@@ -67,6 +70,7 @@ namespace MegaJumper.UI
             m_coinPanelRoot.SetActive(false);
             m_historyHighscoreText.gameObject.SetActive(false);
             m_todayHighscoreText.gameObject.SetActive(false);
+            m_getCoinButtonRoot.gameObject.SetActive(false);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -84,7 +88,24 @@ namespace MegaJumper.UI
             m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_historyHighscoreText.text = "History Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_All;
             m_todayHighscoreText.text = "Today Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_Day;
-            OnJumpEnded(new Event.InGameEvent.OnJumpEnded(Vector3.zero, false, false, m_currentJumpSetting.Life));
+
+            m_getCoinButtonRoot.gameObject.SetActive(true);
+            m_getCoinButtonRoot.anchoredPosition = new Vector2(m_startX, m_getCoinButtonRoot.anchoredPosition.y);
+
+            if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
+            {
+                DOTween.To(GetGetCoinButtonRootAnchoredPosition, SetGetCoinButtonRootAnchoredPosition, new Vector3(m_endX, m_getCoinButtonRoot.anchoredPosition.y), 0.5f);
+            }
+        }
+
+        private Vector2 GetGetCoinButtonRootAnchoredPosition()
+        {
+            return m_getCoinButtonRoot.anchoredPosition;
+        }
+
+        private void SetGetCoinButtonRootAnchoredPosition(Vector2 v)
+        {
+            m_getCoinButtonRoot.anchoredPosition = v;
         }
 
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)

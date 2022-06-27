@@ -1,10 +1,12 @@
 ﻿using Zenject;
+using DG.Tweening;
 
 namespace MegaJumper
 {
     public class MegaJumperInstaller : MonoInstaller
     {
         [UnityEngine.SerializeField] private Monetization.AdmobKeyStorer m_admobStorer;
+        [UnityEngine.SerializeField] private UnityEngine.AudioSource m_bgm;
 
         [Inject] private BlockContainer m_blockContainer;
 
@@ -43,6 +45,18 @@ namespace MegaJumper
             {
                 InitSDK();
             }
+
+            DOTween.To(GetBGM, SetBGM, 1f, 1f);
+        }
+
+        private float GetBGM()
+        {
+            return m_bgm.volume;
+        }
+
+        private void SetBGM(float v)
+        {
+            m_bgm.volume = v;
         }
 
         private void InitSDK()

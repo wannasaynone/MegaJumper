@@ -46,6 +46,8 @@ namespace MegaJumper.UI
         private ScoreUIView m_scoreUI;
         private GoldRewardView m_goldRewardView;
 
+        private string m_curUsingJumper;
+
         [Inject]
         public void Constructor(SignalBus signalBus, LocalSaveManager localSaveManager, ScoreUIView scoreUIView, GoldRewardView goldRewardView)
         {
@@ -56,7 +58,7 @@ namespace MegaJumper.UI
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
-            signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
+            m_signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
         }
 
         private void OnScoreReset()
@@ -64,6 +66,15 @@ namespace MegaJumper.UI
             m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
                                          &&
                                         (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
+            if (string.IsNullOrEmpty(m_localSaveManager.SaveDataInstance.UsingJumper))
+            {
+                m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_settings[0].JumperSetting));
+                m_curUsingJumper = m_settings[0].JumperSetting.name;
+            }
+            else
+            {
+                SetJumperWithSave();
+            }
         }
 
         private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
@@ -71,6 +82,24 @@ namespace MegaJumper.UI
             m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
                                          &&
                                         (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
+        }
+
+        private void SetJumperWithSave()
+        {
+            if (name == m_curUsingJumper)
+            {
+                return;
+            }
+
+            for (int i = 0; i < m_settings.Length; i++)
+            {
+                if (m_settings[i].JumperSetting.name == m_localSaveManager.SaveDataInstance.UsingJumper)
+                {
+                    m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_settings[i].JumperSetting));
+                    m_curUsingJumper = m_settings[i].JumperSetting.name;
+                    break;
+                }
+            }
         }
 
         private void OnGameStarted()
@@ -139,6 +168,7 @@ namespace MegaJumper.UI
         {
             Button_SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_settings[m_currentIndex].JumperSetting));
+            m_localSaveManager.SaveAll();
         }
 
         public void Button_Unlock()
