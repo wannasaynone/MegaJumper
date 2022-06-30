@@ -93,7 +93,7 @@ namespace MegaJumper.UI
             }
             else
             {
-                if (Random.Range(0f, 100f) <= m_showAdChance)
+                if (Random.Range(0f, 100f) <= m_showAdChance && !m_localSaveManager.SaveDataInstance.RemoveAd)
                 {
                     STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
                 }

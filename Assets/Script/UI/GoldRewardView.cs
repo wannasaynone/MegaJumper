@@ -6,6 +6,8 @@ namespace MegaJumper.UI
 {
     public class GoldRewardView : MonoBehaviour
     {
+        public event System.Action OnCoinGained;
+
         [SerializeField] private GameObject m_root;
         [SerializeField] private TMPro.TextMeshProUGUI m_acmountText;
         [SerializeField] private int m_rewardAmount;
@@ -36,6 +38,12 @@ namespace MegaJumper.UI
 
         public void Button_ShowAd()
         {
+            if (m_localSaveManager.SaveDataInstance.RemoveAd)
+            {
+                OnAdShown();
+                return;
+            }
+
             m_loadingPanel.SetActive(true);
             STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowRewardVideo(OnAdShown, OnAdShownFail);
         }
@@ -63,6 +71,7 @@ namespace MegaJumper.UI
             KahaGameCore.Common.GameUtility.RunNunber(m_rewardAmount, 0, 0.5f, OnRewardNumberUpdate, null);
             KahaGameCore.Common.GameUtility.RunNunber(_orginMoneyNumber, _playerFinalCoin, 0.5f, OnCoinNumberUpdate, OnShown);
             StartCoroutine(IEShowAddCoin());
+            OnCoinGained?.Invoke();
         }
 
         private System.Collections.IEnumerator IEShowAddCoin()

@@ -184,7 +184,7 @@ namespace MegaJumper.UI
         private float m_showAdChance = -1f;
         public void Button_Next()
         {
-            if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
+            if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended && !m_localSaveManager.SaveDataInstance.RemoveAd)
             {
                 if (m_showAdChance < 0f)
                 {

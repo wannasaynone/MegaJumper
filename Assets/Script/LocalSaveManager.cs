@@ -12,6 +12,7 @@ namespace MegaJumper
         private const string HIGHEST_SCORE_ALL = "HighestScore_All";
         private const string UNLOCLED_JUMPERS = "UnlockedJumpers";
         private const string USING_JUMPER = "UsingJumper";
+        private const string REMOVE_AD = "RemoveAd";
 
         private readonly SignalBus m_signalBus;
 
@@ -30,6 +31,7 @@ namespace MegaJumper
             public int Highscore_All { get; private set; }
             public System.Collections.Generic.List<string> UnlockedJumpers { get; private set; }
             public string UsingJumper { get; private set; }
+            public bool RemoveAd { get; private set; }
 
             private readonly SignalBus m_signalBus;
 
@@ -49,7 +51,8 @@ namespace MegaJumper
                 int highscore_day, 
                 int highscore_all, 
                 string unlockedJumpers,
-                string usingJumper)
+                string usingJumper,
+                bool removeAd)
             {
                 m_signalBus = signalBus;
                 IsTutorialEnded = isTutorialEnded;
@@ -58,6 +61,7 @@ namespace MegaJumper
                 LastPlayDate = lastPlay;
                 Highscore_Day = highscore_day;
                 Highscore_All = highscore_all;
+                RemoveAd = removeAd;
 
                 UnlockedJumpers = new System.Collections.Generic.List<string>();
                 string[] _jumpers = unlockedJumpers.Split(';');
@@ -176,6 +180,11 @@ namespace MegaJumper
             {
                 m_signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
             }
+
+            public void SetRemoveAd()
+            {
+                RemoveAd = true;
+            }
         }
 
         public SaveData SaveDataInstance { get; private set; }
@@ -192,7 +201,8 @@ namespace MegaJumper
                 UnityEngine.PlayerPrefs.GetInt(HIGHEST_SCORE_DAY, 0),
                 UnityEngine.PlayerPrefs.GetInt(HIGHEST_SCORE_ALL, 0),
                 UnityEngine.PlayerPrefs.GetString(UNLOCLED_JUMPERS, "Husky"),
-                UnityEngine.PlayerPrefs.GetString(USING_JUMPER, ""));
+                UnityEngine.PlayerPrefs.GetString(USING_JUMPER, ""),
+                UnityEngine.PlayerPrefs.GetInt(REMOVE_AD, 0) == 1);
         }
 
         public void SaveAll()
@@ -208,6 +218,7 @@ namespace MegaJumper
             UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_DAY, SaveDataInstance.Highscore_Day);
             UnityEngine.PlayerPrefs.SetInt(HIGHEST_SCORE_ALL, SaveDataInstance.Highscore_All);
             UnityEngine.PlayerPrefs.SetString(USING_JUMPER, SaveDataInstance.UsingJumper);
+            UnityEngine.PlayerPrefs.SetInt(REMOVE_AD, SaveDataInstance.RemoveAd ? 1 : 0);
 
             string _newList = "";
             for (int i = 0; i < SaveDataInstance.UnlockedJumpers.Count; i++)

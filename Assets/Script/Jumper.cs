@@ -115,6 +115,8 @@ namespace MegaJumper
                     m_hintView.EnableStartHint(true);
                 }
             }
+
+            SoundEffectController.Instance.Play(m_perfectLandClip);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -388,6 +390,14 @@ namespace MegaJumper
             }
         }
 
+        private void OnApplicationFocus(bool focus)
+        {
+            if (focus)
+            {
+                SetIdle();
+            }
+        }
+
         private void UpdatePressDownScale()
         {
             if (m_rigidbody.transform.localScale.y >= 0.25f)
@@ -412,6 +422,7 @@ namespace MegaJumper
             m_currentState = State.Idle;
             m_rigidbody.transform.localPosition = Vector3.zero + Vector3.up * 2f;
             m_rigidbody.transform.localRotation = Quaternion.identity;
+            m_rigidbody.transform.localScale = Vector3.one;
         }
 
         private bool IsTutorialEnded()

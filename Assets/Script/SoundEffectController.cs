@@ -35,7 +35,6 @@ namespace MegaJumper
                 if (m_se[i].clip == clip)
                 {
                     m_se[i].Stop();
-                    break;
                 }
             }
         }

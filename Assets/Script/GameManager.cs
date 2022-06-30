@@ -81,6 +81,13 @@ namespace MegaJumper
         public void Initialize()
         {
             m_localSaveManager.LoadAll();
+
+            if (m_localSaveManager.SaveDataInstance.RemoveAd)
+            {
+                UnityEngine.GameObject _banner = UnityEngine.GameObject.Find("BANNER(Clone)");
+                UnityEngine.Object.Destroy(_banner);
+            }
+
             m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(m_localSaveManager.SaveDataInstance.Coin, 0));
             OnGameReset(new Event.InGameEvent.OnGameResetCalled(false));
         }

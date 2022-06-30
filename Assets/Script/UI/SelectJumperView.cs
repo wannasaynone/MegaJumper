@@ -55,10 +55,16 @@ namespace MegaJumper.UI
             m_localSaveManager = localSaveManager;
             m_scoreUI = scoreUIView;
             m_goldRewardView = goldRewardView;
+            m_goldRewardView.OnCoinGained += M_goldRewardView_OnCoinGained;
 
             m_signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             m_signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
             m_signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
+        }
+
+        private void M_goldRewardView_OnCoinGained()
+        {
+            SetUIWithIndex(m_currentIndex);
         }
 
         private void OnScoreReset()
@@ -322,6 +328,12 @@ namespace MegaJumper.UI
             yield return new WaitForSeconds(0.25f);
             m_unlockPanel.SetActive(false);
             m_localSaveManager.SaveDataInstance.SetIsTutorial2Ended();
+            m_localSaveManager.SaveAll();
+        }
+
+        public void RemoveAllAd()
+        {
+            m_localSaveManager.SaveDataInstance.SetRemoveAd();
             m_localSaveManager.SaveAll();
         }
 
