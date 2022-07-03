@@ -5,7 +5,6 @@ namespace MegaJumper
 {
     public class MegaJumperInstaller : MonoInstaller
     {
-        [UnityEngine.SerializeField] private Monetization.AdmobKeyStorer m_admobStorer;
         [UnityEngine.SerializeField] private UnityEngine.AudioSource m_bgm;
 
         [Inject] private BlockContainer m_blockContainer;
@@ -40,12 +39,6 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnTutorialEnded>();
             Container.DeclareSignal<Event.InGameEvent.OnCoinAdded>();
 
-            // for zenject check
-            if (UnityEngine.Application.isPlaying)
-            {
-                InitSDK();
-            }
-
             DOTween.To(GetBGM, SetBGM, 1f, 1f);
         }
 
@@ -57,17 +50,6 @@ namespace MegaJumper
         private void SetBGM(float v)
         {
             m_bgm.volume = v;
-        }
-
-        private void InitSDK()
-        {
-            GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
-        }
-
-        private void OnAdInited(GoogleMobileAds.Api.InitializationStatus status)
-        {
-            STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdUnit(
-                new Monetization.AdmobAdUnit(m_admobStorer.RewardAdID, m_admobStorer.InterstitialAdID, m_admobStorer.BannerAdID));
         }
 
         private void Update()

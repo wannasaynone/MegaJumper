@@ -5,6 +5,8 @@ namespace MegaJumper
 {
     public class GameManager : IInitializable, ITickable
     {
+        [Inject] private Monetization.AdmobKeyStorer m_admobStorer;
+
         private readonly BlockManager m_blockManager;
         private readonly ScoreManager m_scoreManager;
         private readonly SignalBus m_signalBus;
@@ -84,12 +86,30 @@ namespace MegaJumper
 
             if (m_localSaveManager.SaveDataInstance.RemoveAd)
             {
-                UnityEngine.GameObject _banner = UnityEngine.GameObject.Find("BANNER(Clone)");
-                UnityEngine.Object.Destroy(_banner);
+                STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdIsRemoved();
             }
+
+            InitSDK();
 
             m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(m_localSaveManager.SaveDataInstance.Coin, 0));
             OnGameReset(new Event.InGameEvent.OnGameResetCalled(false));
+        }
+
+        private void InitSDK()
+        {
+            GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
+        }
+
+        private void OnAdInited(GoogleMobileAds.Api.InitializationStatus status)
+        {
+            STORIAMonetization.Advertisement.AdUnitBase _adUnit = new Monetization.AdmobAdUnit(m_admobStorer.RewardAdID, m_admobStorer.InterstitialAdID, m_admobStorer.BannerAdID);
+
+            if (!m_localSaveManager.SaveDataInstance.RemoveAd)
+            {
+                ((Monetization.AdmobAdUnit)_adUnit).ShowBanner();
+            }
+
+            STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdUnit(_adUnit);
         }
 
         private void OnGameReset(Event.InGameEvent.OnGameResetCalled obj)

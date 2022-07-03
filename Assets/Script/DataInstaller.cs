@@ -6,6 +6,7 @@ namespace MegaJumper
     public class DataInstaller : ScriptableObjectInstaller
     {
         public BlockContainer blockContainer;
+        public Monetization.AdmobKeyStorer admobKeyStorer;
         public SettlementSettingContainer settlementSettingContainer;
         public GameProperties gameProperties;
 
@@ -13,6 +14,7 @@ namespace MegaJumper
         {
             Container.BindInstances(blockContainer);
             Container.BindInstances(gameProperties);
+            Container.BindInstance(admobKeyStorer);
             Container.BindInstances(settlementSettingContainer);
         }
     }

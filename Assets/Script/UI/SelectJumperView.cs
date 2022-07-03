@@ -29,6 +29,7 @@ namespace MegaJumper.UI
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
         [SerializeField] private RectTransform m_coinEndPos;
         [SerializeField] private GameObject m_unlockHint;
+        [SerializeField] private GameObject m_removeAdButton;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
@@ -80,6 +81,11 @@ namespace MegaJumper.UI
             else
             {
                 SetJumperWithSave();
+            }
+
+            if (m_localSaveManager.SaveDataInstance.RemoveAd)
+            {
+                m_removeAdButton.SetActive(false);
             }
         }
 
@@ -335,6 +341,9 @@ namespace MegaJumper.UI
         {
             m_localSaveManager.SaveDataInstance.SetRemoveAd();
             m_localSaveManager.SaveAll();
+            m_removeAdButton.SetActive(false);
+            GameObject _banner = GameObject.Find("BANNER(Clone)");
+            Destroy(_banner);
         }
 
         private float m_waitTimer = 0f;

@@ -15,6 +15,7 @@ MonoBehaviour:
   blockContainer:
     blockPrefab: {fileID: 3205182642276438116, guid: fdeddcd5853bf584bbbf9d768b2586b8,
       type: 3}
+  admobKeyStorer: {fileID: 11400000, guid: ae0c628f9c2300545945e1740b5756ba, type: 2}
   settlementSettingContainer:
     settlementSettings:
     - {fileID: 11400000, guid: e0c13a362b99895438c2b322b7984f31, type: 2}

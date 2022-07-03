@@ -14,6 +14,7 @@ namespace STORIAMonetization.Advertisement
         }
 
         private AdUnitBase m_currentAdUnit = null;
+        private bool m_isRemoved = false;
 
         public void SetAdUnit(AdUnitBase adUnit)
         {
@@ -30,8 +31,19 @@ namespace STORIAMonetization.Advertisement
             m_currentAdUnit = null;
         }
 
+        public void SetAdIsRemoved()
+        {
+            m_isRemoved = true;
+        }
+
         public void ShowRewardVideo(Action onShown, Action<FailType> onFailed)
         {
+            if (m_isRemoved)
+            {
+                onShown?.Invoke();
+                return;
+            }
+
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
                 onFailed?.Invoke(FailType.Disconnected);
@@ -50,6 +62,12 @@ namespace STORIAMonetization.Advertisement
 
         public void ShowInterstitial(Action onShown, Action<FailType> onFailed)
         {
+            if (m_isRemoved)
+            {
+                onShown?.Invoke();
+                return;
+            }
+
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
                 onFailed?.Invoke(FailType.Disconnected);

@@ -22,6 +22,7 @@ namespace MegaJumper
 
             signalBus.Subscribe<Event.InGameEvent.OnGameStarted>(OnGameStarted);
             signalBus.Subscribe<Event.InGameEvent.OnScoreAdded>(OnScoreAdded);
+            signalBus.Subscribe<Event.InGameEvent.OnScoreReset>(OnScoreReset);
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
             signalBus.Subscribe<Event.InGameEvent.OnComboAdded>(OnComboAdded);
@@ -106,6 +107,11 @@ namespace MegaJumper
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)
         {
             m_score = obj.Current;
+        }
+
+        private void OnScoreReset()
+        {
+            m_score = 0;
         }
 
         private void OnStartFever()

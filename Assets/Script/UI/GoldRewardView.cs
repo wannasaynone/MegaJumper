@@ -38,12 +38,6 @@ namespace MegaJumper.UI
 
         public void Button_ShowAd()
         {
-            if (m_localSaveManager.SaveDataInstance.RemoveAd)
-            {
-                OnAdShown();
-                return;
-            }
-
             m_loadingPanel.SetActive(true);
             STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowRewardVideo(OnAdShown, OnAdShownFail);
         }

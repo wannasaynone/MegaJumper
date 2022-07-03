@@ -18,6 +18,7 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_historyHighscoreText;
         [SerializeField] private TextMeshProUGUI m_todayHighscoreText;
         [SerializeField] private RectTransform m_getCoinButtonRoot;
+        [SerializeField] private GameObject m_restoreButton;
         [SerializeField] private float m_startX;
         [SerializeField] private float m_endX;
 
@@ -52,6 +53,7 @@ namespace MegaJumper.UI
             m_coinPanelRoot.SetActive(false);
             m_historyHighscoreText.gameObject.SetActive(false);
             m_todayHighscoreText.gameObject.SetActive(false);
+            m_restoreButton.SetActive(false);
         }
 
         private void OnTutorialEnded()
@@ -71,6 +73,7 @@ namespace MegaJumper.UI
             m_historyHighscoreText.gameObject.SetActive(false);
             m_todayHighscoreText.gameObject.SetActive(false);
             m_getCoinButtonRoot.gameObject.SetActive(false);
+            m_restoreButton.SetActive(false);
         }
 
         private void OnJumperSettingSet(Event.InGameEvent.OnJumperSettingSet obj)
@@ -92,10 +95,12 @@ namespace MegaJumper.UI
             m_getCoinButtonRoot.gameObject.SetActive(true);
             m_getCoinButtonRoot.anchoredPosition = new Vector2(m_startX, m_getCoinButtonRoot.anchoredPosition.y);
 
-            if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
+            if (m_localSaveManager.SaveDataInstance.IsTutorialEnded)
             {
                 DOTween.To(GetGetCoinButtonRootAnchoredPosition, SetGetCoinButtonRootAnchoredPosition, new Vector3(m_endX, m_getCoinButtonRoot.anchoredPosition.y), 0.5f);
             }
+
+            m_restoreButton.SetActive(true);
         }
 
         private Vector2 GetGetCoinButtonRootAnchoredPosition()

@@ -30,9 +30,6 @@ namespace MegaJumper.Monetization
             m_bannerView = new BannerView(m_bannerID, AdSize.Banner, AdPosition.Bottom);
             m_interstitialAd = new InterstitialAd(m_interID);
 
-            AdRequest _bannerRequest = new AdRequest.Builder().Build();
-            m_bannerView.LoadAd(_bannerRequest);
-
             InitRewardEvent();
             InitInterstitialEvent();
 
@@ -197,6 +194,12 @@ namespace MegaJumper.Monetization
         {
             AdRequest _request = new AdRequest.Builder().Build();
             m_interstitialAd.LoadAd(_request);
+        }
+
+        public void ShowBanner()
+        {
+            AdRequest _bannerRequest = new AdRequest.Builder().Build();
+            m_bannerView.LoadAd(_bannerRequest);
         }
     }
 }
