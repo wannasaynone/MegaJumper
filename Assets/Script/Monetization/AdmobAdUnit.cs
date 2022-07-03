@@ -201,5 +201,10 @@ namespace MegaJumper.Monetization
             AdRequest _bannerRequest = new AdRequest.Builder().Build();
             m_bannerView.LoadAd(_bannerRequest);
         }
+
+        public void HideBanner()
+        {
+            m_bannerView.Hide();
+        }
     }
 }

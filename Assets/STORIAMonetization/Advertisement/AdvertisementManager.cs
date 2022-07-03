@@ -36,6 +36,11 @@ namespace STORIAMonetization.Advertisement
             m_isRemoved = true;
         }
 
+        public AdUnitBase GetAdUnit()
+        {
+            return m_currentAdUnit;
+        }
+
         public void ShowRewardVideo(Action onShown, Action<FailType> onFailed)
         {
             if (m_isRemoved)

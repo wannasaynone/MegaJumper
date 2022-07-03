@@ -89,11 +89,13 @@ namespace MegaJumper
 
             public void SetIsTutorialEnded()
             {
+                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("TutorialStage1Ended");
                 IsTutorialEnded = true;
             }
 
             public void SetIsTutorial2Ended()
             {
+                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("TutorialStage2Ended");
                 IsTutorial2Ended = true;
             }
 
@@ -143,6 +145,7 @@ namespace MegaJumper
                     return;
 
                 UnlockedJumpers.Add(name);
+                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("UnlockJumperCount" + UnlockedJumpers.Count);
             }
 
             private void SetUse(Event.InGameEvent.OnJumperSettingSet obj)

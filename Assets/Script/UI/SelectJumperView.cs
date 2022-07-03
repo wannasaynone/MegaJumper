@@ -342,8 +342,8 @@ namespace MegaJumper.UI
             m_localSaveManager.SaveDataInstance.SetRemoveAd();
             m_localSaveManager.SaveAll();
             m_removeAdButton.SetActive(false);
-            GameObject _banner = GameObject.Find("BANNER(Clone)");
-            Destroy(_banner);
+            Monetization.AdmobAdUnit _admobUnit = STORIAMonetization.MonetizeCenter.Instance.AdManager.GetAdUnit() as Monetization.AdmobAdUnit;
+            _admobUnit.HideBanner();
         }
 
         private float m_waitTimer = 0f;

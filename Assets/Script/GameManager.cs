@@ -82,6 +82,13 @@ namespace MegaJumper
 
         public void Initialize()
         {
+            if (UnityEngine.PlayerPrefs.GetInt("Played", 0) == 0)
+            {
+                UnityEngine.PlayerPrefs.SetInt("Played", 1);
+                UnityEngine.PlayerPrefs.Save();
+                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("NewPlayer");
+            }
+
             m_localSaveManager.LoadAll();
 
             if (m_localSaveManager.SaveDataInstance.RemoveAd)
@@ -97,6 +104,7 @@ namespace MegaJumper
 
         private void InitSDK()
         {
+            Facebook.Unity.FB.Init();
             GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
         }
 
