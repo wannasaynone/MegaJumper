@@ -41,13 +41,13 @@ namespace MegaJumper.UI
             m_progressImage.fillAmount = (float)m_localSaveManager.SaveDataInstance.Coin / (float)m_target;
         }
 
-        public void Show(int currentCoin)
+        public void Show()
         {
             m_root.SetActive(true);
-            StartCoroutine(IEShowProgress(currentCoin));
+            StartCoroutine(IEShowProgress());
         }
 
-        private System.Collections.IEnumerator IEShowProgress(int currentCoin)
+        private System.Collections.IEnumerator IEShowProgress()
         {
             if (m_localSaveManager.SaveDataInstance.Coin >= m_target)
             {
@@ -59,9 +59,9 @@ namespace MegaJumper.UI
             }
             yield return new WaitForSeconds(0.5f);
 
-            float _targetFillAmount = (float)currentCoin / (float)m_target;
+            float _targetFillAmount = (float)m_localSaveManager.SaveDataInstance.Coin / (float)m_target;
 
-            KahaGameCore.Common.GameUtility.RunNunber(m_progressImage.fillAmount, _targetFillAmount, 1f, OnProgressUpdate, delegate { OnProgessEnded(currentCoin); });
+            KahaGameCore.Common.GameUtility.RunNunber(m_progressImage.fillAmount, _targetFillAmount, 1f, OnProgressUpdate, OnProgessEnded);
 
             yield return new WaitForSeconds(1f);
 
@@ -76,9 +76,9 @@ namespace MegaJumper.UI
             m_progressText.text = _curInt.ToString("N0") + " / " + m_target.ToString("N0");
         }
 
-        private void OnProgessEnded(int currentCoin)
+        private void OnProgessEnded()
         {
-            m_progressText.text = currentCoin.ToString("N0") + " / " + m_target.ToString("N0");
+            m_progressText.text = m_localSaveManager.SaveDataInstance.Coin.ToString("N0") + " / " + m_target.ToString("N0");
         }
 
         private float m_showAdChance = 100f;

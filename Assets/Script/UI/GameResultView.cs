@@ -198,7 +198,7 @@ namespace MegaJumper.UI
                     }
                 }
 
-                if ((m_scoreManager.Score >= 30 && Random.Range(0f, 100f) <= m_showAdChance)
+                if (Random.Range(0f, 100f) <= m_showAdChance
                     || m_scoreManager.Score >= 100)
                 {
                     m_continueButtonRoot.SetActive(false);
@@ -214,7 +214,7 @@ namespace MegaJumper.UI
             else
             {
                 m_root.SetActive(false);
-                m_progressView.Show(m_playerFinalCoin);
+                m_progressView.Show();
             }
         }
 
