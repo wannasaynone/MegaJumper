@@ -105,6 +105,7 @@ namespace MegaJumper
         private void InitSDK()
         {
             Facebook.Unity.FB.Init();
+            GameAnalyticsSDK.GameAnalytics.Initialize();
             GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
         }
 

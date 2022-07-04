@@ -344,6 +344,7 @@ namespace MegaJumper.UI
             m_removeAdButton.SetActive(false);
             Monetization.AdmobAdUnit _admobUnit = STORIAMonetization.MonetizeCenter.Instance.AdManager.GetAdUnit() as Monetization.AdmobAdUnit;
             _admobUnit.HideBanner();
+            STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdIsRemoved();
         }
 
         private float m_waitTimer = 0f;
