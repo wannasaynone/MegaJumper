@@ -24,4 +24,4 @@ MonoBehaviour:
   m_description: Have 3 chances and get 2 score every jump, but can no longer hit
     the Combo.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 3000
+  m_unlockPrice: 500

@@ -85,6 +85,7 @@ namespace MegaJumper
         private void OnTutorialEnded()
         {
             m_tutorialMode = false;
+            OnGameResetCalled(null);
         }
 
         private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)

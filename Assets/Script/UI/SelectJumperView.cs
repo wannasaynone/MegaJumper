@@ -30,14 +30,19 @@ namespace MegaJumper.UI
         [SerializeField] private RectTransform m_coinEndPos;
         [SerializeField] private GameObject m_unlockHint;
         [SerializeField] private GameObject m_removeAdButton;
+        [SerializeField] private GameObject m_getCoinButton;
+        [SerializeField] private JumperUISetting[] m_settings;
         [Header("Stats UI")]
         [SerializeField] private TMPro.TextMeshProUGUI m_nameText;
         [SerializeField] private UnityEngine.UI.Image m_accurateBarImage;
         [SerializeField] private UnityEngine.UI.Image m_feverScoreBarImage;
         [SerializeField] private UnityEngine.UI.Image m_comboNeedBarImage;
         [SerializeField] private TMPro.TextMeshProUGUI m_descriptionText;
-
-        [SerializeField] private JumperUISetting[] m_settings;
+        [Header("Hat Panel")]
+        [SerializeField] private RectTransform m_hatPanelRoot;
+        [SerializeField] private float m_hatPanelHidePosY;
+        [SerializeField] private float m_hatPanelShowPosY;
+        [SerializeField] private GameObject m_normalButtonRoot;
 
         private List<GameObject> m_cloneModelRoot = new List<GameObject>();
         private List<GameObject> m_cloneTexture = new List<GameObject>();
@@ -70,9 +75,6 @@ namespace MegaJumper.UI
 
         private void OnScoreReset()
         {
-            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
-                                         &&
-                                        (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
             if (string.IsNullOrEmpty(m_localSaveManager.SaveDataInstance.UsingJumper))
             {
                 m_signalBus.Fire(new Event.InGameEvent.OnJumperSettingSet(m_settings[0].JumperSetting));
@@ -83,17 +85,13 @@ namespace MegaJumper.UI
                 SetJumperWithSave();
             }
 
-            if (m_localSaveManager.SaveDataInstance.RemoveAd)
-            {
-                m_removeAdButton.SetActive(false);
-            }
+            m_removeAdButton.SetActive(!m_localSaveManager.SaveDataInstance.RemoveAd && m_localSaveManager.SaveDataInstance.IsTutorial2Ended);
+            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
         }
 
         private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
         {
-            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded
-                                         &&
-                                        (m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count >= 2 || m_localSaveManager.SaveDataInstance.Coin >= 3000));
+            m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
         }
 
         private void SetJumperWithSave()
@@ -116,6 +114,7 @@ namespace MegaJumper.UI
 
         private void OnGameStarted()
         {
+            m_removeAdButton.SetActive(false);
             m_enableButtonRoot.SetActive(false);
             m_unlockHint.SetActive(false);
         }
@@ -127,6 +126,7 @@ namespace MegaJumper.UI
             m_ingameRoot.SetActive(!active);
             m_selectJumperModelRoot.SetActive(active);
             m_selectJumperUIRoot.SetActive(active);
+            m_removeAdButton.gameObject.SetActive(!active);
             for (int i = 0; i < m_ingameUI.Length; i++)
             {
                 m_ingameUI[i].SetActive(!active);
@@ -185,7 +185,7 @@ namespace MegaJumper.UI
 
         public void Button_Unlock()
         {
-            if (m_localSaveManager.SaveDataInstance.Coin < m_settings[m_currentIndex].JumperSetting.UnlockPrice)
+            if (m_localSaveManager.SaveDataInstance.Coin < GetUnlockPrice())
             {
                 m_scoreUI.ShakeCoinPanel();
                 StartCoroutine(IEShowGoldRewardView());
@@ -196,12 +196,17 @@ namespace MegaJumper.UI
 
             int _orginCoint = m_localSaveManager.SaveDataInstance.Coin;
 
-            m_localSaveManager.SaveDataInstance.AddCoin(-m_settings[m_currentIndex].JumperSetting.UnlockPrice);
+            m_localSaveManager.SaveDataInstance.AddCoin(-GetUnlockPrice());
             m_localSaveManager.SaveDataInstance.Unlock(m_settings[m_currentIndex].JumperSetting.name);
             m_localSaveManager.SaveAll();
 
             KahaGameCore.Common.GameUtility.RunNunber(_orginCoint, m_localSaveManager.SaveDataInstance.Coin, 0.5f, OnCoinNumberUpdate, null);
             StartCoroutine(IEUnlock());
+        }
+
+        private int GetUnlockPrice()
+        {
+            return m_settings[m_currentIndex].JumperSetting.UnlockPrice * m_localSaveManager.SaveDataInstance.UnlockedJumpers.Count;
         }
 
         private IEnumerator IEShowGoldRewardView()
@@ -298,9 +303,9 @@ namespace MegaJumper.UI
             m_lockImage_cover.transform.localScale = Vector3.one;
             m_selectJumperButton.gameObject.SetActive(_unlocked);
             m_unlockJumperButton.gameObject.SetActive(!_unlocked);
-            m_unlockPriceText.text = _jumperSetting.UnlockPrice.ToString("N0");
+            m_unlockPriceText.text = GetUnlockPrice().ToString("N0");
 
-            if (m_localSaveManager.SaveDataInstance.Coin >= _jumperSetting.UnlockPrice)
+            if (m_localSaveManager.SaveDataInstance.Coin >= GetUnlockPrice())
             {
                 m_unlockPriceText.color = m_normalColor;
             }
@@ -309,6 +314,8 @@ namespace MegaJumper.UI
                 m_unlockPriceText.color = m_cantUnlockColor;
                 m_unlockPriceText.text += "\n<size=33>Not Enough Coin</size>";
             }
+
+            m_getCoinButton.SetActive(m_localSaveManager.SaveDataInstance.Coin < GetUnlockPrice() && !_unlocked);
         }
 
         public void ShowChangeButtonUnlock()
@@ -319,22 +326,19 @@ namespace MegaJumper.UI
 
         private IEnumerator IEChangeButtonUnlock()
         {
+            m_localSaveManager.SaveDataInstance.SetIsTutorial2Ended();
+            m_localSaveManager.SaveAll();
+
             m_unlockPanel.SetActive(true);
             m_unlockHint.SetActive(true);
             m_unlockHint.transform.localScale = Vector3.zero;
-            m_enableButtonRoot.transform.localScale = Vector3.zero;
-            m_enableButtonRoot.transform.DOScale(Vector3.one * 1.1f, 0.5f);
             yield return new WaitForSeconds(0.25f);
             m_unlockHint.transform.DOScale(Vector3.one * 1.1f, 0.5f).OnComplete(delegate
             {
                 m_unlockHint.transform.DOScale(Vector3.one, 0.25f);
             });
             yield return new WaitForSeconds(0.25f);
-            m_enableButtonRoot.transform.DOScale(Vector3.one, 0.25f);
-            yield return new WaitForSeconds(0.25f);
             m_unlockPanel.SetActive(false);
-            m_localSaveManager.SaveDataInstance.SetIsTutorial2Ended();
-            m_localSaveManager.SaveAll();
         }
 
         public void RemoveAllAd()
@@ -345,6 +349,29 @@ namespace MegaJumper.UI
             Monetization.AdmobAdUnit _admobUnit = STORIAMonetization.MonetizeCenter.Instance.AdManager.GetAdUnit() as Monetization.AdmobAdUnit;
             _admobUnit.HideBanner();
             STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdIsRemoved();
+        }
+
+        public void ShowHatPanel(bool show)
+        {
+            if (show)
+            {
+                DOTween.To(GetHatPanelY, SetHatPanelY, m_hatPanelShowPosY, 0.5f);
+            }
+            else
+            {
+                DOTween.To(GetHatPanelY, SetHatPanelY, m_hatPanelHidePosY, 0.5f);
+            }
+            m_normalButtonRoot.SetActive(!show);
+        }
+
+        private float GetHatPanelY()
+        {
+            return m_hatPanelRoot.anchoredPosition.y;
+        }
+
+        private void SetHatPanelY(float y)
+        {
+            m_hatPanelRoot.anchoredPosition = new Vector2(m_hatPanelRoot.anchoredPosition.x, y);
         }
 
         private float m_waitTimer = 0f;

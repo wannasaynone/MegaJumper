@@ -42,10 +42,20 @@ namespace MegaJumper
             {
                 min = 0.5f;
             }
-            
+
+            if (min > 1f)
+            {
+                min = 1f;
+            }
+
             if (max > 1f)
             {
                 max = 1f;
+            }
+
+            if (max < 0.5f)
+            {
+                max = 0.5f;
             }
 
             SizeScale = Random.Range(min, max);

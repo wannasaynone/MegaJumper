@@ -17,7 +17,6 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_coinText;
         [SerializeField] private TextMeshProUGUI m_historyHighscoreText;
         [SerializeField] private TextMeshProUGUI m_todayHighscoreText;
-        [SerializeField] private RectTransform m_getCoinButtonRoot;
         [SerializeField] private GameObject m_restoreButton;
         [SerializeField] private float m_startX;
         [SerializeField] private float m_endX;
@@ -61,6 +60,7 @@ namespace MegaJumper.UI
             m_tutorialMode = false;
             m_scoreText.gameObject.SetActive(true);
             m_scoreText.text = "0";
+            m_restoreButton.SetActive(false);
         }
 
         private void OnGameStarted()
@@ -72,7 +72,6 @@ namespace MegaJumper.UI
             m_coinPanelRoot.SetActive(false);
             m_historyHighscoreText.gameObject.SetActive(false);
             m_todayHighscoreText.gameObject.SetActive(false);
-            m_getCoinButtonRoot.gameObject.SetActive(false);
             m_restoreButton.SetActive(false);
         }
 
@@ -91,26 +90,7 @@ namespace MegaJumper.UI
             m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_historyHighscoreText.text = "History Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_All;
             m_todayHighscoreText.text = "Today Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_Day;
-
-            m_getCoinButtonRoot.gameObject.SetActive(true);
-            m_getCoinButtonRoot.anchoredPosition = new Vector2(m_startX, m_getCoinButtonRoot.anchoredPosition.y);
-
-            if (m_localSaveManager.SaveDataInstance.IsTutorialEnded)
-            {
-                DOTween.To(GetGetCoinButtonRootAnchoredPosition, SetGetCoinButtonRootAnchoredPosition, new Vector3(m_endX, m_getCoinButtonRoot.anchoredPosition.y), 0.5f);
-            }
-
             m_restoreButton.SetActive(true);
-        }
-
-        private Vector2 GetGetCoinButtonRootAnchoredPosition()
-        {
-            return m_getCoinButtonRoot.anchoredPosition;
-        }
-
-        private void SetGetCoinButtonRootAnchoredPosition(Vector2 v)
-        {
-            m_getCoinButtonRoot.anchoredPosition = v;
         }
 
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)

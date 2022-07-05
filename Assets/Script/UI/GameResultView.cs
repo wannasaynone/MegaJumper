@@ -17,6 +17,7 @@ namespace MegaJumper.UI
         [SerializeField] private TMPro.TextMeshProUGUI m_totalCoinText;
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
         [SerializeField] private RectTransform m_coinEndPos;
+        [SerializeField] private RectTransform m_getCoinButtonRoot;
 
         private List<GameResultView_ScoreObject> m_cloneScoreObjects = new List<GameResultView_ScoreObject>();
 
@@ -48,6 +49,7 @@ namespace MegaJumper.UI
             m_totalCoinText.text = "0";
             m_root.SetActive(true);
             m_continueButtonRoot.SetActive(false);
+            m_getCoinButtonRoot.gameObject.SetActive(false);
             KahaGameCore.Common.TimerManager.Schedule(m_waitShowPanelTime, delegate { StartShowResult(result, orginMoneyNumber, onShown); });
         }
 
@@ -178,7 +180,11 @@ namespace MegaJumper.UI
 
         private void ShowButton()
         {
-            m_continueButtonRoot.SetActive(true);
+            m_getCoinButtonRoot.gameObject.SetActive(true);
+            KahaGameCore.Common.TimerManager.Schedule(1f, delegate
+            {
+                m_continueButtonRoot.SetActive(true);
+            });
         }
 
         private float m_showAdChance = -1f;

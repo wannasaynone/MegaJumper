@@ -23,4 +23,4 @@ MonoBehaviour:
   m_life: 2
   m_description: Have 2 chances, perfect, but very, very expensive.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 300000
+  m_unlockPrice: 50000

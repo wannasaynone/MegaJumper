@@ -387,6 +387,11 @@ namespace MegaJumper
                         UpdatePressDownScale();
                     }
                 }
+
+                if (!Input.GetMouseButton(0))
+                {
+                    SetIdle();
+                }
             }
         }
 

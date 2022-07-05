@@ -23,4 +23,4 @@ MonoBehaviour:
   m_life: 1
   m_description: You can get more Fever score, but Fever requires more Combo.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 3000
+  m_unlockPrice: 500

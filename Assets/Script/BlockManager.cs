@@ -63,7 +63,7 @@ namespace MegaJumper
             }
 
             UnityEngine.Vector3 _newPos = _orginPos;
-            float _maxDistanceMutiplier = (float)(m_scoreManager.Score - 20) / 20f;
+            float _maxDistanceMutiplier = (float)(m_scoreManager.Score - 10) / 10f;
 
             if (m_tutorialMode)
             {
@@ -105,13 +105,16 @@ namespace MegaJumper
             _clone.transform.position = _newPos;
             m_clonedBlock.Add(_clone);
 
-            if (!m_tutorialMode && m_scoreManager.Score >= 40)
+            if (!m_tutorialMode && m_scoreManager.Score >= 10)
             {
-                float _min = 20f / (float)m_scoreManager.Score;
-
+                float _min = 10f / (float)m_scoreManager.Score;
                 if (_min < 0.5f) _min = 0.5f;
 
-                _clone.RerollSize(_min);
+                float _max = 20f / (float)m_scoreManager.Score;
+                if (_max > 1f) _max = 1f;
+                if (_max < _min) _max = _min + 0.1f;
+
+                _clone.RerollSize(_min, _max);
             }
 
             _clone.PlayFeedback();

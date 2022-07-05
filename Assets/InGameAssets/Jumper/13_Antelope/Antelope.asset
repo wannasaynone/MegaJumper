@@ -24,4 +24,4 @@ MonoBehaviour:
   m_description: Fever needs only 1 Combo, but it is extremely difficult to hit the
     Combo.
   m_skipPerfectCheck: 0
-  m_unlockPrice: 3000
+  m_unlockPrice: 500
