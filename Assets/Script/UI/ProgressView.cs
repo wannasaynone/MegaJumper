@@ -81,8 +81,6 @@ namespace MegaJumper.UI
             m_progressText.text = m_localSaveManager.SaveDataInstance.Coin.ToString("N0") + " / " + m_target.ToString("N0");
         }
 
-        private float m_showAdChance = 100f;
-
         public void Button_Next()
         {
             m_nextButton.SetActive(false);
@@ -93,13 +91,13 @@ namespace MegaJumper.UI
             }
             else
             {
-                if (Random.Range(0f, 100f) <= m_showAdChance)
+                if (Random.Range(0f, 100f) <= GameResultView.showAdChance)
                 {
                     STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
                 }
                 else
                 {
-                    m_showAdChance += 50f;
+                    GameResultView.showAdChance += 50f;
                     m_root.SetActive(false);
                     m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
                 }
@@ -114,7 +112,7 @@ namespace MegaJumper.UI
         // for process unity API in main thread
         private void ProcessReward()
         {
-            m_showAdChance = 0f;
+            GameResultView.showAdChance = 0f;
             m_root.SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
         }

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 489383}
   - component: {fileID: 489385}
   - component: {fileID: 489384}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5097,7 +5097,7 @@ GameObject:
   - component: {fileID: 13899995}
   - component: {fileID: 13899997}
   - component: {fileID: 13899996}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LockImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5591,7 +5591,7 @@ GameObject:
   - component: {fileID: 70814024}
   - component: {fileID: 70814023}
   - component: {fileID: 70814022}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5699,6 +5699,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5752,6 +5757,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_text
@@ -5801,7 +5811,7 @@ GameObject:
   - component: {fileID: 93476341}
   - component: {fileID: 93476343}
   - component: {fileID: 93476342}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LockImage_Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6346,7 +6356,7 @@ GameObject:
   - component: {fileID: 148560238}
   - component: {fileID: 148560240}
   - component: {fileID: 148560239}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint_GameStart (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6485,7 +6495,7 @@ GameObject:
   - component: {fileID: 148928799}
   - component: {fileID: 148928798}
   - component: {fileID: 148928797}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6605,6 +6615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Btn_Rectangle00_n_Common_Gray (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5356596051711621983, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -6751,6 +6766,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406615, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6829,7 +6849,7 @@ GameObject:
   - component: {fileID: 172617138}
   - component: {fileID: 172617137}
   - component: {fileID: 172617136}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GetCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7350,7 +7370,7 @@ GameObject:
   - component: {fileID: 205153262}
   - component: {fileID: 205153264}
   - component: {fileID: 205153263}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7425,7 +7445,7 @@ GameObject:
   - component: {fileID: 237470030}
   - component: {fileID: 237470032}
   - component: {fileID: 237470031}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint _Release
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7640,7 +7660,7 @@ GameObject:
   - component: {fileID: 314811477}
   - component: {fileID: 314811476}
   - component: {fileID: 314811475}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7752,7 +7772,7 @@ GameObject:
   - component: {fileID: 333870272}
   - component: {fileID: 333870271}
   - component: {fileID: 333870270}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13446,7 +13466,7 @@ GameObject:
   - component: {fileID: 468570826}
   - component: {fileID: 468570825}
   - component: {fileID: 468570824}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13954,7 +13974,7 @@ GameObject:
   - component: {fileID: 502950692}
   - component: {fileID: 502950691}
   - component: {fileID: 502950690}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14163,7 +14183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525115090}
   - component: {fileID: 525115091}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: HintUIView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14277,6 +14297,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7820534292491223953, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7820534293471119234, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
       propertyPath: m_Sprite
@@ -14322,6 +14347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293471119239, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855360, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -14545,6 +14575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -14575,7 +14610,7 @@ GameObject:
   - component: {fileID: 528749596}
   - component: {fileID: 528749595}
   - component: {fileID: 528749598}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GetCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15078,7 +15113,7 @@ GameObject:
   - component: {fileID: 576799195}
   - component: {fileID: 576799194}
   - component: {fileID: 576799193}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GetCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15410,6 +15445,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7820534292491223953, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7820534293471119234, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
       propertyPath: m_Sprite
@@ -15445,6 +15485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293471119239, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855360, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -15595,6 +15640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Btn_MenuButton_Rectangle01_Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -15837,7 +15887,7 @@ GameObject:
   - component: {fileID: 677721212}
   - component: {fileID: 677721211}
   - component: {fileID: 677721210}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16075,7 +16125,7 @@ GameObject:
   - component: {fileID: 688883485}
   - component: {fileID: 688883487}
   - component: {fileID: 688883486}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16210,7 +16260,7 @@ GameObject:
   - component: {fileID: 699702468}
   - component: {fileID: 699702470}
   - component: {fileID: 699702469}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17088,7 +17138,7 @@ GameObject:
   - component: {fileID: 734552370}
   - component: {fileID: 734552372}
   - component: {fileID: 734552371}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint_LandOnStage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17298,7 +17348,7 @@ GameObject:
   - component: {fileID: 769398944}
   - component: {fileID: 769398946}
   - component: {fileID: 769398945}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17433,7 +17483,7 @@ GameObject:
   - component: {fileID: 771172232}
   - component: {fileID: 771172234}
   - component: {fileID: 771172233}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17572,7 +17622,7 @@ GameObject:
   - component: {fileID: 775569810}
   - component: {fileID: 775569809}
   - component: {fileID: 775569808}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17788,6 +17838,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6270753920743295108, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270753921539141978, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6270753921759050688, guid: e19631baeae9370479245530de1a2cc3,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -17813,6 +17873,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6270753921759050695, guid: e19631baeae9370479245530de1a2cc3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19631baeae9370479245530de1a2cc3, type: 3}
 --- !u!224 &779864343 stripped
@@ -17832,7 +17897,7 @@ GameObject:
   - component: {fileID: 782281145}
   - component: {fileID: 782281147}
   - component: {fileID: 782281146}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22979,7 +23044,7 @@ GameObject:
   - component: {fileID: 825293764}
   - component: {fileID: 825293766}
   - component: {fileID: 825293765}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame_Banner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23154,7 +23219,7 @@ GameObject:
   - component: {fileID: 830441980}
   - component: {fileID: 830441982}
   - component: {fileID: 830441981}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23289,7 +23354,7 @@ GameObject:
   - component: {fileID: 836215243}
   - component: {fileID: 836215245}
   - component: {fileID: 836215244}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23573,7 +23638,7 @@ GameObject:
   - component: {fileID: 869525720}
   - component: {fileID: 869525722}
   - component: {fileID: 869525721}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23650,7 +23715,7 @@ GameObject:
   - component: {fileID: 880726500}
   - component: {fileID: 880726499}
   - component: {fileID: 880726498}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23920,7 +23985,7 @@ GameObject:
   - component: {fileID: 896147712}
   - component: {fileID: 896147714}
   - component: {fileID: 896147713}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24425,7 +24490,7 @@ GameObject:
   - component: {fileID: 969735363}
   - component: {fileID: 969735365}
   - component: {fileID: 969735364}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24565,6 +24630,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -24649,6 +24719,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 791c526937096414e963087cf56599d7,
         type: 3}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_text
@@ -24709,6 +24784,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 681576668}
     m_Modifications:
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596051711621983, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -24788,6 +24868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -24981,7 +25066,7 @@ GameObject:
   - component: {fileID: 1082504376}
   - component: {fileID: 1082504378}
   - component: {fileID: 1082504377}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30838,7 +30923,7 @@ GameObject:
   - component: {fileID: 1208314136}
   - component: {fileID: 1208314135}
   - component: {fileID: 1208314139}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Restore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36039,6 +36124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Btn_Rectangle00_n_Common_Gray
       objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596051711621983, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -36184,6 +36274,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_text
@@ -36317,7 +36412,7 @@ GameObject:
   - component: {fileID: 1276219087}
   - component: {fileID: 1276219086}
   - component: {fileID: 1276219085}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Popup00_Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36477,7 +36572,7 @@ GameObject:
   - component: {fileID: 1287199684}
   - component: {fileID: 1287199686}
   - component: {fileID: 1287199685}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42303,7 +42398,7 @@ GameObject:
   - component: {fileID: 1396363387}
   - component: {fileID: 1396363389}
   - component: {fileID: 1396363388}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42508,6 +42603,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7820534292491223953, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7820534293471119234, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
       propertyPath: m_Sprite
@@ -42553,6 +42653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293471119239, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855360, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -42776,6 +42881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -42893,7 +43003,7 @@ GameObject:
   - component: {fileID: 1467827424}
   - component: {fileID: 1467827423}
   - component: {fileID: 1467827422}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47904,7 +48014,7 @@ GameObject:
   - component: {fileID: 1502387116}
   - component: {fileID: 1502387115}
   - component: {fileID: 1502387114}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48072,6 +48182,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7820534292491223953, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7820534293471119234, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
       propertyPath: m_Sprite
@@ -48117,6 +48232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293471119239, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855360, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -48267,6 +48387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ad
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7820534293841855363, guid: f8d6b323b6f22e4429931f84acb1f7b8,
         type: 3}
@@ -49433,7 +49558,7 @@ GameObject:
   - component: {fileID: 1534250111}
   - component: {fileID: 1534250113}
   - component: {fileID: 1534250112}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49508,7 +49633,7 @@ GameObject:
   - component: {fileID: 1539083480}
   - component: {fileID: 1539083479}
   - component: {fileID: 1539083478}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49643,7 +49768,7 @@ GameObject:
   - component: {fileID: 1539295662}
   - component: {fileID: 1539295664}
   - component: {fileID: 1539295663}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint_Combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49779,6 +49904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Label_Ribbon00_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 524058658064140865, guid: 600da30e18e5e774cbc397a6d95f1b7e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 524058658064140866, guid: 600da30e18e5e774cbc397a6d95f1b7e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -49884,6 +50014,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 524058658101096312, guid: 600da30e18e5e774cbc397a6d95f1b7e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 524058658265391619, guid: 600da30e18e5e774cbc397a6d95f1b7e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 524058658685930168, guid: 600da30e18e5e774cbc397a6d95f1b7e,
         type: 3}
       propertyPath: m_fontSizeMax
@@ -49908,6 +50048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 524058658685930174, guid: 600da30e18e5e774cbc397a6d95f1b7e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 600da30e18e5e774cbc397a6d95f1b7e, type: 3}
@@ -50090,7 +50235,7 @@ GameObject:
   - component: {fileID: 1558018253}
   - component: {fileID: 1558018255}
   - component: {fileID: 1558018254}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50336,7 +50481,7 @@ GameObject:
   - component: {fileID: 1687043117}
   - component: {fileID: 1687043119}
   - component: {fileID: 1687043118}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint_GameStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51024,7 +51169,7 @@ GameObject:
   - component: {fileID: 1739953714}
   - component: {fileID: 1739953713}
   - component: {fileID: 1739953712}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51138,7 +51283,7 @@ GameObject:
   - component: {fileID: 1750332090}
   - component: {fileID: 1750332089}
   - component: {fileID: 1750332088}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Status_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51388,7 +51533,7 @@ GameObject:
   - component: {fileID: 1752183940}
   - component: {fileID: 1752183939}
   - component: {fileID: 1752183938}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Popup00_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51480,7 +51625,7 @@ GameObject:
   - component: {fileID: 1763042643}
   - component: {fileID: 1763042645}
   - component: {fileID: 1763042644}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51629,6 +51774,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -51682,6 +51832,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
       propertyPath: m_text
@@ -51731,6 +51886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Btn_Rectangle00_n_Common_Gray (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5356596051711621983, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -51876,6 +52036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406615, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -52104,7 +52269,7 @@ GameObject:
   - component: {fileID: 1833093314}
   - component: {fileID: 1833093313}
   - component: {fileID: 1833093312}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52515,7 +52680,7 @@ GameObject:
   - component: {fileID: 1861346510}
   - component: {fileID: 1861346512}
   - component: {fileID: 1861346511}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52590,7 +52755,7 @@ GameObject:
   - component: {fileID: 1868843514}
   - component: {fileID: 1868843516}
   - component: {fileID: 1868843515}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52740,7 +52905,7 @@ GameObject:
   - component: {fileID: 1907903932}
   - component: {fileID: 1907903934}
   - component: {fileID: 1907903933}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52818,6 +52983,7 @@ GameObject:
   - component: {fileID: 1916205918}
   - component: {fileID: 1916205922}
   - component: {fileID: 1916205923}
+  - component: {fileID: 1916205924}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -52934,6 +53100,7 @@ MonoBehaviour:
   - {fileID: 957958999}
   - {fileID: 125472111}
   - {fileID: 2001309525}
+  - {fileID: 1916205924}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}
@@ -52948,6 +53115,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6be8d5a5b413e6446be09b94b3c7f6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1916205924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916205917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabf407e174d9b44b8d70b48d4520f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1927038266 stripped
@@ -53047,7 +53226,7 @@ GameObject:
   - component: {fileID: 1966482701}
   - component: {fileID: 1966482700}
   - component: {fileID: 1966482699}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53390,6 +53569,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596051711621982, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -53467,6 +53651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356596053065406614, guid: c58f9948452b65b4fabc45dfb707a0f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5356596053065406616, guid: c58f9948452b65b4fabc45dfb707a0f9,
         type: 3}
@@ -53918,7 +54107,7 @@ GameObject:
   - component: {fileID: 2058052388}
   - component: {fileID: 2058052390}
   - component: {fileID: 2058052389}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: ControllerHint_HoldToPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54786,7 +54975,7 @@ GameObject:
   - component: {fileID: 2143509741}
   - component: {fileID: 2143509740}
   - component: {fileID: 2143509739}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Popup00_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54901,7 +55090,7 @@ GameObject:
   - component: {fileID: 4253919917610728778}
   - component: {fileID: 4722247011040537823}
   - component: {fileID: 5457367733106791148}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55051,7 +55240,7 @@ GameObject:
   - component: {fileID: 1310991763137495816}
   - component: {fileID: 1310991763137495818}
   - component: {fileID: 1310991763137495817}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55077,7 +55266,7 @@ GameObject:
   - component: {fileID: 1310991763287344334}
   - component: {fileID: 1310991763287344328}
   - component: {fileID: 1310991763287344335}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55152,7 +55341,7 @@ GameObject:
   - component: {fileID: 1310991764787415806}
   - component: {fileID: 1310991764787415800}
   - component: {fileID: 1310991764787415807}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55338,7 +55527,7 @@ GameObject:
   - component: {fileID: 1310991764840773332}
   - component: {fileID: 1310991764840773334}
   - component: {fileID: 1310991764840773333}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55439,7 +55628,7 @@ GameObject:
   - component: {fileID: 1310991765076795610}
   - component: {fileID: 1310991765076795609}
   - component: {fileID: 1310991765076795608}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55531,7 +55720,7 @@ GameObject:
   - component: {fileID: 1310991765127218386}
   - component: {fileID: 1310991765127218385}
   - component: {fileID: 1310991765127218384}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Popup00_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55571,7 +55760,7 @@ GameObject:
   - component: {fileID: 3791557324363635551}
   - component: {fileID: 1610516867129280432}
   - component: {fileID: 2957653676724779441}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slider01_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55984,7 +56173,7 @@ GameObject:
   - component: {fileID: 3780080534090549895}
   - component: {fileID: 7450435759355557426}
   - component: {fileID: 7469479101328824607}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56041,7 +56230,7 @@ GameObject:
   - component: {fileID: 1830057165845371150}
   - component: {fileID: 5363260529278910431}
   - component: {fileID: 890790247787989019}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill_Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

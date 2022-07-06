@@ -187,24 +187,24 @@ namespace MegaJumper.UI
             });
         }
 
-        private float m_showAdChance = -1f;
+        public static float showAdChance = -1f;
         public void Button_Next()
         {
             if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
             {
-                if (m_showAdChance < 0f)
+                if (showAdChance < 0f)
                 {
                     if (m_localSaveManager.SaveDataInstance.IsTutorial2Ended)
                     {
-                        m_showAdChance = 100f;
+                        showAdChance = 100f;
                     }
                     else
                     {
-                        m_showAdChance = 0f;
+                        showAdChance = 0f;
                     }
                 }
 
-                if (Random.Range(0f, 100f) <= m_showAdChance
+                if (Random.Range(0f, 100f) <= showAdChance
                     || m_scoreManager.Score >= 100)
                 {
                     m_continueButtonRoot.SetActive(false);
@@ -212,7 +212,7 @@ namespace MegaJumper.UI
                 }
                 else
                 {
-                    m_showAdChance += 50f;
+                    showAdChance += 50f;
                     m_root.SetActive(false);
                     m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(false));
                 }
@@ -232,7 +232,7 @@ namespace MegaJumper.UI
         // for process unity API in main thread
         private void ProcessReward()
         {
-            m_showAdChance = 0f;
+            showAdChance = 0f;
             m_root.SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
         }

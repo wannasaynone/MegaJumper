@@ -1,65 +1,76 @@
 ﻿using Zenject;
+using UnityEngine;
 
 namespace MegaJumper
 {
-    public class InputDetecter : ITickable
+    public class InputDetecter : MonoBehaviour
     {
-        private readonly SignalBus m_signalBus;
-        private readonly UnityEngine.EventSystems.EventSystem m_eventSystem;
-        private readonly GameProperties m_gameProperties;
+        private SignalBus m_signalBus;
+        private UnityEngine.EventSystems.EventSystem m_eventSystem;
+        private GameProperties m_gameProperties;
 
         private float m_timer;
+        private bool m_isOnUI;
 
-        public InputDetecter(SignalBus signalBus, UnityEngine.EventSystems.EventSystem eventSystem, GameProperties gameProperties)
+        [Inject]
+        public void Constructor(SignalBus signalBus, UnityEngine.EventSystems.EventSystem eventSystem, GameProperties gameProperties)
         {
             m_signalBus = signalBus;
             m_eventSystem = eventSystem;
             m_gameProperties = gameProperties;
         }
 
-        public void Tick()
+        private void Update()
         {
             DetectMouseInput();
         }
 
         private void DetectMouseInput()
         {
-            if (IsPointerOverUIObject())
+            if (Input.GetMouseButtonDown(0))
             {
-                return;
+                m_isOnUI = IsPointerOverUIObject();
+                if (!m_isOnUI)
+                {
+                    m_timer = 0f;
+                    m_signalBus.Fire(new Event.InGameEvent.OnPointDown());
+                }
             }
 
-            if (UnityEngine.Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0) && !m_isOnUI)
             {
-                m_timer = 0f;
-                m_signalBus.Fire(new Event.InGameEvent.OnPointDown());
-            }
-
-            if (UnityEngine.Input.GetMouseButton(0))
-            {
-                m_timer += UnityEngine.Time.deltaTime;
+                m_timer += Time.deltaTime;
                 if (m_timer >= m_gameProperties.MAX_PRESS_TIME)
                 {
                     m_timer = m_gameProperties.MAX_PRESS_TIME;
                 }
             }
 
-            if (UnityEngine.Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
-                m_signalBus.Fire(new Event.InGameEvent.OnPointUp(m_timer));
+                if (m_isOnUI)
+                {
+                    m_isOnUI = false;
+                }
+                else
+                {
+                    m_signalBus.Fire(new Event.InGameEvent.OnPointUp(m_timer));
+                }
             }
         }
 
         private bool IsPointerOverUIObject()
         {
-            UnityEngine.EventSystems.PointerEventData eventDataCurrentPosition = new UnityEngine.EventSystems.PointerEventData(m_eventSystem);
-            eventDataCurrentPosition.position = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y);
+            UnityEngine.EventSystems.PointerEventData eventDataCurrentPosition = new UnityEngine.EventSystems.PointerEventData(m_eventSystem)
+            {
+                position = new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+            };
             System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult> results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
             m_eventSystem.RaycastAll(eventDataCurrentPosition, results);
 
             for (int i = 0; i < results.Count; i++)
             {
-                if (results[i].gameObject.layer != UnityEngine.LayerMask.NameToLayer("Ignore Raycast"))
+                if (results[i].gameObject.layer != LayerMask.NameToLayer("Ignore Raycast"))
                 {
                     return true;
                 }

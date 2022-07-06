@@ -65,6 +65,7 @@ namespace MegaJumper.UI
             KahaGameCore.Common.GameUtility.RunNunber(m_rewardAmount, 0, 0.5f, OnRewardNumberUpdate, null);
             KahaGameCore.Common.GameUtility.RunNunber(_orginMoneyNumber, _playerFinalCoin, 0.5f, OnCoinNumberUpdate, OnShown);
             StartCoroutine(IEShowAddCoin());
+            GameResultView.showAdChance = 0f;
             OnCoinGained?.Invoke();
         }
 

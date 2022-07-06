@@ -99,6 +99,7 @@ namespace MegaJumper
             CreateVFX(m_landingVfx, Vector3.up, m_pressTime);
             m_landingFeedback.PlayFeedbacks();
             PlayAnimation(m_animator_idle);
+
             m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, true, false, m_remainingLife));
             m_signalBus.Fire<Event.InGameEvent.OnFeverEnded>();
 
@@ -184,6 +185,7 @@ namespace MegaJumper
             transform.position = Vector3.zero;
             m_rigidbody.isKinematic = true;
             m_collider.isTrigger = true;
+            m_lastBlock = m_currentDirectionBlock = null;
             SetIdle();
             SetSetting(m_jumperSetting);
         }
@@ -255,6 +257,8 @@ namespace MegaJumper
 
         private void StartJump(Vector3 endPos, float pressTime, bool isFever, TweenCallback onEnded)
         {
+            m_currentDirectionBlock.SetType(Block.BlockType.None);
+
             CreateVFX(m_jumpVfx, Vector3.up, pressTime);
 
             transform.DOJump(endPos, pressTime * m_gameProperties.JUMP_FORCE, 1, pressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(onEnded);
@@ -272,8 +276,8 @@ namespace MegaJumper
             m_currentDirectionBlock.DisableHint();
 
             SetIdle();
-            bool isScuess = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) < m_jumperSetting.GameOverDistance * m_currentDirectionBlock.SizeScale;
-            bool isPerfect = Vector3.Distance(m_currentDirectionBlock.transform.position, transform.position) <= m_jumperSetting.ComboHitAdjust;
+            bool isScuess = m_currentDirectionBlock.IsOnBlock(transform.position, m_jumperSetting.GameOverDistance);
+            bool isPerfect = m_currentDirectionBlock.IsOnBlockPerfect(transform.position, m_jumperSetting.ComboHitAdjust);
 
             if (isScuess)
             {
@@ -290,21 +294,7 @@ namespace MegaJumper
             }
             else
             {
-                m_remainingLife--;
-
-                m_currentState = State.Died;
-                m_rigidbody.isKinematic = false;
-                m_collider.isTrigger = false;
-                m_rigidbody.AddForce(new Vector3(0f, -1000f, 0f));
-
-                if (m_remainingLife <= 0)
-                {
-                    m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, false, false, m_remainingLife));
-                }
-                else
-                {
-                    KahaGameCore.Common.TimerManager.Schedule(1f, Revive);
-                }
+                SetFall();
             }
 
             if (isScuess)
@@ -393,6 +383,11 @@ namespace MegaJumper
                     SetIdle();
                 }
             }
+
+            if (m_currentState == State.Idle && m_lastBlock != null && !m_lastBlock.IsOnBlock(transform.position, m_jumperSetting.GameOverDistance))
+            {
+                SetFall();
+            }
         }
 
         private void OnApplicationFocus(bool focus)
@@ -443,6 +438,25 @@ namespace MegaJumper
             for (int i = 0; i < m_animators.Length; i++)
             {
                 m_animators[i].Play(name);
+            }
+        }
+
+        private void SetFall()
+        {
+            m_remainingLife--;
+
+            m_currentState = State.Died;
+            m_rigidbody.isKinematic = false;
+            m_collider.isTrigger = false;
+            m_rigidbody.AddForce(new Vector3(0f, -1000f, 0f));
+
+            if (m_remainingLife <= 0)
+            {
+                m_signalBus.Fire(new Event.InGameEvent.OnJumpEnded(transform.position, false, false, m_remainingLife));
+            }
+            else
+            {
+                KahaGameCore.Common.TimerManager.Schedule(1f, Revive);
             }
         }
     }

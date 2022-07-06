@@ -601,6 +601,7 @@ MonoBehaviour:
   - {fileID: 293522673724920105}
   - {fileID: 5733349850842144848}
   m_startFeverHint: {fileID: 1182956786}
+  m_gray: {fileID: 2529431158710656836, guid: b34e769063e4f584d8f19cad37a9f138, type: 3}
 --- !u!1 &4182202502096007547
 GameObject:
   m_ObjectHideFlags: 0

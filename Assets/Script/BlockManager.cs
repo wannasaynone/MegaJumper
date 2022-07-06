@@ -15,7 +15,10 @@ namespace MegaJumper
         private bool m_currentDirectionToZ = true;
 
         private bool m_tutorialMode = false;
+        private bool m_feverMode = false;
         private bool m_showHintNext = false;
+
+        private int m_index;
 
         public BlockManager(Block.Factory factory, ScoreManager scoreManager, GameProperties gameProperties, SignalBus signalBus)
         {
@@ -27,6 +30,8 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnGameResetCalled>(OnGameResetCalled);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
+            signalBus.Subscribe<Event.InGameEvent.OnFeverEnded>(OnFeverEnded);
         }
 
         private void OnTutorialStart()
@@ -37,6 +42,16 @@ namespace MegaJumper
         private void OnTutorialEnded()
         {
             m_tutorialMode = false;
+        }
+
+        private void OnStartFever()
+        {
+            m_feverMode = true;
+        }
+
+        private void OnFeverEnded()
+        {
+            m_feverMode = false;
         }
 
         private void OnGameResetCalled(Event.InGameEvent.OnGameResetCalled obj)
@@ -103,6 +118,7 @@ namespace MegaJumper
 
             Block _clone = m_blockFactory.Create();
             _clone.transform.position = _newPos;
+            _clone.name += "_" + m_index;
             m_clonedBlock.Add(_clone);
 
             if (!m_tutorialMode && m_scoreManager.Score >= 10)
@@ -114,10 +130,20 @@ namespace MegaJumper
                 if (_max > 1f) _max = 1f;
                 if (_max < _min) _max = _min + 0.1f;
 
+                if (UnityEngine.Random.Range(0f, 100f) <= 50f)
+                {
+                    _max = _min = 1f;
+                }
+
                 _clone.RerollSize(_min, _max);
             }
 
-            _clone.PlayFeedback();
+            Block.BlockType _randomType = _clone.GetRandomType();
+            if (_randomType == Block.BlockType.DisappearRepeat && !m_feverMode && m_clonedBlock.Count >= 2)
+            {
+                _clone.SetType(_randomType);
+                _clone.StartTickBlockType();
+            }
 
             if (m_showHintNext)
             {
@@ -130,6 +156,23 @@ namespace MegaJumper
                 UnityEngine.Object.Destroy(m_clonedBlock[0].gameObject);
                 m_clonedBlock.RemoveAt(0);
             }
+
+            if (m_clonedBlock.Count >= 2 && !m_feverMode && m_scoreManager.Score >= 10 && !m_tutorialMode)
+            {
+                m_clonedBlock[m_clonedBlock.Count - 2].RerollSize(1f, 1f);
+                m_clonedBlock[m_clonedBlock.Count - 2].PlayFeedback(false);
+                KahaGameCore.Common.TimerManager.Schedule(0.3f, delegate
+                {
+                    m_clonedBlock[m_clonedBlock.Count - 2].SetType(Block.BlockType.SlowDisappear);
+                    m_clonedBlock[m_clonedBlock.Count - 2].StartTickBlockType();
+                });
+            }
+            else
+            {
+                _clone.PlayFeedback();
+            }
+
+            m_index++;
 
             m_signalBus.Fire(new Event.InGameEvent.OnBlockSpawned(_clone));
         }

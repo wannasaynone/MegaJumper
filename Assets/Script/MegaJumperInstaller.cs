@@ -11,7 +11,6 @@ namespace MegaJumper
 
         public override void InstallBindings()
         {
-            Container.Bind(typeof(ITickable)).To<InputDetecter>().AsSingle();
             Container.Bind<ScoreManager>().AsSingle();
             Container.Bind<BlockManager>().AsSingle();
             Container.BindFactory<Block, Block.Factory>().FromComponentInNewPrefab(m_blockContainer.blockPrefab).UnderTransform(transform.parent);
