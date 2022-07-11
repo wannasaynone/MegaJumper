@@ -100,13 +100,6 @@ namespace MegaJumper
             Facebook.Unity.FB.Init();
             GameAnalyticsSDK.GameAnalytics.Initialize();
             GoogleMobileAds.Api.MobileAds.Initialize(OnAdInited);
-
-            if (UnityEngine.PlayerPrefs.GetInt("Played", 0) == 0)
-            {
-                UnityEngine.PlayerPrefs.SetInt("Played", 1);
-                UnityEngine.PlayerPrefs.Save();
-                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("NewPlayer");
-            }
         }
 
         private void OnAdInited(GoogleMobileAds.Api.InitializationStatus status)

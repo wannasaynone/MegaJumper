@@ -257,8 +257,17 @@ namespace MegaJumper
 
         private void StartJump(Vector3 endPos, float pressTime, bool isFever, TweenCallback onEnded)
         {
-            m_currentDirectionBlock.SetType(Block.BlockType.None);
+            if (UnityEngine.PlayerPrefs.GetInt("Played", 0) == 0)
+            {
+                UnityEngine.PlayerPrefs.SetInt("Played", 1);
+                UnityEngine.PlayerPrefs.Save();
+                GameAnalyticsSDK.GameAnalytics.NewDesignEvent("NewPlayer");
+            }
 
+            if (m_currentDirectionBlock.CurrentBlockType == Block.BlockType.MoveRepeat)
+            {
+                m_currentDirectionBlock.SetType(Block.BlockType.None);
+            }
             CreateVFX(m_jumpVfx, Vector3.up, pressTime);
 
             transform.DOJump(endPos, pressTime * m_gameProperties.JUMP_FORCE, 1, pressTime * m_gameProperties.JUMP_TIME_SCALE).SetEase(Ease.Linear).OnComplete(onEnded);
@@ -427,7 +436,7 @@ namespace MegaJumper
 
         private bool IsTutorialEnded()
         {
-            return m_tutorialMode_feverTimes >= 2;
+            return m_tutorialMode_feverTimes >= 1;
         }
 
         private void PlayAnimation(string name)

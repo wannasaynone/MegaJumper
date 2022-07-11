@@ -10,15 +10,15 @@ namespace MegaJumper
         {
             None,
             Bouns,
-            DisappearRepeat,
             MoveRepeat,
-            SquashReapet,
             SlowDisappear
         }
 
         [SerializeField] private GameObject[] m_blockModels;
         [SerializeField] private GameObject m_startFeverHint;
         [SerializeField] private GameObject m_gray;
+        [SerializeField] private GameObject m_brown;
+        [SerializeField] private GameObject m_white;
 
         public class Factory : PlaceholderFactory<Block>
         {
@@ -26,11 +26,14 @@ namespace MegaJumper
         }
 
         private GameObject m_cloneStage;
+        private Tweener m_tweener;
 
         private float m_sizeScale = 1f;
 
         private System.Collections.Generic.List<int> m_targetModelIndexs = new System.Collections.Generic.List<int>();
-        private BlockType m_blockType = BlockType.None;
+        public BlockType CurrentBlockType { get; private set; } = BlockType.None;
+
+        public bool currentDirectionToZ;
 
         public bool IsOnBlock(Vector3 pos, float gameOverDistance)
         {
@@ -101,32 +104,40 @@ namespace MegaJumper
 
         public BlockType GetRandomType()
         {
-            //return (BlockType)Random.Range(0, 5);
-            if (Random.Range(0f, 100f) <= 50f) return BlockType.None; else return BlockType.DisappearRepeat;
+            return (BlockType)Random.Range(0, System.Enum.GetNames(typeof(BlockType)).Length);
         }
 
         public void SetType(BlockType blockType)
         {
-            m_blockType = blockType;
-            switch (m_blockType)
+            CurrentBlockType = blockType;
+            switch (CurrentBlockType)
             {
-                case BlockType.DisappearRepeat:
+                case BlockType.None:
                     {
-                        m_cloneStage = Instantiate(m_gray);
-                        for (int i = 0; i < m_targetModelIndexs.Count; i++)
-                        {
-                            if (i == 0)
-                            {
-                                m_cloneStage.transform.SetParent(transform);
-                                m_cloneStage.transform.position = m_blockModels[m_targetModelIndexs[i]].transform.position;
-                                m_cloneStage.transform.rotation = m_blockModels[m_targetModelIndexs[i]].transform.rotation;
-                                m_cloneStage.transform.localScale = m_blockModels[m_targetModelIndexs[i]].transform.localScale;
-                            }
-                            m_blockModels[m_targetModelIndexs[i]].SetActive(false);
-                        }
-                        m_targetModelIndexs.Clear();
+                        transform.DOKill();
+                        if (m_tweener != null) m_tweener.Kill();
                         break;
                     }
+                case BlockType.Bouns: { m_cloneStage = Instantiate(m_white); break; }
+                case BlockType.MoveRepeat: { m_cloneStage = Instantiate(m_brown); break; }
+                case BlockType.SlowDisappear: { m_cloneStage = Instantiate(m_gray); break; }
+            }
+
+            if (CurrentBlockType != BlockType.None)
+            {
+                for (int i = 0; i < m_targetModelIndexs.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        m_cloneStage.transform.SetParent(transform);
+                        m_cloneStage.transform.position = m_blockModels[m_targetModelIndexs[i]].transform.position;
+                        m_cloneStage.transform.rotation = m_blockModels[m_targetModelIndexs[i]].transform.rotation;
+                        m_cloneStage.transform.localScale = m_blockModels[m_targetModelIndexs[i]].transform.localScale;
+                    }
+                    m_blockModels[m_targetModelIndexs[i]].SetActive(false);
+                }
+                m_targetModelIndexs.Clear();
+                m_sizeScale = 1f;
             }
         }
 
@@ -148,22 +159,78 @@ namespace MegaJumper
 
         public void StartTickBlockType()
         {
-            switch (m_blockType)
+            switch (CurrentBlockType)
             {
-                case BlockType.DisappearRepeat: { StartCoroutine(IETickBlockType_DisappearRepeat(m_sizeScale)); break; }
-                case BlockType.SlowDisappear: { DOTween.To(GetCurrentScale, SetCurrentScale, 0f, 15f);  break; }
+                case BlockType.Bouns:
+                    {
+                        break;
+                    }
+                case BlockType.MoveRepeat:
+                    {
+                        bool _randomReverse = Random.Range(0f, 100f) <= 50f;
+                        float _mutiplier = _randomReverse ? 1 : -1f;
+                        float _randomSpeed = Random.Range(0.5f, 1.25f);
+                        StartCoroutine(IETickBlockType_MoveRepeat(_mutiplier, _randomSpeed));
+                        break;
+                    }
+                case BlockType.SlowDisappear:
+                    {
+                        m_tweener = DOTween.To(GetCurrentScale, SetCurrentScale, 0f, 8.5f);  break;
+                    }
             }
         }
 
-        private System.Collections.IEnumerator IETickBlockType_DisappearRepeat(float orginScale)
+        private System.Collections.IEnumerator IETickBlockType_MoveRepeat(float _mutiplier, float _randomSpeed)
         {
-            if (m_blockType == BlockType.DisappearRepeat) m_cloneStage.transform.DOShakePosition(1.5f, new Vector3(1f, 0f, 1f));
-            yield return new WaitForSeconds(1.5f);
-            if (m_blockType == BlockType.DisappearRepeat) DOTween.To(GetCurrentScale, SetCurrentScale, 0f, 0.15f);
-            yield return new WaitForSeconds(0.65f);
-            if (m_blockType == BlockType.DisappearRepeat) DOTween.To(GetCurrentScale, SetCurrentScale, orginScale, 0.25f);
-            yield return new WaitForSeconds(1.25f);
-            if (m_blockType == BlockType.DisappearRepeat) StartCoroutine(IETickBlockType_DisappearRepeat(orginScale));
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+            }
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+            }
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+            }
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+                StartCoroutine(IETickBlockType_MoveRepeat(_mutiplier, _randomSpeed));
+            }
         }
 
         private float GetCurrentScale()

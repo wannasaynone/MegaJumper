@@ -602,6 +602,8 @@ MonoBehaviour:
   - {fileID: 5733349850842144848}
   m_startFeverHint: {fileID: 1182956786}
   m_gray: {fileID: 2529431158710656836, guid: b34e769063e4f584d8f19cad37a9f138, type: 3}
+  m_brown: {fileID: 2529431158710656836, guid: 346ec86d94a53c04ca74de044dc8a64a, type: 3}
+  m_white: {fileID: 2529431158710656836, guid: 8968423648fdd984994d5c329a013a45, type: 3}
 --- !u!1 &4182202502096007547
 GameObject:
   m_ObjectHideFlags: 0
