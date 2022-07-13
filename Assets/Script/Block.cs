@@ -25,6 +25,12 @@ namespace MegaJumper
 
         }
 
+        [Inject]
+        public void Constructor(SignalBus signalBus)
+        {
+            signalBus.Subscribe<Event.InGameEvent.OnStartRevive>(OnStartRevive);
+        }
+
         private GameObject m_cloneStage;
         private Tweener m_tweener;
 
@@ -34,6 +40,9 @@ namespace MegaJumper
         public BlockType CurrentBlockType { get; private set; } = BlockType.None;
 
         public bool currentDirectionToZ;
+
+        private bool m_randomReverse;
+        private float m_randomSpeed;
 
         public bool IsOnBlock(Vector3 pos, float gameOverDistance)
         {
@@ -115,12 +124,13 @@ namespace MegaJumper
                 case BlockType.None:
                     {
                         transform.DOKill();
+                        if (m_cloneStage != null) m_cloneStage.transform.DOKill();
                         if (m_tweener != null) m_tweener.Kill();
                         break;
                     }
                 case BlockType.Bouns: { m_cloneStage = Instantiate(m_white); break; }
-                case BlockType.MoveRepeat: { m_cloneStage = Instantiate(m_brown); break; }
-                case BlockType.SlowDisappear: { m_cloneStage = Instantiate(m_gray); break; }
+                case BlockType.MoveRepeat:{m_cloneStage = Instantiate(m_brown);break; }
+                case BlockType.SlowDisappear: {  m_cloneStage = Instantiate(m_gray); break; }
             }
 
             if (CurrentBlockType != BlockType.None)
@@ -138,6 +148,21 @@ namespace MegaJumper
                 }
                 m_targetModelIndexs.Clear();
                 m_sizeScale = 1f;
+
+                if (CurrentBlockType == BlockType.MoveRepeat)
+                {
+                    m_randomReverse = Random.Range(0f, 100f) <= 50f;
+                    m_randomSpeed = Random.Range(0.5f, 1.25f);
+                    float _mutiplier = m_randomReverse ? 1 : -1f;
+                    if (currentDirectionToZ)
+                    {
+                        m_cloneStage.transform.position += Vector3.right * 5f * _mutiplier;
+                    }
+                    else
+                    {
+                        m_cloneStage.transform.position += Vector3.forward * 5f * _mutiplier;
+                    }
+                }
             }
         }
 
@@ -167,15 +192,13 @@ namespace MegaJumper
                     }
                 case BlockType.MoveRepeat:
                     {
-                        bool _randomReverse = Random.Range(0f, 100f) <= 50f;
-                        float _mutiplier = _randomReverse ? 1 : -1f;
-                        float _randomSpeed = Random.Range(0.5f, 1.25f);
-                        StartCoroutine(IETickBlockType_MoveRepeat(_mutiplier, _randomSpeed));
+                        float _mutiplier = m_randomReverse ? 1 : -1f;
+                        StartCoroutine(IETickBlockType_MoveRepeat(_mutiplier, m_randomSpeed));
                         break;
                     }
                 case BlockType.SlowDisappear:
                     {
-                        m_tweener = DOTween.To(GetCurrentScale, SetCurrentScale, 0f, 8.5f);  break;
+                        m_tweener = DOTween.To(GetCurrentScale, SetCurrentScale, 0f, 10f);  break;
                     }
             }
         }
@@ -186,35 +209,35 @@ namespace MegaJumper
             {
                 if (currentDirectionToZ)
                 {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+            }
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
+                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                else
+                {
+                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
+                }
+                yield return new WaitForSeconds(_randomSpeed);
+            }
+            if (CurrentBlockType == BlockType.MoveRepeat)
+            {
+                if (currentDirectionToZ)
+                {
                     m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
                 }
                 else
                 {
                     m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z + 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
-                }
-                yield return new WaitForSeconds(_randomSpeed);
-            }
-            if (CurrentBlockType == BlockType.MoveRepeat)
-            {
-                if (currentDirectionToZ)
-                {
-                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
-                }
-                else
-                {
-                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
-                }
-                yield return new WaitForSeconds(_randomSpeed);
-            }
-            if (CurrentBlockType == BlockType.MoveRepeat)
-            {
-                if (currentDirectionToZ)
-                {
-                    m_cloneStage.transform.DOMoveX(m_cloneStage.transform.position.x - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
-                }
-                else
-                {
-                    m_cloneStage.transform.DOMoveZ(m_cloneStage.transform.position.z - 5f * _mutiplier, _randomSpeed).SetEase(Ease.Linear);
                 }
                 yield return new WaitForSeconds(_randomSpeed);
             }
@@ -247,6 +270,11 @@ namespace MegaJumper
             {
                 m_blockModels[m_targetModelIndexs[i]].SetActive(v > 0.01f);
             }
+        }
+
+        private void OnStartRevive()
+        {
+            if (m_cloneStage != null) m_cloneStage.transform.DOLocalMove(Vector3.zero, 0.5f);
         }
     }
 }

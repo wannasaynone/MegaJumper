@@ -98,30 +98,9 @@ namespace MegaJumper
                 _randomValue = m_gameProperties.MIN_ADD_DISTANCE;
             }
 
-            if (m_currentDirectionToZ)
-            {
-                _newPos += UnityEngine.Vector3.forward * _randomValue;
-            }
-            else
-            {
-                _newPos += UnityEngine.Vector3.left * _randomValue;
-            }
-
             Block _clone = m_blockFactory.Create();
-            _clone.transform.position = _newPos;
             _clone.name += "_" + m_index;
             _clone.currentDirectionToZ = m_currentDirectionToZ;
-            m_clonedBlock.Add(_clone);
-
-            if (UnityEngine.Random.Range(0f, 100f) <= m_currentChangeDirectionChance)
-            {
-                m_currentDirectionToZ = !m_currentDirectionToZ;
-                m_currentChangeDirectionChance = 0f;
-            }
-            else
-            {
-                m_currentChangeDirectionChance += 10f;
-            }
 
             if (!m_tutorialMode && m_scoreManager.Score >= 10)
             {
@@ -138,6 +117,24 @@ namespace MegaJumper
             if (!m_feverMode && !m_tutorialMode && m_scoreManager.Score >= 10)
             {
                 Block.BlockType _randomType = _clone.GetRandomType();
+
+                if (_randomType == Block.BlockType.Bouns)
+                {
+                    for (int i  = 0; i < m_clonedBlock.Count; i++)
+                    {
+                        if (m_clonedBlock[i].CurrentBlockType == Block.BlockType.Bouns)
+                        {
+                            _randomType = Block.BlockType.None;
+                            break;
+                        }
+                    }
+                }
+
+                if (_randomType == Block.BlockType.MoveRepeat && m_clonedBlock[m_clonedBlock.Count - 1].CurrentBlockType == Block.BlockType.SlowDisappear)
+                {
+                    _randomValue = m_gameProperties.MIN_ADD_DISTANCE;
+                }
+
                 _clone.SetType(_randomType);
                 KahaGameCore.Common.TimerManager.Schedule(0.3f, _clone.StartTickBlockType);
             }
@@ -154,10 +151,30 @@ namespace MegaJumper
                 m_clonedBlock.RemoveAt(0);
             }
 
+            if (m_currentDirectionToZ)
+            {
+                _newPos += UnityEngine.Vector3.forward * _randomValue;
+            }
+            else
+            {
+                _newPos += UnityEngine.Vector3.left * _randomValue;
+            }
+
+            _clone.transform.position = _newPos;
             _clone.PlayFeedback();
 
             m_index++;
+            if (UnityEngine.Random.Range(0f, 100f) <= m_currentChangeDirectionChance)
+            {
+                m_currentDirectionToZ = !m_currentDirectionToZ;
+                m_currentChangeDirectionChance = 0f;
+            }
+            else
+            {
+                m_currentChangeDirectionChance += 10f;
+            }
 
+            m_clonedBlock.Add(_clone);
             m_signalBus.Fire(new Event.InGameEvent.OnBlockSpawned(_clone));
         }
 

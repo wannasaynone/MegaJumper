@@ -116,8 +116,6 @@ namespace MegaJumper
                 {
                     Coin = (int)_longCotainer;
                 }
-
-                m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(Coin, Coin - _cur));
             }
 
             public void AddCoin(int add)
@@ -135,8 +133,6 @@ namespace MegaJumper
                 {
                     Coin = (int)_longCotainer;
                 }
-
-                m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(Coin, add));
             }
 
             public void Unlock(string name)

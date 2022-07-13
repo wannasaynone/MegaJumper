@@ -140,16 +140,9 @@
 
         }
 
-        public class OnCoinAdded
+        public class OnStartRevive
         {
-            public int Current { get; private set; }
-            public int Add { get; private set; }
 
-            public OnCoinAdded(int current, int add)
-            {
-                Current = current;
-                Add = add;
-            }
         }
     }
 }

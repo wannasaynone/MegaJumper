@@ -36,7 +36,7 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnComboReset>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialStart>();
             Container.DeclareSignal<Event.InGameEvent.OnTutorialEnded>();
-            Container.DeclareSignal<Event.InGameEvent.OnCoinAdded>();
+            Container.DeclareSignal<Event.InGameEvent.OnStartRevive>();
 
             DOTween.To(GetBGM, SetBGM, 1f, 1f);
         }

@@ -324,6 +324,7 @@ namespace MegaJumper
             m_currentState = State.Jumping;
             m_rigidbody.isKinematic = true;
             m_collider.isTrigger = true;
+            m_signalBus.Fire<Event.InGameEvent.OnStartRevive>();
             KahaGameCore.Common.TimerManager.Schedule(Time.deltaTime * 2f, StartReviveJump);
         }
 

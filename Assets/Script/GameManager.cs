@@ -91,7 +91,6 @@ namespace MegaJumper
 
             InitSDK();
 
-            m_signalBus.Fire(new Event.InGameEvent.OnCoinAdded(m_localSaveManager.SaveDataInstance.Coin, 0));
             OnGameReset(new Event.InGameEvent.OnGameResetCalled(false));
         }
 
