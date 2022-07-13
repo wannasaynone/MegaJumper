@@ -30,7 +30,7 @@ MonoBehaviour:
   secretKey:
   - 3b2add604a6dde064a5b51872ae172b831955c08
   Build:
-  - 0.1
+  - 0.2
   SelectedPlatformOrganization:
   - Space Impact
   SelectedPlatformStudio:

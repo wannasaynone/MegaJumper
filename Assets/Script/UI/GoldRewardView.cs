@@ -39,6 +39,7 @@ namespace MegaJumper.UI
         public void Button_ShowAd()
         {
             m_loadingPanel.SetActive(true);
+            GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.Show, GameAnalyticsSDK.GAAdType.RewardedVideo, "Admob", "Gold");
             STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowRewardVideo(OnAdShown, OnAdShownFail);
         }
 
@@ -50,6 +51,7 @@ namespace MegaJumper.UI
         // for process unity API in main thread
         private void ProcessReward()
         {
+            GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.RewardReceived, GameAnalyticsSDK.GAAdType.RewardedVideo, "Admob", "Gold");
             m_loadingPanel.SetActive(false);
             for (int i = 0; i < m_buttonRoots.Length; i++)
             {
@@ -109,6 +111,7 @@ namespace MegaJumper.UI
 
         private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
         {
+            GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.FailedShow, GameAnalyticsSDK.GAAdType.RewardedVideo, "Admob", "Gold");
             KahaGameCore.Common.TimerManager.Schedule(0.1f, Button_ShowAd);
         }
     }

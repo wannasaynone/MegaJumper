@@ -93,6 +93,8 @@ namespace MegaJumper.UI
             {
                 if (Random.Range(0f, 100f) <= GameResultView.showAdChance)
                 {
+                    GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.Show, GameAnalyticsSDK.GAAdType.Interstitial, "Admob", "GameEnd");
+
                     STORIAMonetization.MonetizeCenter.Instance.AdManager.ShowInterstitial(OnAdShown, OnAdShownFail);
                 }
                 else
@@ -112,6 +114,8 @@ namespace MegaJumper.UI
         // for process unity API in main thread
         private void ProcessReward()
         {
+            GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.RewardReceived, GameAnalyticsSDK.GAAdType.Interstitial, "Admob", "GameEnd");
+
             GameResultView.showAdChance = 0f;
             m_root.SetActive(false);
             m_signalBus.Fire(new Event.InGameEvent.OnGameResetCalled(true));
@@ -119,6 +123,7 @@ namespace MegaJumper.UI
 
         private void OnAdShownFail(STORIAMonetization.Advertisement.AdvertisementManager.FailType failType)
         {
+            GameAnalyticsSDK.GameAnalytics.NewAdEvent(GameAnalyticsSDK.GAAdAction.FailedShow, GameAnalyticsSDK.GAAdType.Interstitial, "Admob", "GameEnd");
             KahaGameCore.Common.TimerManager.Schedule(0.1f, RetryShowAd);
         }
 
