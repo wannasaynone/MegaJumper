@@ -88,8 +88,8 @@ namespace MegaJumper.UI
             m_coinPanelRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_historyHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
             m_todayHighscoreText.gameObject.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
-            m_historyHighscoreText.text = "History Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_All;
-            m_todayHighscoreText.text = "Today Highscore\n" + m_localSaveManager.SaveDataInstance.Highscore_Day;
+            m_historyHighscoreText.text = ProjectBS.ContextConverter.Instance.GetContext(1) + m_localSaveManager.SaveDataInstance.Highscore_All;
+            m_todayHighscoreText.text = ProjectBS.ContextConverter.Instance.GetContext(2) + m_localSaveManager.SaveDataInstance.Highscore_Day;
             m_restoreButton.SetActive(true);
         }
 
@@ -136,7 +136,7 @@ namespace MegaJumper.UI
         {
             if (m_currentJumpSetting.Life >= 2)
             {
-                m_lifeText.text = "Life: " + obj.RemainingLife;
+                m_lifeText.text = ProjectBS.ContextConverter.Instance.GetContext(3) + obj.RemainingLife;
             }
             else
             {

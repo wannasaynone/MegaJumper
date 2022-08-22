@@ -312,7 +312,7 @@ namespace MegaJumper.UI
             else
             {
                 m_unlockPriceText.color = m_cantUnlockColor;
-                m_unlockPriceText.text += "\n<size=33>Not Enough Coin</size>";
+                m_unlockPriceText.text += ProjectBS.ContextConverter.Instance.GetContext(4);
             }
 
             m_getCoinButton.SetActive(m_localSaveManager.SaveDataInstance.Coin < GetUnlockPrice() && !_unlocked);

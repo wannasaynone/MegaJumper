@@ -38,6 +38,8 @@ namespace MegaJumper
             Container.DeclareSignal<Event.InGameEvent.OnTutorialEnded>();
             Container.DeclareSignal<Event.InGameEvent.OnStartRevive>();
 
+            KahaGameCore.Static.GameDataManager.LoadGameData<ProjectBS.Data.ContextData>("ContextData");
+
             DOTween.To(GetBGM, SetBGM, 1f, 1f);
         }
 
