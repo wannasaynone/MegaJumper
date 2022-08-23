@@ -21,7 +21,7 @@ MonoBehaviour:
   m_feverAddScore: 5
   m_addidtionalAddScoreEveryJump: 0
   m_life: 1
-  m_description: Fever is triggered every 15 boards, but you can no longer hit the
-    Combo.
+  m_nameID: 114
+  m_descriptionID: 115
   m_skipPerfectCheck: 1
   m_unlockPrice: 500

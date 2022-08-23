@@ -7,8 +7,6 @@ namespace MegaJumper.UI
     {
         [SerializeField] private GameObject m_root;
         [SerializeField] private TMPro.TextMeshProUGUI m_hintText;
-        [SerializeField] private string m_hint;
-        [SerializeField] private string m_completeHint;
         [SerializeField] private TMPro.TextMeshProUGUI m_progressText;
         [SerializeField] private int m_target = 0;
         [SerializeField] private UnityEngine.UI.Image m_progressImage;
@@ -31,11 +29,11 @@ namespace MegaJumper.UI
         {
             if (m_localSaveManager.SaveDataInstance.Coin >= m_target)
             {
-                m_hintText.text = m_completeHint;
+                m_hintText.text = ProjectBS.ContextConverter.Instance.GetContext(26);
             }
             else
             {
-                m_hintText.text = string.Format(m_hint, (m_target - m_localSaveManager.SaveDataInstance.Coin).ToString("N0"));
+                m_hintText.text = string.Format(ProjectBS.ContextConverter.Instance.GetContext(24), (m_target - m_localSaveManager.SaveDataInstance.Coin).ToString("N0"));
             }
             m_progressText.text = m_localSaveManager.SaveDataInstance.Coin.ToString("N0") + " / " + m_target.ToString("N0");
             m_progressImage.fillAmount = (float)m_localSaveManager.SaveDataInstance.Coin / (float)m_target;
@@ -51,11 +49,11 @@ namespace MegaJumper.UI
         {
             if (m_localSaveManager.SaveDataInstance.Coin >= m_target)
             {
-                m_hintText.text = m_completeHint;
+                m_hintText.text = ProjectBS.ContextConverter.Instance.GetContext(26);
             }
             else
             {
-                m_hintText.text = string.Format(m_hint, (m_target - m_localSaveManager.SaveDataInstance.Coin).ToString("N0"));
+                m_hintText.text = string.Format(ProjectBS.ContextConverter.Instance.GetContext(24), (m_target - m_localSaveManager.SaveDataInstance.Coin).ToString("N0"));
             }
             yield return new WaitForSeconds(0.5f);
 

@@ -15,4 +15,5 @@ MonoBehaviour:
   m_type: 4
   m_value: 6
   m_addCoin: 500
-  m_description: Continuous Fever x 6
+  m_timesScore: 0
+  m_description: 132

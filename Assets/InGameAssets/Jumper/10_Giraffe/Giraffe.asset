@@ -21,7 +21,7 @@ MonoBehaviour:
   m_feverAddScore: 2
   m_addidtionalAddScoreEveryJump: 0
   m_life: 1
-  m_description: Fever needs less Combo, but harder to hit Combo, Fever score will
-    be less.
+  m_nameID: 106
+  m_descriptionID: 107
   m_skipPerfectCheck: 0
   m_unlockPrice: 500

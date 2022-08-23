@@ -15,4 +15,5 @@ MonoBehaviour:
   m_type: 3
   m_value: 1
   m_addCoin: 50
-  m_description: Fever x 1
+  m_timesScore: 0
+  m_description: 133

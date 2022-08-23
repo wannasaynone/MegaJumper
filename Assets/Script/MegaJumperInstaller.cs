@@ -40,6 +40,17 @@ namespace MegaJumper
 
             KahaGameCore.Static.GameDataManager.LoadGameData<ProjectBS.Data.ContextData>("ContextData");
 
+            if (UnityEngine.Application.systemLanguage == UnityEngine.SystemLanguage.Chinese
+                || UnityEngine.Application.systemLanguage == UnityEngine.SystemLanguage.ChineseSimplified
+                || UnityEngine.Application.systemLanguage == UnityEngine.SystemLanguage.ChineseTraditional)
+            {
+                ProjectBS.ContextConverter.Instance.area = ProjectBS.ContextConverter.Area.zh_tw;
+            }
+            else
+            {
+                ProjectBS.ContextConverter.Instance.area = ProjectBS.ContextConverter.Area.en_us;
+            }
+
             DOTween.To(GetBGM, SetBGM, 1f, 1f);
         }
 

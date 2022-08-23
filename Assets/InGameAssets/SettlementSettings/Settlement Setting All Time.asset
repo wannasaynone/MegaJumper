@@ -15,4 +15,5 @@ MonoBehaviour:
   m_type: 1
   m_value: 0
   m_addCoin: 50
-  m_description: History Highest Score
+  m_timesScore: 0
+  m_description: 121

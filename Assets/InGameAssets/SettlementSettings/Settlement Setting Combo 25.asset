@@ -15,4 +15,5 @@ MonoBehaviour:
   m_type: 5
   m_value: 25
   m_addCoin: 200
-  m_description: Reach Combo 25
+  m_timesScore: 0
+  m_description: 126

@@ -29,8 +29,11 @@ namespace MegaJumper
         public int Life { get { return m_life; } }
         [SerializeField] private int m_life;
 
-        public string Description { get { return m_description; } }
-        [SerializeField] private string m_description;
+        public int NameID { get { return m_nameID; } }
+        [SerializeField] private int m_nameID;
+
+        public int DescriptionID { get { return m_descriptionID; } }
+        [SerializeField] private int m_descriptionID;
 
         public bool SkipPerfectCheck { get { return m_skipPerfectCheck; } }
         [SerializeField] private bool m_skipPerfectCheck;

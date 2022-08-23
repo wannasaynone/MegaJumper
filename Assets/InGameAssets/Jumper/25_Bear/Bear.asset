@@ -21,6 +21,7 @@ MonoBehaviour:
   m_feverAddScore: 5
   m_addidtionalAddScoreEveryJump: 0
   m_life: 2
-  m_description: Have 2 chances, but it's harder to hit a Combo.
+  m_nameID: 116
+  m_descriptionID: 117
   m_skipPerfectCheck: 0
   m_unlockPrice: 500

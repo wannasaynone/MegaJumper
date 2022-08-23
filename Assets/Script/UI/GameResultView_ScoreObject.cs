@@ -10,7 +10,7 @@ namespace MegaJumper.UI
 
         public void SetUp(SettlementSetting setting, ScoreManager scoreManager)
         {
-            m_descriptionText.text = setting.Description;
+            m_descriptionText.text = ProjectBS.ContextConverter.Instance.GetContext(setting.Description);
             if (setting.TimesScore)
             {
                 m_coinText.text = (setting.AddCoin * scoreManager.Score).ToString();

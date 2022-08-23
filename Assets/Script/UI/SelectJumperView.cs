@@ -291,11 +291,11 @@ namespace MegaJumper.UI
 
             JumperSetting _jumperSetting = m_settings[index].JumperSetting;
             JumperSetting _strongestSettint = m_settings[m_settings.Length - 1].JumperSetting;
-            m_nameText.text = _jumperSetting.name;
+            m_nameText.text = ProjectBS.ContextConverter.Instance.GetContext(_jumperSetting.NameID);
             m_accurateBarImage.fillAmount = _jumperSetting.ComboHitAdjust / _strongestSettint.ComboHitAdjust;
             m_feverScoreBarImage.fillAmount = (float)_jumperSetting.FeverAddScore / (float)_strongestSettint.FeverAddScore;
             m_comboNeedBarImage.fillAmount = 0.25f + (0.75f - 0.75f * ((float)(_jumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo) * (1f / (float)(m_settings[0].JumperSetting.FeverRequireCombo - _strongestSettint.FeverRequireCombo))));
-            m_descriptionText.text = _jumperSetting.Description;
+            m_descriptionText.text = ProjectBS.ContextConverter.Instance.GetContext(_jumperSetting.DescriptionID);
 
             bool _unlocked = m_localSaveManager.SaveDataInstance.UnlockedJumpers.Contains(_jumperSetting.name);
             m_lockImage.gameObject.SetActive(!_unlocked);

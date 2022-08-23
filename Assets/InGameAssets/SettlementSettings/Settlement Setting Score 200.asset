@@ -15,4 +15,5 @@ MonoBehaviour:
   m_type: 2
   m_value: 200
   m_addCoin: 50
-  m_description: Over Score 200
+  m_timesScore: 0
+  m_description: 143

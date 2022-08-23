@@ -28,7 +28,7 @@ namespace MegaJumper
         public bool TimesScore { get { return m_timesScore; } }
         [SerializeField] private bool m_timesScore;
 
-        public string Description { get { return m_description; } }
-        [SerializeField] private string m_description;
+        public int Description { get { return m_description; } }
+        [SerializeField] private int m_description;
     }
 }
