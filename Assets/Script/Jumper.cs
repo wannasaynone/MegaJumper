@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -25,7 +26,8 @@ namespace MegaJumper
             Pressing,
             Jumping,
             Died,
-            FeverPressing
+            FeverPressing,
+            Stop
         }
 
         private State m_currentState = State.Idle;
@@ -64,8 +66,14 @@ namespace MegaJumper
             signalBus.Subscribe<Event.InGameEvent.OnStartFever>(OnStartFever);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialStart>(OnTutorialStart);
             signalBus.Subscribe<Event.InGameEvent.OnTutorialEnded>(OnTutorialEnded);
+            signalBus.Subscribe<Event.InGameEvent.OnGameEnded>(OnGameEnded);
 
             m_hintObject.transform.SetParent(null);
+        }
+
+        private void OnGameEnded()
+        {
+            m_currentState = State.Stop;
         }
 
         private void OnTutorialStart()

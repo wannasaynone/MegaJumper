@@ -29,7 +29,7 @@ namespace MegaJumper.UI
         [SerializeField] private UnityEngine.UI.Image m_coinImage;
         [SerializeField] private RectTransform m_coinEndPos;
         [SerializeField] private GameObject m_unlockHint;
-        [SerializeField] private GameObject m_removeAdButton;
+        //[SerializeField] private GameObject m_removeAdButton;
         [SerializeField] private GameObject m_getCoinButton;
         [SerializeField] private JumperUISetting[] m_settings;
         [Header("Stats UI")]
@@ -85,7 +85,7 @@ namespace MegaJumper.UI
                 SetJumperWithSave();
             }
 
-            m_removeAdButton.SetActive(!m_localSaveManager.SaveDataInstance.RemoveAd && m_localSaveManager.SaveDataInstance.IsTutorial2Ended);
+            //m_removeAdButton.SetActive(!m_localSaveManager.SaveDataInstance.RemoveAd && m_localSaveManager.SaveDataInstance.IsTutorial2Ended);
             m_enableButtonRoot.SetActive(m_localSaveManager.SaveDataInstance.IsTutorialEnded);
         }
 
@@ -114,7 +114,7 @@ namespace MegaJumper.UI
 
         private void OnGameStarted()
         {
-            m_removeAdButton.SetActive(false);
+            //m_removeAdButton.SetActive(false);
             m_enableButtonRoot.SetActive(false);
             m_unlockHint.SetActive(false);
         }
@@ -126,7 +126,7 @@ namespace MegaJumper.UI
             m_ingameRoot.SetActive(!active);
             m_selectJumperModelRoot.SetActive(active);
             m_selectJumperUIRoot.SetActive(active);
-            m_removeAdButton.gameObject.SetActive(!active);
+            //m_removeAdButton.gameObject.SetActive(!active);
             for (int i = 0; i < m_ingameUI.Length; i++)
             {
                 m_ingameUI[i].SetActive(!active);
@@ -345,7 +345,7 @@ namespace MegaJumper.UI
         {
             m_localSaveManager.SaveDataInstance.SetRemoveAd();
             m_localSaveManager.SaveAll();
-            m_removeAdButton.SetActive(false);
+            //m_removeAdButton.SetActive(false);
             Monetization.AdmobAdUnit _admobUnit = STORIAMonetization.MonetizeCenter.Instance.AdManager.GetAdUnit() as Monetization.AdmobAdUnit;
             _admobUnit.HideBanner();
             STORIAMonetization.MonetizeCenter.Instance.AdManager.SetAdIsRemoved();

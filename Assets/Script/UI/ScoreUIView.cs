@@ -10,7 +10,9 @@ namespace MegaJumper.UI
         [SerializeField] private TextMeshProUGUI m_scoreText;
         [SerializeField] private TextMeshProUGUI m_comboText;
         [SerializeField] private MoreMountains.Tools.MMProgressBar m_comboProgressBar;
-        [SerializeField] private GameObject m_progressBarRoot;
+        [SerializeField] private MoreMountains.Tools.MMProgressBar m_levelProgressBar;
+        [SerializeField] private GameObject m_comboProgressBarRoot;
+        [SerializeField] private GameObject m_levelProgressBarRoot;
         [SerializeField] private GameObject m_feverJumpText;
         [SerializeField] private TextMeshProUGUI m_lifeText;
         [SerializeField] private GameObject m_coinPanelRoot;
@@ -96,6 +98,7 @@ namespace MegaJumper.UI
         private void OnScoreAdded(Event.InGameEvent.OnScoreAdded obj)
         {
             m_scoreText.text = obj.Current.ToString();
+
         }
 
         private void OnComboAdded(Event.InGameEvent.OnComboAdded obj)
@@ -105,13 +108,13 @@ namespace MegaJumper.UI
             else
                 m_comboText.text = "";
 
-            if (m_progressBarRoot.activeSelf)
+            if (m_comboProgressBarRoot.activeSelf)
             {
                 m_comboProgressBar.UpdateBar01((float)obj.FeverCombo / (float)m_currentJumpSetting.FeverRequireCombo);
             }
             else
             {
-                m_progressBarRoot.SetActive(true);
+                m_comboProgressBarRoot.SetActive(true);
                 m_comboProgressBar.SetBar01((float)obj.FeverCombo / (float)m_currentJumpSetting.FeverRequireCombo);
             }
 
@@ -122,13 +125,13 @@ namespace MegaJumper.UI
         {
             m_comboText.text = "";
             m_comboProgressBar.SetBar01(0f);
-            m_progressBarRoot.SetActive(false);
+            m_comboProgressBarRoot.SetActive(false);
         }
 
         private void OnFeverEnded()
         {
             m_comboProgressBar.SetBar01(0f);
-            m_progressBarRoot.SetActive(false);
+            m_comboProgressBarRoot.SetActive(false);
             m_feverJumpText.SetActive(false);
         }
 

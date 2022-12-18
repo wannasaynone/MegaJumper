@@ -76,6 +76,11 @@
 
         }
 
+        public class OnGameEnded
+        {
+
+        }
+
         public class OnGameResetCalled
         {
             public bool StartWithFever { get; private set; }

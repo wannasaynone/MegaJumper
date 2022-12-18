@@ -63,8 +63,10 @@ namespace MegaJumper
 
         private void OnJumpEnded(Event.InGameEvent.OnJumpEnded obj)
         {
-            if (!obj.IsSuccess)
+            if (!obj.IsSuccess
+                || (obj.IsSuccess && m_scoreManager.Score >= 20))
             {
+                m_signalBus.Fire(new Event.InGameEvent.OnGameEnded());
                 ChangeState(new GameState.GameState_GameOver(m_signalBus, m_resultView, m_settlementManager, m_localSaveManager, m_scoreManager));
             }
         }
